@@ -6,6 +6,9 @@ using System.Web;
 
 namespace JediService.Models
 {
+    /// <summary>
+    /// Classe de contrat Match pour le Web Service.
+    /// </summary>
     [DataContract]
     public class MatchContract
     {

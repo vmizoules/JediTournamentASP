@@ -10,21 +10,19 @@ using System;
 
 namespace BusinessLayer
 {
-    public class JediTournamentManager
+    public class JediBusinessManager
     {
-        private DalManager m_data;    /// Gestionnaire d'interactions avec la base de données.
+        /// <summary>
+        /// Gestionnaire d'interactions avec la couche d'accès aux données.
+        /// </summary>
+        private DalManager m_data;
 
         /// <summary>
         /// Constructeur.
         /// </summary>
-        public JediTournamentManager()
+        public JediBusinessManager()
         {
             m_data = DalManager.Instance;
-        }
-
-        public int useAvailableIDMatch()
-        {
-           return m_data.useAvailableIdMatch();
         }
 
         #region "Liés aux Jedis"

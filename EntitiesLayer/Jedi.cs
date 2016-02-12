@@ -3,29 +3,43 @@ using System.Collections.Generic;
 
 namespace EntitiesLayer
 {
+    /// <summary>
+    /// Classe Jedi.
+    /// </summary>
     [Serializable]
     public class Jedi : EntityObject
     {
+        /// <summary>
+        /// Liste des caractéristiques.
+        /// </summary>
         public List<Caracteristique> Caracteristiques { get; set; }
+        /// <summary>
+        /// Indique si le jedi est un sith ou non.
+        /// </summary>
         public bool IsSith { get; set; }
+        /// <summary>
+        /// Propriété transformant le booléen IsSith en texte.
+        /// </summary>
         public string JediState
         {
             get { return (IsSith ? "Sith" : "Jedi");  }
             set { JediState = value; }
         }
+        /// <summary>
+        /// Nom du Jedi.
+        /// </summary>
         public string Nom { get; set; }
+        /// <summary>
+        /// Image resource pour le Jedi.
+        /// </summary>
         public string Image { get; set; }
 
         /// <summary>
         /// Constructeur par défaut.
         /// </summary>
         public Jedi()
-            : base(0)
+            : this(0, "Default Name", false, null, "")
         {
-            Nom = "Default Name";
-            IsSith = false;
-            Caracteristiques = null;
-            Image = "";
         }
 
         /// <summary>

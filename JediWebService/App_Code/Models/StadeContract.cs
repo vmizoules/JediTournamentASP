@@ -6,6 +6,9 @@ using System.Web;
 
 namespace JediService.Models
 {
+    /// <summary>
+    /// Classe de contrat Stade pour le Web Service.
+    /// </summary>
     [DataContract]
     public class StadeContract
     {

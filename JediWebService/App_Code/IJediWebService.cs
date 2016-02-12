@@ -9,6 +9,9 @@ using JediService.Models;
 
 namespace JediService
 {
+    /// <summary>
+    /// Classe du service du Web Service.
+    /// </summary>
     [ServiceContract]
     public interface IJediWebService
     {
@@ -56,29 +59,5 @@ namespace JediService
         /// <returns>Liste des catégories associées.</returns>
         [OperationContract]
         List<CategorieContract> GetCategories(JediContract jedi);
-    }
-
-
-    // TODO maybe remove !
-    // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
     }
 }
