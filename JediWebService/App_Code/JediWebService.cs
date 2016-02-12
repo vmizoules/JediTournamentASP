@@ -40,7 +40,7 @@ public class JediWebService : IJediWebService
     List<JediContract> IJediWebService.GetJedis()
     {
         List<JediContract> listC = new List<JediContract>();
-        List<Jedi> list = m_manager.getAllJedis();
+        List<Jedi> list = m_manager.GetAllJedis();
 
         foreach (Jedi j in list)
         {

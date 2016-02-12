@@ -61,156 +61,236 @@ namespace DataAccessLayer
         /// Permet d'obtenir la liste de tous les jedis connus.
         /// </summary>
         /// <returns>Liste des jedis.</returns>
-        public List<Jedi> getAllJedis()
+        public List<Jedi> GetAllJedis()
         {
-            return m_bridge.getAllJedis();
+            return m_bridge.GetAllJedis();
         }
 
-        public void addJedi(Jedi jedi)
+        /// <summary>
+        /// Crée un nouveau jedi.
+        /// </summary>
+        /// <param name="jedi">Jedi à créer.</param>
+        public void CreateJedi(Jedi jedi)
         {
-            m_bridge.addJedi(jedi);
+            m_bridge.CreateJedi(jedi);
         }
 
-        public void modJedi(Jedi jedi)
+        /// <summary>
+        /// Met à jour le jedi en paramètre.
+        /// </summary>
+        /// <param name="jedi">Jedi à modifier.</param>
+        public void UpdateJedi(Jedi jedi)
         {
-            m_bridge.modJedi(jedi);
+            m_bridge.UpdateJedi(jedi);
         }
 
-        public void delJedi(Jedi jedi)
+        /// <summary>
+        /// Supprime le jedi passé en paramètre.
+        /// </summary>
+        /// <param name="jedi">Jedi à supprimer.</param>
+        public void DeleteJedi(Jedi jedi)
         {
-            m_bridge.delJedi(jedi);
+            m_bridge.DeleteJedi(jedi);
         }
 
         #endregion
+
         #region "Liés aux Stades"
 
         /// <summary>
         /// Permet d'obtenir la liste de tous les stades connus.
         /// </summary>
         /// <returns>Liste des stades.</returns>
-        public List<Stade> getAllStades()
+        public List<Stade> GetAllStades()
         {
-            return m_bridge.getAllStades();
+            return m_bridge.GetAllStades();
         }
 
-        public void addStade(Stade stade)
+        /// <summary>
+        /// Crée un nouveau stade.
+        /// </summary>
+        /// <param name="stade">Stade à créer.</param>
+        public void CreateStade(Stade stade)
         {
-            m_bridge.addStade(stade);
+            m_bridge.CreateStade(stade);
         }
 
-        public void modStade(Stade stade)
+        /// <summary>
+        /// Met à jour le stade en paramètre.
+        /// </summary>
+        /// <param name="stade">Stade à modifier.</param>
+        public void UpdateStade(Stade stade)
         {
-            m_bridge.modStade(stade);
+            m_bridge.UpdateStade(stade);
         }
 
-        public void delStade(Stade stade)
+        /// <summary>
+        /// Supprime le stade passé en paramètre.
+        /// </summary>
+        /// <param name="stade">Stade à supprimer.</param>
+        public void DeleteStade(Stade stade)
         {
-            m_bridge.delStade(stade);
+            m_bridge.DeleteStade(stade);
         }
 
         #endregion
+
         #region "Liés aux Matchs"
 
         /// <summary>
         /// Permet d'obtenir la liste de tous les matchs connus.
         /// </summary>
         /// <returns>Liste des matchs.</returns>
-        public List<Match> getAllMatchs()
+        public List<Match> GetAllMatchs()
         {
-            return m_bridge.getAllMatchs();
+            return m_bridge.GetAllMatchs();
         }
 
-        public void addMatch(Match match)
+        /// <summary>
+        /// Crée un nouveau match.
+        /// </summary>
+        /// <param name="match">Match à créer.</param>
+        public void CreateMatch(Match match)
         {
-            m_bridge.addMatch(match);
+            m_bridge.CreateMatch(match);
         }
 
-        public void modMatch(Match match)
+        /// <summary>
+        /// Met à jour le match en paramètre.
+        /// </summary>
+        /// <param name="match">Match à modifier.</param>
+        public void UpdateMatch(Match match)
         {
-            m_bridge.modMatch(match);
+            m_bridge.UpdateMatch(match);
         }
 
-        public void delMatch(Match match)
+        /// <summary>
+        /// Supprime le match passé en paramètre.
+        /// </summary>
+        /// <param name="match">Match à supprimer.</param>
+        public void DeleteMatch(Match match)
         {
-            m_bridge.delMatch(match);
-        }
-
-        public int useAvailableIdMatch()
-        {
-           return m_bridge.useAvailableIdMatch();
+            m_bridge.DeleteMatch(match);
         }
 
         #endregion
+
         #region "Liés aux Caractéristiques"
 
         /// <summary>
         /// Permet d'obtenir la liste de toutes les caractéristiques enregistrées.
         /// </summary>
         /// <returns>Liste des caractéritiques.</returns>
-        public List<Caracteristique> getAllCaracs()
+        public List<Caracteristique> GetAllCaracs()
         {
-            return m_bridge.getAllCaracs();
+            return m_bridge.GetAllCaracs();
         }
 
-        public List<Caracteristique> getAllJediCaracs()
+        /// <summary>
+        /// Permet d'obtenir la liste des caractéristiques de jedi enregistrées.
+        /// </summary>
+        /// <returns>Liste des caractéritiques.</returns>
+        public List<Caracteristique> GetAllJediCaracs()
         {
-            return m_bridge.getAllJediCaracs();
+            return m_bridge.GetAllJediCaracs();
         }
 
-        public List<Caracteristique> getAllStadeCaracs()
+        /// <summary>
+        /// Permet d'obtenir la liste des caractéristiques de stade enregistrées.
+        /// </summary>
+        /// <returns>Liste des caractéritiques.</returns>
+        public List<Caracteristique> GetAllStadeCaracs()
         {
-            return m_bridge.getAllStadeCaracs();
+            return m_bridge.GetAllStadeCaracs();
         }
 
-        public void addCarac(Caracteristique carac)
+        /// <summary>
+        /// Crée une nouvelle caractéristique.
+        /// </summary>
+        /// <param name="carac">Caractéristique à créer.</param>
+        public void CreateCarac(Caracteristique carac)
         {
-            m_bridge.addCarac(carac);
+            m_bridge.CreateCarac(carac);
         }
 
-        public void modCarac(Caracteristique carac)
+        /// <summary>
+        /// Met à jour la caractéristique en paramètre.
+        /// </summary>
+        /// <param name="carac">Caractéristique à modifier.</param>
+        public void UpdateCarac(Caracteristique carac)
         {
-            m_bridge.modCarac(carac);
+            m_bridge.UpdateCarac(carac);
         }
 
-        public void delCarac(Caracteristique carac)
+        /// <summary>
+        /// Supprime la caractéristique passé en paramètre.
+        /// </summary>
+        /// <param name="carac">Caractéristique à supprimer.</param>
+        public void DeleteCarac(Caracteristique carac)
         {
-            m_bridge.delCarac(carac);
+            m_bridge.DeleteCarac(carac);
         }
 
         #endregion
+
         #region "Liés aux Tournois"
 
-        public Tournoi getTournoi(int id)
+        /// Permet d'obtenir le tournoi avec l'id correspondant.
+        /// </summary>
+        /// <param name="id">Id du tournoi.</param>
+        /// <returns>Tournoi correspondant.</returns>
+        public Tournoi GetTournoi(int id)
         {
-            return m_bridge.getTournoi(id);
+            return m_bridge.GetTournoi(id);
         }
 
-        public List<Tournoi> getGoodTournois()
+        /// <summary>
+        /// Permet d'obtenir la liste de tous les tournois connus n'ayant pas étaient joués.
+        /// </summary>
+        /// <returns>Liste des tournois non joués.</returns>
+        public List<Tournoi> GetGoodTournois()
         {
-            return m_bridge.getGoodTournois();
+            return m_bridge.GetGoodTournois();
         }
 
-        public List<Tournoi> getAllTournois()
+        /// <summary>
+        /// Permet d'obtenir la liste de tous les tournois connus.
+        /// </summary>
+        /// <returns>Liste des tournois.</returns>
+        public List<Tournoi> GetAllTournois()
         {
-            return m_bridge.getAllTournois();
+            return m_bridge.GetAllTournois();
         }
 
-        public void addTournoi(Tournoi tournoi)
+        /// <summary>
+        /// Crée un nouveau tournoi.
+        /// </summary>
+        /// <param name="tournoi">Tournoi à créer.</param>
+        public void CreateTournoi(Tournoi tournoi)
         {
-            m_bridge.addTournoi(tournoi);
+            m_bridge.CreateTournoi(tournoi);
         }
 
-        public void modTournoi(Tournoi tournoi)
+        /// <summary>
+        /// Met à jour le tournoi en paramètre.
+        /// </summary>
+        /// <param name="tournoi">Tournoi à modifier.</param>
+        public void UpdateTournoi(Tournoi tournoi)
         {
-            m_bridge.modTournoi(tournoi);
+            m_bridge.UpdateTournoi(tournoi);
         }
 
-        public void delTournoi(Tournoi tournoi)
+        /// <summary>
+        /// Supprime le tournoi passé en paramètre.
+        /// </summary>
+        /// <param name="tournoi">Tournoi à supprimer.</param>
+        public void DeleteTournoi(Tournoi tournoi)
         {
-            m_bridge.delTournoi(tournoi);
+            m_bridge.DeleteTournoi(tournoi);
         }
 
         #endregion
+
         #region "Liés aux Users"
 
         /// <summary>
@@ -218,24 +298,36 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="login">Login de l'utilisateur à récupérer.</param>
         /// <returns>Utilisateur correspondant.</returns>
-        public Utilisateur getUtilisateurByLogin(string login)
+        public Utilisateur GetUtilisateurByLogin(string login)
         {
-            return m_bridge.getUtilisateurByLogin(login);
+            return m_bridge.GetUtilisateurByLogin(login);
         }
 
-        public void addUtilisateur(Utilisateur user)
+        /// <summary>
+        /// Crée un nouvel utilisateur.
+        /// </summary>
+        /// <param name="user">Utilisateur à créer.</param>
+        public void CreateUtilisateur(Utilisateur user)
         {
-            m_bridge.addUtilisateur(user);
+            m_bridge.CreateUser(user);
         }
 
-        public void modUtilisateur(Utilisateur user)
+        /// <summary>
+        /// Met à jour l'utilisateur en paramètre.
+        /// </summary>
+        /// <param name="user">Utilisateur à modifier.</param>
+        public void UpdateUtilisateur(Utilisateur user)
         {
-            m_bridge.modUtilisateur(user);
+            m_bridge.UpdateUser(user);
         }
 
-        public void delUtilisateur(Utilisateur user)
+        /// <summary>
+        /// Supprime l'utilisateur passé en paramètre.
+        /// </summary>
+        /// <param name="user">Utilisateur à supprimer.</param>
+        public void DeleteUtilisateur(Utilisateur user)
         {
-            m_bridge.delUtilisateur(user);
+            m_bridge.DeleteUser(user);
         }
 
         #endregion

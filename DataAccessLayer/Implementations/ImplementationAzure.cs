@@ -10,10 +10,13 @@ using System.Data.SqlTypes;
 
 namespace DataAccessLayer.Implementations
 {
+    /// <summary>
+    /// Implémentation de la base de données Azure.
+    /// </summary>
     class ImplementationAzure : Bridge
     {
         /// <summary>
-        /// Chaine de connexion.
+        /// Chaine de connexion à la base de données.
         /// </summary>
         private string m_connexionString = "Data Source = teamcinqfoisdeux.database.windows.net; Initial Catalog = JediTournament; User ID = teamadmin; Password = Team5fois2";
 
@@ -22,15 +25,11 @@ namespace DataAccessLayer.Implementations
         /// </summary>
         public ImplementationAzure()
         {
-
         }
 
         #region "Liés aux Jedis"
-        /// <summary>
-        /// Permet d'obtenir la liste de tous les jedis connus.
-        /// </summary>
-        /// <returns>Liste des jedis.</returns>
-        public List<Jedi> getAllJedis()
+        
+        public List<Jedi> GetAllJedis()
         {
             List<Jedi> listJedis = new List<Jedi>();
 
@@ -41,7 +40,7 @@ namespace DataAccessLayer.Implementations
 
                 SqlDataReader sqlDataReaderJedi = sqlCommandJedi.ExecuteReader();
 
-                List<Caracteristique> toutesCarac = getAllJediCaracs();
+                List<Caracteristique> toutesCarac = GetAllJediCaracs();
 
                 while (sqlDataReaderJedi.Read())
                 {
@@ -73,7 +72,7 @@ namespace DataAccessLayer.Implementations
             return listJedis;
         }
 
-        public void addJedi(Jedi jedi)
+        public void CreateJedi(Jedi jedi)
         {
             string commande = "";
 
@@ -101,7 +100,7 @@ namespace DataAccessLayer.Implementations
             }
         }
 
-        public void modJedi(Jedi jedi)
+        public void UpdateJedi(Jedi jedi)
         {
             string commande = "";
 
@@ -134,7 +133,7 @@ namespace DataAccessLayer.Implementations
             }
         }
         
-        public void delJedi(Jedi jedi)
+        public void DeleteJedi(Jedi jedi)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
@@ -147,12 +146,10 @@ namespace DataAccessLayer.Implementations
         }
 
         #endregion
+
         #region "Liés aux Stades"
-        /// <summary>
-        /// Permet d'obtenir la liste de tous les stades connus.
-        /// </summary>
-        /// <returns>Liste des stades.</returns>
-        public List<Stade> getAllStades()
+
+        public List<Stade> GetAllStades()
         {
              List<Stade> listStades = new List<Stade>();
 
@@ -163,7 +160,7 @@ namespace DataAccessLayer.Implementations
 
                 SqlDataReader sqlDataReaderStade = sqlCommandStade.ExecuteReader();
 
-                List<Caracteristique> toutesCarac = getAllStadeCaracs();
+                List<Caracteristique> toutesCarac = GetAllStadeCaracs();
 
                 while (sqlDataReaderStade.Read())
                 {
@@ -192,7 +189,7 @@ namespace DataAccessLayer.Implementations
             return listStades;
         }
 
-        public void addStade(Stade stade)
+        public void CreateStade(Stade stade)
         {
             string commande = "";
 
@@ -201,7 +198,7 @@ namespace DataAccessLayer.Implementations
             {
                 foreach (Caracteristique c in carac)
                 {
-                    addCarac(c);
+                    CreateCarac(c);
                     commande += "; INSERT INTO dbo.carac_stade (id_stade, id_carac) VALUES ((SELECT IDENT_CURRENT( 'stade' ))," + c.ID + ")";
                 }
             }
@@ -218,7 +215,7 @@ namespace DataAccessLayer.Implementations
             }
         }
         
-        public void modStade(Stade stade)
+        public void UpdateStade(Stade stade)
         {
 
             string commande = "";
@@ -252,14 +249,14 @@ namespace DataAccessLayer.Implementations
             }
         }
         
-        public void delStade(Stade stade)
+        public void DeleteStade(Stade stade)
         {
-            List<Match> listMatch = getAllMatchs().Where(m => m.Stade.ID == stade.ID).ToList();
+            List<Match> listMatch = GetAllMatchs().Where(m => m.Stade.ID == stade.ID).ToList();
             if (listMatch != null)
             {
                 foreach (Match m in listMatch)
                 {
-                    delMatch(m);
+                    DeleteMatch(m);
                 }
             }
 
@@ -276,16 +273,7 @@ namespace DataAccessLayer.Implementations
         #endregion
         #region "Liés aux Matchs"
 
-        public int useAvailableIdMatch()
-        {
-            return 0;
-        }
-
-        /// <summary>
-        /// Permet d'obtenir la liste de tous les matchs connus.
-        /// </summary>
-        /// <returns>Liste des matchs.</returns>
-        public List<Match> getAllMatchs()
+        public List<Match> GetAllMatchs()
         {
             List<Match> listMatch = new List<Match>();
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
@@ -294,8 +282,8 @@ namespace DataAccessLayer.Implementations
                 sqlConnection.Open();
 
                 SqlDataReader sqlDataReaderMatch = sqlCommandMatch.ExecuteReader();
-                List<Jedi> listJedis = getAllJedis();
-                List<Stade> listStades = getAllStades();
+                List<Jedi> listJedis = GetAllJedis();
+                List<Stade> listStades = GetAllStades();
 
                 while (sqlDataReaderMatch.Read())
                 {
@@ -308,7 +296,7 @@ namespace DataAccessLayer.Implementations
              return listMatch;
         }
 
-        public void addMatch(Match match)
+        public void CreateMatch(Match match)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
@@ -320,7 +308,7 @@ namespace DataAccessLayer.Implementations
             }
         }
 
-        public void modMatch(Match match)
+        public void UpdateMatch(Match match)
         {
             string command;
 
@@ -344,7 +332,7 @@ namespace DataAccessLayer.Implementations
             }
         }
 
-        public void delMatch(Match match)
+        public void DeleteMatch(Match match)
         {
             int id = 0;
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
@@ -353,8 +341,8 @@ namespace DataAccessLayer.Implementations
                 sqlConnection.Open();
 
                 SqlDataReader sqlDataReaderMatch = sqlCommandMatch.ExecuteReader();
-                List<Jedi> listJedis = getAllJedis();
-                List<Stade> listStades = getAllStades();
+                List<Jedi> listJedis = GetAllJedis();
+                List<Stade> listStades = GetAllStades();
 
                 while (sqlDataReaderMatch.Read())
                 {
@@ -378,32 +366,8 @@ namespace DataAccessLayer.Implementations
             }
             if (id != 0)
             { 
-                Tournoi tournoi = getAllTournois().Where(t => t.ID == id).First();
-                delTournoi(tournoi);
-            }
-        }
-
-        private void changeTournoi(List<Match> listMatch, int id)
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
-            {
-
-                SqlCommand sqlmodMatch = new SqlCommand("UPDATE dbo.match SET id_tournoi = null WHERE id_tournoi=" + id, sqlConnection);
-                sqlmodMatch.Connection = sqlConnection;
-                sqlConnection.Open();
-                sqlmodMatch.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                foreach (Match m in listMatch)
-                {
-
-                    SqlCommand sqlmodMatch2 = new SqlCommand("UPDATE dbo.match SET id_tournoi=" + id + " WHERE id=" + m.ID, sqlConnection);
-                    sqlmodMatch2.Connection = sqlConnection;
-                    sqlConnection.Open();
-                    sqlmodMatch2.ExecuteNonQuery();
-                    sqlConnection.Close();
-
-                }
+                Tournoi tournoi = GetAllTournois().Where(t => t.ID == id).First();
+                DeleteTournoi(tournoi);
             }
         }
 
@@ -420,8 +384,8 @@ namespace DataAccessLayer.Implementations
                 sqlConnection.Open();
 
                 SqlDataReader sqlDataReaderMatch = sqlCommandMatch.ExecuteReader();
-                List<Jedi> listJedis = getAllJedis();
-                List<Stade> listStades = getAllStades();
+                List<Jedi> listJedis = GetAllJedis();
+                List<Stade> listStades = GetAllStades();
 
                 while (sqlDataReaderMatch.Read())
                 {
@@ -433,7 +397,7 @@ namespace DataAccessLayer.Implementations
             return listMatch;
         }
 
-        public Tournoi getTournoi (int id)
+        public Tournoi GetTournoi (int id)
         {
             List<Match> listMatch = getAllTournoiMatchs(id);
 
@@ -459,11 +423,11 @@ namespace DataAccessLayer.Implementations
 
         }
 
-        public List<Tournoi> getGoodTournois()
+        public List<Tournoi> GetGoodTournois()
         {
             List<Tournoi> tmp = new List<Tournoi>();
 
-            foreach (Tournoi t in getAllTournois())
+            foreach (Tournoi t in GetAllTournois())
             {
                 if (t.Matchs.Count == 4)
                 {
@@ -474,7 +438,7 @@ namespace DataAccessLayer.Implementations
             return tmp;
         }
 
-        public List<Tournoi> getAllTournois()
+        public List<Tournoi> GetAllTournois()
         {
             List<Tournoi> listTournoi = new List<Tournoi>();
 
@@ -493,7 +457,7 @@ namespace DataAccessLayer.Implementations
             return listTournoi;
         }
 
-        public void addTournoi(Tournoi tournoi)
+        public void CreateTournoi(Tournoi tournoi)
         {
 
             int id = 0;
@@ -528,7 +492,7 @@ namespace DataAccessLayer.Implementations
 
         }
 
-        public void modTournoi(Tournoi tournoi)
+        public void UpdateTournoi(Tournoi tournoi)
         {
             changeTournoi(tournoi.Matchs, tournoi.ID);
 
@@ -542,7 +506,7 @@ namespace DataAccessLayer.Implementations
             }
         }
 
-        public void delTournoi(Tournoi tournoi)
+        public void DeleteTournoi(Tournoi tournoi)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
@@ -554,14 +518,35 @@ namespace DataAccessLayer.Implementations
             }
         }
 
+        private void changeTournoi(List<Match> listMatch, int id)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
+            {
+
+                SqlCommand sqlmodMatch = new SqlCommand("UPDATE dbo.match SET id_tournoi = null WHERE id_tournoi=" + id, sqlConnection);
+                sqlmodMatch.Connection = sqlConnection;
+                sqlConnection.Open();
+                sqlmodMatch.ExecuteNonQuery();
+                sqlConnection.Close();
+
+                foreach (Match m in listMatch)
+                {
+
+                    SqlCommand sqlmodMatch2 = new SqlCommand("UPDATE dbo.match SET id_tournoi=" + id + " WHERE id=" + m.ID, sqlConnection);
+                    sqlmodMatch2.Connection = sqlConnection;
+                    sqlConnection.Open();
+                    sqlmodMatch2.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                }
+            }
+        }
+
         #endregion
+
         #region "Liés aux Caractéristiques"
 
-        /// <summary>
-        /// Permet d'obtenir la liste de toutes les caractéristiques enregistrées.
-        /// </summary>
-        /// <returns>Liste des caractéritiques.</returns>
-        public List<Caracteristique> getAllCaracs()
+        public List<Caracteristique> GetAllCaracs()
         {
             List<Caracteristique> listCaracs = new List<Caracteristique>();
 
@@ -585,7 +570,7 @@ namespace DataAccessLayer.Implementations
             }
         }
 
-        public List<Caracteristique> getAllJediCaracs()
+        public List<Caracteristique> GetAllJediCaracs()
         {
             List<Caracteristique> listCarac = new List<Caracteristique>();
 
@@ -633,7 +618,7 @@ namespace DataAccessLayer.Implementations
             return listCarac;
         }
 
-        public List<Caracteristique> getAllStadeCaracs()
+        public List<Caracteristique> GetAllStadeCaracs()
         {
             List<Caracteristique> listCarac = new List<Caracteristique>();
 
@@ -681,7 +666,7 @@ namespace DataAccessLayer.Implementations
             return listCarac;
         }
 
-        public void addCarac(Caracteristique carac)
+        public void CreateCarac(Caracteristique carac)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
@@ -696,7 +681,7 @@ namespace DataAccessLayer.Implementations
             }
         }
         
-        public void modCarac(Caracteristique carac)
+        public void UpdateCarac(Caracteristique carac)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
@@ -710,7 +695,7 @@ namespace DataAccessLayer.Implementations
             }
         }
         
-        public void delCarac(Caracteristique carac)
+        public void DeleteCarac(Caracteristique carac)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
@@ -723,14 +708,10 @@ namespace DataAccessLayer.Implementations
         }
 
         #endregion
+
         #region "Liés aux Users"
 
-        /// <summary>
-        /// Permet de récupérer un utilisateur par login.
-        /// </summary>
-        /// <param name="login">Login de l'utilisateur à récupérer.</param>
-        /// <returns>Utilisateur correspondant.</returns>
-        public Utilisateur getUtilisateurByLogin(string login)
+        public Utilisateur GetUtilisateurByLogin(string login)
         {
             List<Utilisateur> users = new List<Utilisateur>();
 
@@ -753,7 +734,7 @@ namespace DataAccessLayer.Implementations
                     return users.Where(u => u.Login == login).FirstOrDefault();
         }
 
-        public void addUtilisateur(Utilisateur user)
+        public void CreateUser(Utilisateur user)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
@@ -766,7 +747,7 @@ namespace DataAccessLayer.Implementations
             }
         }
 
-        public void modUtilisateur(Utilisateur user)
+        public void UpdateUser(Utilisateur user)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
@@ -779,7 +760,7 @@ namespace DataAccessLayer.Implementations
             }
         }
 
-        public void delUtilisateur(Utilisateur user)
+        public void DeleteUser(Utilisateur user)
         {
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
