@@ -10,10 +10,10 @@ using JediService.Models;
 namespace JediService
 {
     [ServiceContract]
-    public interface IJediService
+    public interface IJediWebService
     {
         // Liste des opérations disponibles dans le Web Service
-        
+
         /// <summary>
         /// Récupère la liste des jedis.
         /// </summary>

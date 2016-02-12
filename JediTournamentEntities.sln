@@ -3,19 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediTournamentConsole", "JediTournamentConsole\JediTournamentConsole.csproj", "{A315FA67-16AA-42D2-AC47-E77B1325AFEE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{D895E23C-F912-4450-8915-5A42AA253699}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesLayer", "EntitiesLayer\EntitiesLayer.csproj", "{863F1DDE-0005-4FD1-A933-F3E2A2D3160F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediTournamentWPF", "JediTournamentWPF\JediTournamentWPF.csproj", "{5D2D39BF-3F44-4ED6-BFB6-8F41CCA504DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Test\Tests.csproj", "{95976FA8-C023-4E8D-B21E-E86A41984450}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{3312C291-585A-4955-B047-E008B390C1BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediService", "JediService\JediService.csproj", "{026FA8B7-DBE3-417F-AC1F-D02C33375467}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JediWebService", "JediWebService\", "{B42AE3FE-8372-40D2-AC48-7397C36C334A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{d895e23c-f912-4450-8915-5a42aa253699}|BusinessLayer.dll;{863f1dde-0005-4fd1-a933-f3e2a2d3160f}|EntitiesLayer.dll;{3312C291-585A-4955-B047-E008B390C1BF}|DataAccessLayer.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2978"
+		Debug.AspNetCompiler.PhysicalPath = "JediWebService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2978\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2978"
+		Release.AspNetCompiler.PhysicalPath = "JediWebService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2978\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2978"
+		SlnRelativePath = "JediWebService\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +40,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A315FA67-16AA-42D2-AC47-E77B1325AFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A315FA67-16AA-42D2-AC47-E77B1325AFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A315FA67-16AA-42D2-AC47-E77B1325AFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A315FA67-16AA-42D2-AC47-E77B1325AFEE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D895E23C-F912-4450-8915-5A42AA253699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D895E23C-F912-4450-8915-5A42AA253699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D895E23C-F912-4450-8915-5A42AA253699}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,10 +48,6 @@ Global
 		{863F1DDE-0005-4FD1-A933-F3E2A2D3160F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{863F1DDE-0005-4FD1-A933-F3E2A2D3160F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{863F1DDE-0005-4FD1-A933-F3E2A2D3160F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D2D39BF-3F44-4ED6-BFB6-8F41CCA504DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D2D39BF-3F44-4ED6-BFB6-8F41CCA504DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D2D39BF-3F44-4ED6-BFB6-8F41CCA504DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D2D39BF-3F44-4ED6-BFB6-8F41CCA504DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95976FA8-C023-4E8D-B21E-E86A41984450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95976FA8-C023-4E8D-B21E-E86A41984450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95976FA8-C023-4E8D-B21E-E86A41984450}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,10 +56,10 @@ Global
 		{3312C291-585A-4955-B047-E008B390C1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3312C291-585A-4955-B047-E008B390C1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3312C291-585A-4955-B047-E008B390C1BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{026FA8B7-DBE3-417F-AC1F-D02C33375467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{026FA8B7-DBE3-417F-AC1F-D02C33375467}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{026FA8B7-DBE3-417F-AC1F-D02C33375467}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{026FA8B7-DBE3-417F-AC1F-D02C33375467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42AE3FE-8372-40D2-AC48-7397C36C334A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42AE3FE-8372-40D2-AC48-7397C36C334A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42AE3FE-8372-40D2-AC48-7397C36C334A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42AE3FE-8372-40D2-AC48-7397C36C334A}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
