@@ -96,8 +96,10 @@ namespace JediService.Models
         /// <summary>
         /// Constructeur.
         /// </summary>
-        /// <param name="nom">Nom du jedi.</param>
-        /// <param name="isSith">Booléen indiquant si c'est un sith ou non.</param>
+        /// <param name="nom">Nom de la caractéristique.</param>
+        /// <param name="definition">Caractéristique concernée.</param>
+        /// <param name="type">Type de la caractéristique.</param>
+        /// <param name="valeur">Valeur affectée à la caractéristique.</param>
         public CaracteristiqueContract(string nom, EDefCaracteristiqueContract def, ETypeCaracteristiqueContract type, int val)
         {
             m_nom = nom;

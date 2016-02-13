@@ -29,7 +29,8 @@ public class JediWebService : IJediWebService
     // Implémentation de l'interface
     void IJediWebService.CreateJedi(JediContract jedi)
     {
-        throw new NotImplementedException();
+        Jedi j = JediAdapter.fromJediContract(jedi);
+        m_manager.CreateJedi(j);
     }
 
     List<CategorieContract> IJediWebService.GetCategories(JediContract jedi)
