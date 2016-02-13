@@ -17,13 +17,39 @@ namespace EntitiesLayer
         Finale
     }
     
+    /// <summary>
+    /// Classe Match.
+    /// </summary>
     public class Match : EntityObject
     {
+        /// <summary>
+        /// Id du Jedi vainqueur. Si égale à -1 alors le match n'a pas été joué.
+        /// </summary>
         public int IdJediVainqueur { get; set; }
+        /// <summary>
+        /// Premier combattant Jedi.
+        /// </summary>
         public Jedi Jedi1 { get; set; }
+        /// <summary>
+        /// Second combattant Jedi.
+        /// </summary>
         public Jedi Jedi2 { get; set; }
+        /// <summary>
+        /// Phase du tournoi associé au match.
+        /// </summary>
         public EPhaseTournoi PhaseTournoi { get; set; }
+        /// <summary>
+        /// Stade dans lequel à lieu le tournoi.
+        /// </summary>
         public Stade Stade { get; set; }
+
+        /// <summary>
+        /// Constructeur par défaut.
+        /// </summary>
+        public Match()
+            : this(-1, null, null, EPhaseTournoi.QuartFinale, null)
+        {
+        }
 
         /// <summary>
         /// Constructeur.

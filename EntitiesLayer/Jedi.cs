@@ -38,7 +38,7 @@ namespace EntitiesLayer
         /// Constructeur par défaut.
         /// </summary>
         public Jedi()
-            : this(0, "Default Name", false, null, "")
+            : this(-1, "Default Name", false, null, "")
         {
         }
 

@@ -32,7 +32,7 @@ namespace EntitiesLayer
         /// Constructeur par défaut.
         /// </summary>
         public Stade()
-            : this(0, "Default Name", 100, "Default Planete", null, "")
+            : this(-1, "Default Name", 100, "Default Planete", null, "")
         {
         }
 

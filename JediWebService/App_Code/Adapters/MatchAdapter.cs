@@ -7,23 +7,83 @@ using JediService.Models;
 
 namespace JediService.Adapters
 {
+    /// <summary>
+    /// Classe d'adaptation des Matchs.
+    /// </summary>
     public class MatchAdapter
     {
-        public static Match fromMatchContract(MatchContract matchC)
+        /// <summary>
+        /// Adapte une EPhaseTournoi en EPhaseTournoi Contract.
+        /// </summary>
+        /// <param name="phaseC">EPhaseTournoiContract à adapter.</param>
+        /// <returns>EPhaseTournoi.</returns>
+        public static EPhaseTournoi fromPhaseTournoiContract(EPhaseTournoiContract phaseC)
         {
-            // TODO
-            return null;
+            switch(phaseC)
+            {
+                case EPhaseTournoiContract.QuartFinale:
+                    return EPhaseTournoi.QuartFinale;
+                case EPhaseTournoiContract.DemiFinale:
+                    return EPhaseTournoi.DemiFinale;
+                case EPhaseTournoiContract.Finale:
+                    return EPhaseTournoi.Finale;
+                default:
+                    return EPhaseTournoi.QuartFinale;
+            }
         }
 
+        /// <summary>
+        /// Adapte un EPhaseTournoi en EPhaseTournoi Contract.
+        /// </summary>
+        /// <param name="phase">EPhaseTournoi à adapter.</param>
+        /// <returns>EPhaseTournoi contract.</returns>
+        public static EPhaseTournoiContract fromPhaseTournoi(EPhaseTournoi phase)
+        {
+            switch (phase)
+            {
+                case EPhaseTournoi.QuartFinale:
+                    return EPhaseTournoiContract.QuartFinale;
+                case EPhaseTournoi.DemiFinale:
+                    return EPhaseTournoiContract.DemiFinale;
+                case EPhaseTournoi.Finale:
+                    return EPhaseTournoiContract.Finale;
+                default:
+                    return EPhaseTournoiContract.QuartFinale;
+            }
+        }
+
+        /// <summary>
+        /// Adapte un Match en Match Contract.
+        /// </summary>
+        /// <param name="matchC">Match à adapter.</param>
+        /// <returns>Match.</returns>
+        public static Match fromMatchContract(MatchContract matchC)
+        {
+            Match m = new Match();
+            m.IdJediVainqueur = matchC.IdVainqueur;
+            m.Jedi1 = JediAdapter.fromJediContract(matchC.Jedi1);
+            m.Jedi2 = JediAdapter.fromJediContract(matchC.Jedi2);
+            m.PhaseTournoi = MatchAdapter.fromPhaseTournoiContract(matchC.PhaseTournoi);
+            m.Stade = StadeAdapter.fromStadeContract(matchC.Stade);
+
+            return m;
+        }
+
+        /// <summary>
+        /// Adapte un Match en Match Contract.
+        /// </summary>
+        /// <param name="match">Match à adapter.</param>
+        /// <returns>Match contract.</returns>
         public static MatchContract fromMatch(Match match)
         {
-            // prepare values
+            // Prépare les valeurs
             JediContract jc1 = JediAdapter.fromJedi(match.Jedi1);
             JediContract jc2 = JediAdapter.fromJedi(match.Jedi2);
+            EPhaseTournoiContract pc = MatchAdapter.fromPhaseTournoi(match.PhaseTournoi);
             StadeContract sc = StadeAdapter.fromStade(match.Stade);
 
-            // create MatchContract
-            MatchContract mc = new MatchContract(jc1, jc2, sc);
+            // Crée le MatchContract
+            MatchContract mc = new MatchContract(jc1, jc2, pc, sc);
 
             return mc;
         }

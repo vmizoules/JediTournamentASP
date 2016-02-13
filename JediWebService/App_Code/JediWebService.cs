@@ -52,7 +52,15 @@ public class JediWebService : IJediWebService
 
     List<MatchContract> IJediWebService.GetMatchs()
     {
-        throw new NotImplementedException();
+        List<MatchContract> listC = new List<MatchContract>();
+        List<Match> list = m_manager.GetAllMatchs();
+
+        foreach (Match m in list)
+        {
+            listC.Add(MatchAdapter.fromMatch(m));
+        }
+
+        return listC;
     }
 
     List<StadeContract> IJediWebService.GetStades()
