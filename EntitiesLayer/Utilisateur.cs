@@ -8,9 +8,21 @@ namespace EntitiesLayer
 {
     public class Utilisateur
     {
+        /// <summary>
+        /// Nom de l'utilisateur.
+        /// </summary>
         public string Nom { get; set; }
+        /// <summary>
+        /// Prénom de l'utilisateur.
+        /// </summary>
         public string Prenom { get; set; }
+        /// <summary>
+        /// Login de l'utilisateur.
+        /// </summary>
         public string Login { get; set; }
+        /// <summary>
+        /// Mot de passe de l'utilisateur.
+        /// </summary>
         public string Password { get; set; }
 
         /// <summary>

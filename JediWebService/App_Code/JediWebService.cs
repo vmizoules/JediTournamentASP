@@ -78,6 +78,14 @@ public class JediWebService : IJediWebService
 
     List<TournoiContract> IJediWebService.GetTournois()
     {
-        throw new NotImplementedException();
+        List<TournoiContract> listC = new List<TournoiContract>();
+        List<Tournoi> list = m_manager.GetAllTournois();
+
+        foreach (Tournoi t in list)
+        {
+            listC.Add(TournoiAdapter.fromTournoi(t));
+        }
+
+        return listC;
     }
 }

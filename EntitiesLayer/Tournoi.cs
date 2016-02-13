@@ -4,8 +4,22 @@ namespace EntitiesLayer
 {
     public class Tournoi : EntityObject
     {
-        public List<Match> Matchs { get; set; }
+        /// <summary>
+        /// Nom du tournoi.
+        /// </summary>
         public string Nom { get; set; }
+        /// <summary>
+        /// Liste des matchs composant le tournoi.
+        /// </summary>
+        public List<Match> Matchs { get; set; }
+
+        /// <summary>
+        /// Constructeur par défaut.
+        /// </summary>
+        public Tournoi()
+            : this(-1, "Default Name", null)
+        {
+        }
 
         /// <summary>
         /// Constructeur.

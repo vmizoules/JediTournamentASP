@@ -15,7 +15,7 @@ namespace JediService.Adapters
         /// <summary>
         /// Adapte une EPhaseTournoi en EPhaseTournoi Contract.
         /// </summary>
-        /// <param name="phaseC">EPhaseTournoiContract à adapter.</param>
+        /// <param name="phaseC">EPhaseTournoi Contract à adapter.</param>
         /// <returns>EPhaseTournoi.</returns>
         public static EPhaseTournoi fromPhaseTournoiContract(EPhaseTournoiContract phaseC)
         {
@@ -70,6 +70,23 @@ namespace JediService.Adapters
         }
 
         /// <summary>
+        /// Adapte une liste de Match Contract en une liste de Match.
+        /// </summary>
+        /// <param name="matchsC">Liste de Match Contract à adapter.</param>
+        /// <returns>Liste de Match.</returns>
+        public static List<Match> fromMatchContractList(List<MatchContract> matchsC)
+        {
+            List<Match> listM = new List<Match>();
+
+            foreach (MatchContract mc in matchsC)
+            {
+                listM.Add(MatchAdapter.fromMatchContract(mc));
+            }
+
+            return listM;
+        }
+
+        /// <summary>
         /// Adapte un Match en Match Contract.
         /// </summary>
         /// <param name="match">Match à adapter.</param>
@@ -86,6 +103,23 @@ namespace JediService.Adapters
             MatchContract mc = new MatchContract(jc1, jc2, pc, sc);
 
             return mc;
+        }
+
+        /// <summary>
+        /// Adapte une liste de Match en une liste de Match Contract.
+        /// </summary>
+        /// <param name="matchs">Liste de Match à adapter.</param>
+        /// <returns>Liste de Match Contract.</returns>
+        public static List<MatchContract> fromMatchList(List<Match> matchs)
+        {
+            List<MatchContract> listMC = new List<MatchContract>();
+
+            foreach (Match m in matchs)
+            {
+                listMC.Add(MatchAdapter.fromMatch(m));
+            }
+
+            return listMC;
         }
     }
 }

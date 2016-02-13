@@ -15,7 +15,7 @@ namespace JediService.Adapters
         /// <summary>
         /// Adapte un Jedi Contract en Jedi.
         /// </summary>
-        /// <param name="jediC">Jedi à adapter.</param>
+        /// <param name="jediC">Jedi Contract à adapter.</param>
         /// <returns>Jedi.</returns>
         public static Jedi fromJediContract(JediContract jediC)
         {

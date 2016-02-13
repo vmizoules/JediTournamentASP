@@ -15,7 +15,7 @@ namespace JediService.Adapters
         /// <summary>
         /// Adapte un Stade en Stade Contract.
         /// </summary>
-        /// <param name="stadeC">Stade à adapter.</param>
+        /// <param name="stadeC">Stade Contract à adapter.</param>
         /// <returns>Stade.</returns>
         public static Stade fromStadeContract(StadeContract stadeC)
         {
