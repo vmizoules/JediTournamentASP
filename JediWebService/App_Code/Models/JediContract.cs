@@ -39,13 +39,15 @@ namespace JediService.Models
         /// Constructeur par défaut.
         /// </summary>
         public JediContract()
-            : this(false, "Default")
+            : this(false, "Default Name")
         {
         }
 
         /// <summary>
         /// Constructeur.
         /// </summary>
+        /// <param name="nom">Nom du jedi.</param>
+        /// <param name="isSith">Booléen indiquant si c'est un sith ou non.</param>
         public JediContract(bool isSith, string nom)
         {
             m_isSith = isSith;

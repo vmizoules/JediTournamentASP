@@ -12,12 +12,47 @@ namespace JediService.Models
     [DataContract]
     public class StadeContract
     {
-        public string Nom { get; set; }
-        public int NbPlaces { get; set; }
-        // TODO, add it ?
-        //public List<CaracteristiquesContract> Caracteristiques { get; set; }
-        public string Planete { get; set; }
-        public string Image { get; set; }
+        private string m_nom;
+        private int m_nbPlaces;
+        private string m_planete;
+
+        /// <summary>
+        /// Nom du Stade.
+        /// </summary>
+        [DataMember]
+        public string Nom
+        {
+            get { return m_nom; }
+            set { m_nom = value; }
+        }
+
+        /// <summary>
+        /// Nombre de places du stade.
+        /// </summary>
+        [DataMember]
+        public int NbPlaces
+        {
+            get { return m_nbPlaces; }
+            set { m_nbPlaces = value; }
+        }
+
+        /// <summary>
+        /// Nom de la planète sur laquelle se trouve le Stade.
+        /// </summary>
+        [DataMember]
+        public string Planete
+        {
+            get { return m_planete; }
+            set { m_planete = value; }
+        }
+
+        /// <summary>
+        /// Constructeur par défaut.
+        /// </summary>
+        public StadeContract()
+            : this("Default Name", 100, "Default Planete")
+        {
+        }
 
         /// <summary>
         /// Constructeur.
@@ -25,18 +60,11 @@ namespace JediService.Models
         /// <param name="nom">Nom du stade</param>
         /// <param name="nbPlaces">Nombre de places du stade.</param>
         /// <param name="planete">Nom de la planète sur laquelle se situe le stade.</param>
-        /// <param name="imagePath">Chemin vers l'image du stade.</param>
-        public StadeContract(string nom, int nbPlaces, string planete, string imagePath)
+        public StadeContract(string nom, int nbPlaces, string planete)
         {
-            Nom = nom;
-            NbPlaces = nbPlaces;
-            Planete = planete;
-            Image = imagePath;
-
-            // TODO : add caracteristiques ?
-            //Caracteristiques = carac;
-
-            // TODO : id ?
+            m_nbPlaces = nbPlaces;
+            m_nom = nom;
+            m_planete = planete;
         }
     }
 }

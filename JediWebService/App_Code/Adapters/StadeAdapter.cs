@@ -7,19 +7,34 @@ using JediService.Models;
 
 namespace JediService.Adapters
 {
+    /// <summary>
+    /// Classe d'adaptation des Stades.
+    /// </summary>
     public class StadeAdapter
     {
+        /// <summary>
+        /// Adapte un Stade en Stade Contract.
+        /// </summary>
+        /// <param name="stadeC">Stade à adapter.</param>
+        /// <returns>Stade.</returns>
         public static Stade fromStadeContract(StadeContract stadeC)
         {
-            // TODO
-            return null;
+            Stade s = new Stade();
+            s.Nom = stadeC.Nom;
+            s.NbPlaces = stadeC.NbPlaces;
+            s.Planete = stadeC.Planete;
+
+            return s;
         }
 
+        /// <summary>
+        /// Adapte un Stade en Stade Contract.
+        /// </summary>
+        /// <param name="stade">Stade à adapter.</param>
+        /// <returns>Stade contract.</returns>
         public static StadeContract fromStade(Stade stade)
         {
-            // create StadeContract
-            StadeContract sc = new StadeContract(stade.Nom, stade.NbPlaces, stade.Planete, stade.Image);
-
+            StadeContract sc = new StadeContract(stade.Nom, stade.NbPlaces, stade.Planete);
             return sc;
         }
     }

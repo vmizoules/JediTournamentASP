@@ -13,10 +13,10 @@ namespace JediService.Adapters
     public class JediAdapter
     {
         /// <summary>
-        /// Adapte un Jedi en edi Contract.
+        /// Adapte un Jedi Contract en Jedi.
         /// </summary>
-        /// <param name="jedi">Jedi à adapter.</param>
-        /// <returns>Jedi contract.</returns>
+        /// <param name="jediC">Jedi à adapter.</param>
+        /// <returns>Jedi.</returns>
         public static Jedi fromJediContract(JediContract jediC)
         {
             Jedi j = new Jedi();
@@ -27,16 +27,13 @@ namespace JediService.Adapters
         }
 
         /// <summary>
-        /// Adapte un Jedi en edi Contract.
+        /// Adapte un Jedi en Jedi Contract.
         /// </summary>
         /// <param name="jedi">Jedi à adapter.</param>
         /// <returns>Jedi contract.</returns>
         public static JediContract fromJedi(Jedi jedi)
         {
-            JediContract jc = new JediContract();
-            jc.IsSith = jedi.IsSith;
-            jc.Nom = jedi.Nom;
-
+            JediContract jc = new JediContract(jedi.IsSith, jedi.Nom);
             return jc;
         }
     }

@@ -10,9 +10,9 @@ namespace EntitiesLayer
     public class Jedi : EntityObject
     {
         /// <summary>
-        /// Liste des caractéristiques.
+        /// Nom du Jedi.
         /// </summary>
-        public List<Caracteristique> Caracteristiques { get; set; }
+        public string Nom { get; set; }
         /// <summary>
         /// Indique si le jedi est un sith ou non.
         /// </summary>
@@ -26,9 +26,9 @@ namespace EntitiesLayer
             set { JediState = value; }
         }
         /// <summary>
-        /// Nom du Jedi.
+        /// Liste des caractéristiques.
         /// </summary>
-        public string Nom { get; set; }
+        public List<Caracteristique> Caracteristiques { get; set; }
         /// <summary>
         /// Image resource pour le Jedi.
         /// </summary>

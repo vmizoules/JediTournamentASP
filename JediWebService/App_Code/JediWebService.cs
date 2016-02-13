@@ -57,7 +57,15 @@ public class JediWebService : IJediWebService
 
     List<StadeContract> IJediWebService.GetStades()
     {
-        throw new NotImplementedException();
+        List<StadeContract> listC = new List<StadeContract>();
+        List<Stade> list = m_manager.GetAllStades();
+
+        foreach (Stade s in list)
+        {
+            listC.Add(StadeAdapter.fromStade(s));
+        }
+
+        return listC;
     }
 
     List<TournoiContract> IJediWebService.GetTournois()

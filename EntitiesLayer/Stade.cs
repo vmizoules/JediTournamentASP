@@ -2,13 +2,39 @@
 
 namespace EntitiesLayer
 {
+    /// <summary>
+    /// Classe Stade.
+    /// </summary>
     public class Stade : EntityObject
     {
+        /// <summary>
+        /// Nom du Stade.
+        /// </summary>
         public string Nom { get; set; }
+        /// <summary>
+        /// Nombre de places du Stade.
+        /// </summary>
         public int NbPlaces { get; set; }
-        public List<Caracteristique> Caracteristiques { get; set; }
+        /// <summary>
+        /// Planète sur laquelle se trouve le Stade.
+        /// </summary>
         public string Planete { get; set; }
+        /// <summary>
+        /// Liste des caractéristiques.
+        /// </summary>
+        public List<Caracteristique> Caracteristiques { get; set; }
+        /// <summary>
+        /// Image resource pour le Stade.
+        /// </summary>
         public string Image { get; set; }
+
+        /// <summary>
+        /// Constructeur par défaut.
+        /// </summary>
+        public Stade()
+            : this(0, "Default Name", 100, "Default Planete", null, "")
+        {
+        }
 
         /// <summary>
         /// Constructeur.
