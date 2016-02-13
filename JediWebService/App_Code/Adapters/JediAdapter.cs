@@ -22,6 +22,7 @@ namespace JediService.Adapters
             Jedi j = new Jedi();
             j.IsSith = jediC.IsSith;
             j.Nom = jediC.Nom;
+            j.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(jediC.Caracteristiques);
 
             return j;
         }
@@ -33,7 +34,9 @@ namespace JediService.Adapters
         /// <returns>Jedi contract.</returns>
         public static JediContract fromJedi(Jedi jedi)
         {
-            JediContract jc = new JediContract(jedi.IsSith, jedi.Nom);
+            JediContract jc = new JediContract( jedi.IsSith, 
+                                                jedi.Nom, 
+                                                CaracteristiqueAdapter.fromCaracteristiqueList(jedi.Caracteristiques));
             return jc;
         }
     }

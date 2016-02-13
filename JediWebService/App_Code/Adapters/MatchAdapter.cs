@@ -13,7 +13,7 @@ namespace JediService.Adapters
     public class MatchAdapter
     {
         /// <summary>
-        /// Adapte une EPhaseTournoi en EPhaseTournoi Contract.
+        /// Adapte une EPhaseTournoi Contract en EPhaseTournoi.
         /// </summary>
         /// <param name="phaseC">EPhaseTournoi Contract à adapter.</param>
         /// <returns>EPhaseTournoi.</returns>

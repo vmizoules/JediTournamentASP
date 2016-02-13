@@ -15,6 +15,7 @@ namespace JediService.Models
         private string m_nom;
         private int m_nbPlaces;
         private string m_planete;
+        private List<CaracteristiqueContract> m_caracs;
 
         /// <summary>
         /// Nom du Stade.
@@ -47,10 +48,20 @@ namespace JediService.Models
         }
 
         /// <summary>
+        /// Liste des caractéristiques.
+        /// </summary>
+        [DataMember]
+        public List<CaracteristiqueContract> Caracteristiques
+        {
+            get { return m_caracs; }
+            set { m_caracs = value; }
+        }
+
+        /// <summary>
         /// Constructeur par défaut.
         /// </summary>
         public StadeContract()
-            : this("Default Name", 100, "Default Planete")
+            : this("Default Name", 100, "Default Planete", null)
         {
         }
 
@@ -60,11 +71,12 @@ namespace JediService.Models
         /// <param name="nom">Nom du stade</param>
         /// <param name="nbPlaces">Nombre de places du stade.</param>
         /// <param name="planete">Nom de la planète sur laquelle se situe le stade.</param>
-        public StadeContract(string nom, int nbPlaces, string planete)
+        public StadeContract(string nom, int nbPlaces, string planete, List<CaracteristiqueContract> caracs)
         {
             m_nbPlaces = nbPlaces;
             m_nom = nom;
             m_planete = planete;
+            m_caracs = caracs;
         }
     }
 }

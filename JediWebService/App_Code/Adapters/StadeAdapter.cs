@@ -23,6 +23,7 @@ namespace JediService.Adapters
             s.Nom = stadeC.Nom;
             s.NbPlaces = stadeC.NbPlaces;
             s.Planete = stadeC.Planete;
+            s.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(stadeC.Caracteristiques);
 
             return s;
         }
@@ -34,7 +35,10 @@ namespace JediService.Adapters
         /// <returns>Stade contract.</returns>
         public static StadeContract fromStade(Stade stade)
         {
-            StadeContract sc = new StadeContract(stade.Nom, stade.NbPlaces, stade.Planete);
+            StadeContract sc = new StadeContract(   stade.Nom, 
+                                                    stade.NbPlaces,
+                                                    stade.Planete,
+                                                    CaracteristiqueAdapter.fromCaracteristiqueList(stade.Caracteristiques));
             return sc;
         }
     }

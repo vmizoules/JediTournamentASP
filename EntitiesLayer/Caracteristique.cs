@@ -32,24 +32,35 @@ namespace EntitiesLayer
         Stade
     }
 
+    /// <summary>
+    /// Classe Caractéristique.
+    /// </summary>
     [Serializable]
     public class Caracteristique : EntityObject
     {
-        public EDefCaracteristique Definition { get; set; }
+        /// <summary>
+        /// Nom de la caractéristique.
+        /// </summary>
         public string Nom { get; set; }
+        /// <summary>
+        /// Caractéristique concernée (type d'atout).
+        /// </summary>
+        public EDefCaracteristique Definition { get; set; }
+        /// <summary>
+        /// Type de la caractéristique (Entité concernée).
+        /// </summary>
         public ETypeCaracteristique Type { get; set; }
+        /// <summary>
+        /// Valeur de la caractéristique.
+        /// </summary>
         public int Valeur { get; set; }
 
         /// <summary>
         /// Constructeur par défaut.
         /// </summary>
         public Caracteristique()
-            : base(0)
+            : this(-1, "Default Name", EDefCaracteristique.Chance, ETypeCaracteristique.Jedi, 0)
         {
-            Nom = "Default Name";
-            Valeur = 0;
-            Type = ETypeCaracteristique.Jedi;
-            Definition = EDefCaracteristique.Chance;
         }
 
         /// <summary>

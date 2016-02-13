@@ -12,5 +12,6 @@ namespace JediService.Models
     [DataContract]
     public class CategorieContract
     {
+        // TODO
     }
 }
