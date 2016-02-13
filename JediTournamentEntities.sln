@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{D895E23C-F912-4450-8915-5A42AA253699}"
 EndProject
@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JediWebService", "JediWebService\", "{B42AE3FE-8372-40D2-AC48-7397C36C334A}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		ProjectReferences = "{d895e23c-f912-4450-8915-5a42aa253699}|BusinessLayer.dll;{863f1dde-0005-4fd1-a933-f3e2a2d3160f}|EntitiesLayer.dll;{3312C291-585A-4955-B047-E008B390C1BF}|DataAccessLayer.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_2978"
 		Debug.AspNetCompiler.PhysicalPath = "JediWebService\"

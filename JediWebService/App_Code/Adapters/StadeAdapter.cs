@@ -17,8 +17,10 @@ namespace JediService.Adapters
 
         public static StadeContract fromStade(Stade stade)
         {
-            // TODO
-            return null;
+            // create StadeContract
+            StadeContract sc = new StadeContract(stade.Nom, stade.NbPlaces, stade.Planete, stade.Image);
+
+            return sc;
         }
     }
 }
