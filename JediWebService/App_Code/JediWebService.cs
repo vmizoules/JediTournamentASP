@@ -33,9 +33,9 @@ public class JediWebService : IJediWebService
         m_manager.CreateJedi(j);
     }
 
-    List<CategorieContract> IJediWebService.GetCategories(JediContract jedi)
+    List<CaracteristiqueContract> IJediWebService.GetCaracteristiques(JediContract jedi)
     {
-        throw new NotImplementedException();
+        return jedi.Caracteristiques;
     }
 
     List<JediContract> IJediWebService.GetJedis()
