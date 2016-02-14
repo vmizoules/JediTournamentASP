@@ -15,7 +15,7 @@ namespace Test
         {
             Caracteristique carac = new Caracteristique();
             Assert.AreEqual(carac.ToString(), "Default Name 0 (" + EDefCaracteristique.Chance + ")");
-            Assert.AreEqual(carac.ID, 0);
+            Assert.AreEqual(carac.ID, -1);
             Assert.AreEqual(carac.Nom, "Default Name");
             Assert.AreEqual(carac.Definition, EDefCaracteristique.Chance);
             Assert.AreEqual(carac.Type, ETypeCaracteristique.Jedi);
@@ -45,7 +45,7 @@ namespace Test
         {
             Jedi jedi1 = new Jedi();
             Assert.AreEqual(jedi1.ToString(), "Default Name (Jedi)");
-            Assert.AreEqual(jedi1.ID, 0);
+            Assert.AreEqual(jedi1.ID, -1);
             Assert.AreEqual(jedi1.Nom, "Default Name");
             Assert.IsFalse(jedi1.IsSith);
             Assert.IsNull(jedi1.Caracteristiques);
