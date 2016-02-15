@@ -115,6 +115,9 @@ namespace JediService.Adapters
         /// <returns>Liste de Caractéristique.</returns>
         public static List<Caracteristique> fromCaracteristiqueContractList(List<CaracteristiqueContract> caracsC)
         {
+            if (caracsC == null)
+                return null;
+
             List<Caracteristique> listC = new List<Caracteristique>();
 
             foreach (CaracteristiqueContract cc in caracsC)
@@ -147,6 +150,9 @@ namespace JediService.Adapters
         /// <returns>Liste de Caracteristique Contract.</returns>
         public static List<CaracteristiqueContract> fromCaracteristiqueList(List<Caracteristique> caracs)
         {
+            if (caracs == null)
+                return null;
+
             List<CaracteristiqueContract> listCC = new List<CaracteristiqueContract>();
 
             foreach (Caracteristique c in caracs)
