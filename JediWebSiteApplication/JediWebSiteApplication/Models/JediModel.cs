@@ -1,5 +1,7 @@
-﻿using System;
+﻿using JediWebSiteApplication.WebServiceReference;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,5 +9,49 @@ namespace JediWebSiteApplication.Models
 {
     public class JediModel
     {
+        /// <summary>
+        /// ID du jedi.
+        /// </summary>
+        [Display(Name = "ID du jedi")]
+        public int ID { get; set; }
+
+        /// <summary>
+        /// Nom du jedi.
+        /// </summary>
+        [Required]
+        [Display(Name = "Nom du jedi")]
+        public string Nom { get; set; }
+
+        /// <summary>
+        /// Indique si le jedi est un sith ou non.
+        /// </summary>
+        [Required]
+        [Display(Name = "Status jedi")]
+        public bool IsSith { get; set; }
+
+        /// <summary>
+        /// Liste des caractéristiques.
+        /// </summary>
+        [Display(Name = "Caractéristiques du jedi")]
+        public List<CaracteristiqueModel> Caracteristiques { get; set; }
+
+        /// <summary>
+        /// Constructeur.
+        /// </summary>
+        /// <param name="jediC">Jedi contract.</param>
+        public JediModel(JediContract jediC)
+        {
+            ID = jediC.ID;
+            Nom = jediC.Nom;
+            IsSith = jediC.IsSith;
+
+            List<CaracteristiqueModel> listCaracs = new List<CaracteristiqueModel>();
+            foreach(CaracteristiqueContract cc in jediC.Caracteristiques)
+            {
+                listCaracs.Add(new CaracteristiqueModel(cc));
+            }
+
+            Caracteristiques = listCaracs;
+        }
     }
 }

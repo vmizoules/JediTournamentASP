@@ -69,7 +69,7 @@ namespace JediService.Models
             set { m_phase = value; }
         }
         /// <summary>
-        /// Stade dans lequel à lieu le tournoi.
+        /// Stade dans lequel à lieu le match.
         /// </summary>
         [DataMember]
         public StadeContract Stade
