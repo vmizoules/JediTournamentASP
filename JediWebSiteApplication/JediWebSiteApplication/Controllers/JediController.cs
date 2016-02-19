@@ -1,4 +1,5 @@
-﻿using JediWebSiteApplication.WebServiceReference;
+﻿using JediWebSiteApplication.Models;
+using JediWebSiteApplication.WebServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,19 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Jedi/
         public ActionResult Index()
         {
-            // call to web service ?
-            //JediContract[] jedis = m_webService.GetJedis();
 
-            return View();
+
+            // call to web service
+            JediContract[] jedis = m_webService.GetJedis();
+
+            List<JediModel> list = new List<JediModel>();
+
+            foreach (JediContract oneJedi in jedis) {
+                list.Add(new JediModel(oneJedi));
+            }
+
+
+            return View(list);
         }
 
         //

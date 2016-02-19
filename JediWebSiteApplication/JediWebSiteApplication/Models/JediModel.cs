@@ -46,9 +46,12 @@ namespace JediWebSiteApplication.Models
             IsSith = jediC.IsSith;
 
             List<CaracteristiqueModel> listCaracs = new List<CaracteristiqueModel>();
-            foreach(CaracteristiqueContract cc in jediC.Caracteristiques)
+            if (jediC.Caracteristiques != null)
             {
-                listCaracs.Add(new CaracteristiqueModel(cc));
+                foreach (CaracteristiqueContract cc in jediC.Caracteristiques)
+                {
+                    listCaracs.Add(new CaracteristiqueModel(cc));
+                }
             }
 
             Caracteristiques = listCaracs;
