@@ -34,24 +34,5 @@ namespace JediWebSiteApplication.Models
         /// </summary>
         [Display(Name = "Caractéristiques du jedi")]
         public List<CaracteristiqueModel> Caracteristiques { get; set; }
-
-        /// <summary>
-        /// Constructeur.
-        /// </summary>
-        /// <param name="jediC">Jedi contract.</param>
-        public JediModel(JediContract jediC)
-        {
-            ID = jediC.ID;
-            Nom = jediC.Nom;
-            IsSith = jediC.IsSith;
-
-            List<CaracteristiqueModel> listCaracs = new List<CaracteristiqueModel>();
-            foreach(CaracteristiqueContract cc in jediC.Caracteristiques)
-            {
-                listCaracs.Add(new CaracteristiqueModel(cc));
-            }
-
-            Caracteristiques = listCaracs;
-        }
     }
 }

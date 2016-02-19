@@ -13,7 +13,7 @@ namespace JediService.Adapters
     public class TournoiAdapter
     {
         /// <summary>
-        /// Adapte un Tournoi en Tournoi Contract.
+        /// Adapte un Tournoi Contract en Tournoi.
         /// </summary>
         /// <param name="tournoiC">Tournoi à adapter.</param>
         /// <returns>Tournoi.</returns>

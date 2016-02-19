@@ -135,7 +135,6 @@ namespace JediService.Adapters
         /// <returns>Caractéristique contract.</returns>
         public static CaracteristiqueContract fromCaracteristique(Caracteristique carac)
         {
-            // Crée le MatchContract
             CaracteristiqueContract cc = new CaracteristiqueContract(   carac.Nom,
                                                                         CaracteristiqueAdapter.fromDefCaracteristique(carac.Definition),
                                                                         CaracteristiqueAdapter.fromTypeCaracteristique(carac.Type),

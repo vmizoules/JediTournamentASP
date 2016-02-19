@@ -157,6 +157,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\CaracteristiqueAdapter.cs" />
+    <Compile Include="Adapters\JediAdapter.cs" />
+    <Compile Include="Adapters\MatchAdapter.cs" />
+    <Compile Include="Adapters\StadeAdapter.cs" />
+    <Compile Include="Adapters\TournoiAdapter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

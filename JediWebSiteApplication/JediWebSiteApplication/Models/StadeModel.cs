@@ -41,26 +41,5 @@ namespace JediWebSiteApplication.Models
         /// </summary>
         [Display(Name = "Caractéristiques du stade")]
         public List<CaracteristiqueModel> Caracteristiques { get; set; }
-
-        /// <summary>
-        /// Constructeur.
-        /// </summary>
-        /// <param name="stadeC">Stade contract.</param>
-        public StadeModel(StadeContract stadeC)
-        {
-            //ID = stadeC.ID;
-            ID = -1;
-            Nom = stadeC.Nom;
-            NbPlaces = stadeC.NbPlaces;
-            Planete = stadeC.Planete;
-
-            List<CaracteristiqueModel> listCaracs = new List<CaracteristiqueModel>();
-            foreach (CaracteristiqueContract cc in stadeC.Caracteristiques)
-            {
-                listCaracs.Add(new CaracteristiqueModel(cc));
-            }
-
-            Caracteristiques = listCaracs;
-        }
     }
 }
