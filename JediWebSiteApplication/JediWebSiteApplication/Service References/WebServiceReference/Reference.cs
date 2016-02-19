@@ -26,6 +26,9 @@ namespace JediWebSiteApplication.WebServiceReference {
         private JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] CaracteristiquesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsSithField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -50,6 +53,19 @@ namespace JediWebSiteApplication.WebServiceReference {
                 if ((object.ReferenceEquals(this.CaracteristiquesField, value) != true)) {
                     this.CaracteristiquesField = value;
                     this.RaisePropertyChanged("Caracteristiques");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
         }
@@ -523,10 +539,10 @@ namespace JediWebSiteApplication.WebServiceReference {
         System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.TournoiContract[]> GetTournoisAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetCaracteristiques", ReplyAction="http://tempuri.org/IJediWebService/GetCaracteristiquesResponse")]
-        JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] GetCaracteristiques(JediWebSiteApplication.WebServiceReference.JediContract jedi);
+        JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] GetCaracteristiques(int jediID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetCaracteristiques", ReplyAction="http://tempuri.org/IJediWebService/GetCaracteristiquesResponse")]
-        System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[]> GetCaracteristiquesAsync(JediWebSiteApplication.WebServiceReference.JediContract jedi);
+        System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[]> GetCaracteristiquesAsync(int jediID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -596,12 +612,12 @@ namespace JediWebSiteApplication.WebServiceReference {
             return base.Channel.GetTournoisAsync();
         }
         
-        public JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] GetCaracteristiques(JediWebSiteApplication.WebServiceReference.JediContract jedi) {
-            return base.Channel.GetCaracteristiques(jedi);
+        public JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] GetCaracteristiques(int jediID) {
+            return base.Channel.GetCaracteristiques(jediID);
         }
         
-        public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[]> GetCaracteristiquesAsync(JediWebSiteApplication.WebServiceReference.JediContract jedi) {
-            return base.Channel.GetCaracteristiquesAsync(jedi);
+        public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[]> GetCaracteristiquesAsync(int jediID) {
+            return base.Channel.GetCaracteristiquesAsync(jediID);
         }
     }
 }

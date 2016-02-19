@@ -9,6 +9,7 @@
   <xs:complexType name="JediContract">
     <xs:sequence>
       <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="IsSith" type="xs:boolean" />
       <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
     </xs:sequence>
