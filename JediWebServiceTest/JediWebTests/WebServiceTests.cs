@@ -118,12 +118,12 @@ namespace JediWebApplication
             if (jedis.Length > 0)
             {
                 // Jedi Darth Vador
-                CaracteristiqueContract[] caracs0 = client.GetCaracteristiques(jedis[0]);
+                CaracteristiqueContract[] caracs0 = client.GetCaracteristiques(jedis[0].ID);
                 Assert.IsNotNull(caracs0);
                 Assert.AreEqual(caracs0.Length, 3);
 
                 // Jedi Count Dooku
-                CaracteristiqueContract[] caracs1 = client.GetCaracteristiques(jedis[1]);
+                CaracteristiqueContract[] caracs1 = client.GetCaracteristiques(jedis[1].ID);
                 Assert.IsNull(caracs1);
 
                 // Nouveau Jedi
@@ -134,17 +134,8 @@ namespace JediWebApplication
                 caracs[0] = new CaracteristiqueContract();
                 newJedi1.Caracteristiques = caracs;
 
-                CaracteristiqueContract[] caracs3 = client.GetCaracteristiques(newJedi1);
-                Assert.IsNotNull(caracs3);
-                Assert.AreEqual(caracs3.Length, 1);
-
-                // Nouveau Jedi 2
-                JediContract newJedi2 = new JediContract();
-                newJedi2.Nom = "Test 2";
-                newJedi2.IsSith = false;
-
-                CaracteristiqueContract[] caracs4 = client.GetCaracteristiques(newJedi2);
-                Assert.IsNull(caracs4);
+                CaracteristiqueContract[] caracs3 = client.GetCaracteristiques(newJedi1.ID);
+                Assert.IsNull(caracs3);
             }
         }
 
