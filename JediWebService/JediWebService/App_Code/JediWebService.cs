@@ -33,9 +33,13 @@ public class JediWebService : IJediWebService
         m_manager.CreateJedi(j);
     }
 
-    List<CaracteristiqueContract> IJediWebService.GetCaracteristiques(JediContract jedi)
+    List<CaracteristiqueContract> IJediWebService.GetCaracteristiques(int jediID)
     {
-        return jedi.Caracteristiques;
+        Jedi jedi = m_manager.GetJediByID(jediID);
+        if (jedi != null)
+            return CaracteristiqueAdapter.fromCaracteristiqueList(jedi.Caracteristiques);
+        else
+            return null;
     }
 
     List<JediContract> IJediWebService.GetJedis()

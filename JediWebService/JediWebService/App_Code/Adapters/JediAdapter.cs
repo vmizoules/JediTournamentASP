@@ -19,11 +19,11 @@ namespace JediService.Adapters
         /// <returns>Jedi.</returns>
         public static Jedi fromJediContract(JediContract jediC)
         {
-            Jedi j = new Jedi();
-            j.IsSith = jediC.IsSith;
-            j.Nom = jediC.Nom;
-            j.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(jediC.Caracteristiques);
-
+            Jedi j = new Jedi(  jediC.ID, 
+                                jediC.Nom, 
+                                jediC.IsSith, 
+                                CaracteristiqueAdapter.fromCaracteristiqueContractList(jediC.Caracteristiques), 
+                                "");
             return j;
         }
 
@@ -34,7 +34,8 @@ namespace JediService.Adapters
         /// <returns>Jedi contract.</returns>
         public static JediContract fromJedi(Jedi jedi)
         {
-            JediContract jc = new JediContract( jedi.IsSith, 
+            JediContract jc = new JediContract( jedi.ID,
+                                                jedi.IsSith, 
                                                 jedi.Nom, 
                                                 CaracteristiqueAdapter.fromCaracteristiqueList(jedi.Caracteristiques));
             return jc;

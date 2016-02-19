@@ -58,6 +58,15 @@ namespace BusinessLayer
         }
 
         /// <summary>
+        /// Donne le jedi correspondant à l'id.
+        /// </summary>
+        /// <returns>Jedi correspondant si existant, sinon null.</returns>
+        public Jedi GetJediByID(int id)
+        {
+            return m_data.GetAllJedis().Where(j => j.ID == id).SingleOrDefault();
+        }
+
+        /// <summary>
         /// Crée un nouveau jedi.
         /// </summary>
         /// <param name="jedi">Jedi à créer.</param>

@@ -53,11 +53,11 @@ namespace JediService
         List<TournoiContract> GetTournois();
 
         /// <summary>
-        /// Récupère la liste des caractéristiques associées à un jedi.
+        /// Récupère la liste des caractéristiques associées à l'id de jedi.
         /// </summary>
-        /// <param name="jedi">Jedi pour lequel on demande les caractéristiques.</param>
+        /// <param name="jediID">ID du Jedi pour lequel on demande les caractéristiques.</param>
         /// <returns>Liste des caractéristiques associées.</returns>
         [OperationContract]
-        List<CaracteristiqueContract> GetCaracteristiques(JediContract jedi);
+        List<CaracteristiqueContract> GetCaracteristiques(int jediID);
     }
 }

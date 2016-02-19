@@ -12,9 +12,20 @@ namespace JediService.Models
     [DataContract]
     public class JediContract
     {
+        private int m_ID;
         private bool m_isSith;
         private string m_nom;
         private List<CaracteristiqueContract> m_caracs;
+
+        /// <summary>
+        /// ID du jedi.
+        /// </summary>
+        [DataMember]
+        public int ID
+        {
+            get { return m_ID; }
+            set { m_ID = value; }
+        }
 
         /// <summary>
         /// Indique si le jedi est un sith ou non.
@@ -50,7 +61,7 @@ namespace JediService.Models
         /// Constructeur par défaut.
         /// </summary>
         public JediContract()
-            : this(false, "Default Name", null)
+            : this(-1, false, "Default Name", null)
         {
         }
 
@@ -59,8 +70,9 @@ namespace JediService.Models
         /// </summary>
         /// <param name="nom">Nom du jedi.</param>
         /// <param name="isSith">Booléen indiquant si c'est un sith ou non.</param>
-        public JediContract(bool isSith, string nom, List<CaracteristiqueContract> caracs)
+        public JediContract(int id, bool isSith, string nom, List<CaracteristiqueContract> caracs)
         {
+            m_ID = id;
             m_isSith = isSith;
             m_nom = nom;
             m_caracs = caracs;
