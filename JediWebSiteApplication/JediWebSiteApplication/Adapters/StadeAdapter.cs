@@ -25,7 +25,11 @@ namespace JediWebSiteApplication.Adapters
             s.Nom = stadeC.Nom;
             s.NbPlaces = stadeC.NbPlaces;
             s.Planete = stadeC.Planete;
-            s.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(stadeC.Caracteristiques.ToList());
+
+            if (stadeC.Caracteristiques != null)
+                s.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(stadeC.Caracteristiques.ToList());
+            else
+                s.Caracteristiques = null;
 
             return s;
         }

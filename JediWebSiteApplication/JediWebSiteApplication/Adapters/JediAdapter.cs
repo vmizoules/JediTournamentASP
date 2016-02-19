@@ -23,7 +23,11 @@ namespace JediWebSiteApplication.Adapters
             j.ID = jediC.ID;
             j.Nom = jediC.Nom;
             j.IsSith = jediC.IsSith;
-            j.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(jediC.Caracteristiques.ToList());
+
+            if (jediC.Caracteristiques != null)
+                j.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(jediC.Caracteristiques.ToList());
+            else
+                j.Caracteristiques = null;
 
             return j;
         }
