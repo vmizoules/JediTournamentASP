@@ -12,36 +12,45 @@ namespace JediWebSiteApplication.Controllers
     public class JediController : Controller
     {
         private JediWebServiceClient m_webService;
+        private List<JediModel> m_jedis_list;
+
+        private JediModel GetJediByID(int id)
+        {
+            return m_jedis_list.Find(x => x.ID == id);
+        }
+
 
         // Constructor
         public JediController()
         {
             // instanciate web service 
             m_webService = new JediWebServiceClient();
+
+            // get jedis list
+            JediContract[] jedis = m_webService.GetJedis(); // Call Web Service
+
+            m_jedis_list = new List<JediModel>(); // Adaptation
+            foreach (JediContract jc in jedis)
+            {
+                m_jedis_list.Add(JediAdapter.fromJediContract(jc));
+            }
         }
 
         //
         // GET: /Jedi/
         public ActionResult Index()
         {
-            // Appel au Web Service
-            JediContract[] jedis = m_webService.GetJedis();
-
-            // Adaptation
-            List<JediModel> list = new List<JediModel>();
-            foreach (JediContract jc in jedis)
-            {
-                list.Add(JediAdapter.fromJediContract(jc));
-            }
-
-            return View(list);
+            // use jedi_list
+            return View(m_jedis_list);
         }
 
         //
         // GET: /Jedi/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            JediModel selectedJedi = GetJediByID(id);
+
+            return View(selectedJedi);
         }
 
         //
@@ -58,7 +67,26 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                // get name from form
+                String s_name = collection.Get(1);
+                // get sith from form
+                String s_sith = collection.Get(2);
+                Boolean b_sith = true;
+                if (s_sith == "false") {
+                    b_sith = false;
+                }
+
+                // new Jedi
+                JediModel new_j = new JediModel();
+                new_j.IsSith = b_sith;
+                new_j.Nom = s_name;
+                new_j.Caracteristiques = new List<CaracteristiqueModel>();
+
+                // convert into JediContract
+                JediContract new_jc = JediAdapter.fromJediModel(new_j);
+
+                // call web service with this jc
+                m_webService.CreateJedi(new_jc);
 
                 return RedirectToAction("Index");
             }
@@ -96,7 +124,9 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Jedi/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            JediModel selectedJedi = GetJediByID(id);
+
+            return View(selectedJedi);
         }
 
         //
@@ -107,6 +137,7 @@ namespace JediWebSiteApplication.Controllers
             try
             {
                 // TODO: Add delete logic here
+                //m_webService.DeleteJedi(id);
 
                 return RedirectToAction("Index");
             }
