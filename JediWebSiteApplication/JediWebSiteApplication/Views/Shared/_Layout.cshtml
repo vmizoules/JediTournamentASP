@@ -1,47 +1,173 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en-US">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JediWebSite - @ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
-    <link rel="icon" href="@Url.Content("~/Content/favicon.ico")" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JediWebSite - @ViewBag.Title</title>
+
+    <meta name="description" content="Le site qui vous fera aimer les jedis !">
+    <meta name="keywords" content="Jedi, Starwars, Tournoi" />
+    <meta name="author" content="Mizoules Vincent & Raberin Alexandre">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Fonts  -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'> <!-- Body font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> <!-- Navbar font -->
+    <!-- Libs and Plugins CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/animate.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/font-awesome.min.css")"> <!-- Font Icons -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/owl.carousel.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/owl.theme.css")">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/reset.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mobile.css")">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/cool-gray.css")">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nom de l'application", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+<body data-spy="scroll" data-target="#main-navbar">
+
+    <div class="page-loader"></div>  <!-- Display loading image while page loads -->
+    
+    <div class="body">
+
+        <!--========== BEGIN HEADER ==========-->
+        <header id="header" class="header-main">
+
+            <!-- Begin Navbar -->
+            <nav id="main-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <!-- Classes: navbar-default, navbar-inverse, navbar-fixed-top, navbar-fixed-bottom, navbar-transparent. Note: If you use non-transparent navbar, set "height: 98px;" to #header -->
+
+                <div class="container">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand page-scroll" href="@Url.Action("Index", "Home", null)" style="background-image: url(@Url.Content("~/Content/img/logo.png")); ">JediTournament</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            @*
+                                ActionLink usage :
+                                @Html.ActionLink("Some link text", "MyAction", "MyController", protocol: null, hostName: null, fragment: "MyAnchor", routeValues: null, htmlAttributes: null)
+                            *@
+                            <li>@Html.ActionLink("Accueil", "Index", "Home", null, null, null, null, new { @class = "page-scroll" })</li>
+                            <li>@Html.ActionLink("Jedis", "Index", "Jedi", null, null, "content", null, new { @class = "page-scroll" })</li>
+                            <li><a class="page-scroll" href="#services-section">Stades</a></li>
+                            <li><a class="page-scroll" href="#portfolio-section">Matchs</a></li>
+                            <li><a class="page-scroll" href="#team-section">Tournoi</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container -->
+            </nav>
+            <!-- End Navbar -->
+
+        </header>
+        <!-- ========= END HEADER =========-->
+
+        <!-- Begin text carousel intro section -->
+        <section id="text-carousel-intro-section" class="parallax" data-stellar-background-ratio="0.5" style="background-image: url(@Url.Content("~/Content/img/slider-bg.jpg"));">
+
+            <div class="container">
+                <div class="caption text-center text-white" data-stellar-ratio="0.7">
+
+                    <div id="owl-intro-text" class="owl-carousel">
+                        <div class="item">
+                            <h1>Jedis</h1>
+                            <p>Formez une armée de Jedis !</p>
+                            <div class="extra-space-l"></div>
+                            @Html.ActionLink("Voir Jedis", "Index", "Jedi", null, null, "content", null, new { @class = "btn btn-blank", @role = "button" })
+                        </div>
+                        <div class="item">
+                            <h1>Stades</h1>
+                            <p>Rassemblez les dans des lieux divers !</p>
+                            <div class="extra-space-l"></div>
+                            <a class="btn btn-blank" href="https://creativemarket.com/Themetorium" target="_blank" role="button">Voir stades</a>
+                        </div>
+                        <div class="item">
+                            <h1>Matchs</h1>
+                            <p>Faites les combattres !</p>
+                            <div class="extra-space-l"></div>
+                            <a class="btn btn-blank" href="https://creativemarket.com/Themetorium" target="_blank" role="button">Voir matchs</a>
+                        </div>
+                        <div class="item">
+                            <h1>Tournoi</h1>
+                            <p>Pour qu'il n'en reste plus qu'un !</p>
+                            <div class="extra-space-l"></div>
+                            <a class="btn btn-blank" href="https://creativemarket.com/Themetorium" target="_blank" role="button">Lancer tournoi</a>
+                        </div>
+                    </div>
+
+                </div> <!-- /.caption -->
+            </div> <!-- /.container -->
+
+        </section>
+        <!-- End text carousel intro section -->
+
+        <div id="content" class="extra-space-l"></div> <!-- anchor & space -->
+
+        <!-- Begin CONTENT -->
+        <section class="page text-center">
+            @RenderBody()
+        </section>
+        <!-- End CONTENT -->
+
+
+        <!-- Begin footer -->
+        <footer class="text-off-white">
+            <div class="footer">
+                <div class="container text-center wow fadeIn" data-wow-delay="0.4s">
+                    <p class="copyright">Copyright &copy; 2016 - Mizoules Vincent & Raberin Alexandre</p>
+                </div>
+            </div>
+        </footer>
+        <!-- End footer -->
+
+        <a href="#" class="scrolltotop"><i class="fa fa-arrow-up"></i></a> <!-- Scroll to top button -->
+
+    </div><!-- body ends -->
+
+    <!-- Plugins JS -->
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/owl.carousel.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.stellar.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/wow.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/waypoints.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/isotope.pkgd.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/classie.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.easing.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.counterup.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/smoothscroll.js")"></script>
+
+    <!-- Theme JS -->
+    <script src="@Url.Content("~/Scripts/theme.js")"></script>
+
+    <!-- Additionnal JS -->
     @RenderSection("scripts", required: false)
 </body>
+
+
 </html>

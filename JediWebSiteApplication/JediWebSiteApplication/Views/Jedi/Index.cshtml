@@ -1,39 +1,57 @@
 ﻿@model IEnumerable<JediWebSiteApplication.Models.JediModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Liste des Jedis";
 }
 
-<h2>Index</h2>
+<!-- Begin page header-->
+<div class="page-header-wrapper">
+    <div class="container">
+        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+            <h2>@ViewBag.Title</h2>
+            <div class="devider"></div>
+            <p class="subtitle">Ils ont tous leurs mystères !</p>
+        </div>
+    </div>
+</div>
+<!-- End page header-->
+<!-- Begin roatet box-2 -->
+<div class="rotate-box-2-wrapper">
+    <div class="container">
+        <div class="row rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.6s">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsSith)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th></th>
+                </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IsSith)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nom)
-        </th>
-        <th></th>
-    </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsSith)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsSith)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nom)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-        </td>
-    </tr>
-}
+            </table>
 
-</table>
+            <p>
+                @Html.ActionLink("Ajouter un Jedi", "Create", "Jedi", null, null, "content", null, new { @class = "btn btn-default btn-lg-md" })
+            </p>
+        </div>
+    </div> <!-- /.container -->
+</div><!-- End rotate-box-2 -->
