@@ -46,12 +46,13 @@
                         </td>
                     </tr>
                 }
-
+                
             </table>
 
             <p>
-                @Html.ActionLink("Ajouter un Jedi", "Create", "Jedi", null, null, "content", null, new { @class = "btn btn-default" })
-            </p>
+                <a href="@Url.Action("Create", "Jedi", null)#content" role="button" class="btn btn-default">
+                    <i class="fa fa-plus"></i> Ajouter un Jedi
+                </a>
         </div>
     </div> <!-- /.container -->
 </div><!-- End rotate-box-2 -->
