@@ -19,11 +19,65 @@
   <wsdl:message name="IJediWebService_CreateJedi_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateJediResponse" />
   </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateJedi_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJedi" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateJedi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJediResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_DeleteJedi_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJedi" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_DeleteJedi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJediResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_GetCaracteristiques_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiques" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_GetCaracteristiques_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_CreateStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStade" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_CreateStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStade" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_DeleteStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStade" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_DeleteStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStadeResponse" />
+  </wsdl:message>
   <wsdl:message name="IJediWebService_GetStades_InputMessage">
     <wsdl:part name="parameters" element="tns:GetStades" />
   </wsdl:message>
   <wsdl:message name="IJediWebService_GetStades_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_CreateMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMatch" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_CreateMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMatch" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_DeleteMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMatch" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_DeleteMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMatchResponse" />
   </wsdl:message>
   <wsdl:message name="IJediWebService_GetMatchs_InputMessage">
     <wsdl:part name="parameters" element="tns:GetMatchs" />
@@ -31,17 +85,23 @@
   <wsdl:message name="IJediWebService_GetMatchs_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMatchsResponse" />
   </wsdl:message>
+  <wsdl:message name="IJediWebService_CreateTournoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTournoi" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_CreateTournoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTournoiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_DeleteTournoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTournoi" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_DeleteTournoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTournoiResponse" />
+  </wsdl:message>
   <wsdl:message name="IJediWebService_GetTournois_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTournois" />
   </wsdl:message>
   <wsdl:message name="IJediWebService_GetTournois_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTournoisResponse" />
-  </wsdl:message>
-  <wsdl:message name="IJediWebService_GetCaracteristiques_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCaracteristiques" />
-  </wsdl:message>
-  <wsdl:message name="IJediWebService_GetCaracteristiques_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCaracteristiquesResponse" />
   </wsdl:message>
   <wsdl:portType name="IJediWebService">
     <wsdl:operation name="GetJedis">
@@ -52,21 +112,61 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CreateJedi" message="tns:IJediWebService_CreateJedi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/CreateJediResponse" message="tns:IJediWebService_CreateJedi_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateJedi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/UpdateJedi" message="tns:IJediWebService_UpdateJedi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/UpdateJediResponse" message="tns:IJediWebService_UpdateJedi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJedi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/DeleteJedi" message="tns:IJediWebService_DeleteJedi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/DeleteJediResponse" message="tns:IJediWebService_DeleteJedi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiques">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetCaracteristiques" message="tns:IJediWebService_GetCaracteristiques_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetCaracteristiquesResponse" message="tns:IJediWebService_GetCaracteristiques_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CreateStade" message="tns:IJediWebService_CreateStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/CreateStadeResponse" message="tns:IJediWebService_CreateStade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/UpdateStade" message="tns:IJediWebService_UpdateStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/UpdateStadeResponse" message="tns:IJediWebService_UpdateStade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/DeleteStade" message="tns:IJediWebService_DeleteStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/DeleteStadeResponse" message="tns:IJediWebService_DeleteStade_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetStades">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetStades" message="tns:IJediWebService_GetStades_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetStadesResponse" message="tns:IJediWebService_GetStades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CreateMatch" message="tns:IJediWebService_CreateMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/CreateMatchResponse" message="tns:IJediWebService_CreateMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/UpdateMatch" message="tns:IJediWebService_UpdateMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/UpdateMatchResponse" message="tns:IJediWebService_UpdateMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/DeleteMatch" message="tns:IJediWebService_DeleteMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/DeleteMatchResponse" message="tns:IJediWebService_DeleteMatch_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetMatchs">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetMatchs" message="tns:IJediWebService_GetMatchs_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetMatchsResponse" message="tns:IJediWebService_GetMatchs_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CreateTournoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CreateTournoi" message="tns:IJediWebService_CreateTournoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/CreateTournoiResponse" message="tns:IJediWebService_CreateTournoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTournoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/DeleteTournoi" message="tns:IJediWebService_DeleteTournoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/DeleteTournoiResponse" message="tns:IJediWebService_DeleteTournoi_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetTournois">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetTournois" message="tns:IJediWebService_GetTournois_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetTournoisResponse" message="tns:IJediWebService_GetTournois_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCaracteristiques">
-      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetCaracteristiques" message="tns:IJediWebService_GetCaracteristiques_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetCaracteristiquesResponse" message="tns:IJediWebService_GetCaracteristiques_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IJediWebService" type="tns:IJediWebService">
@@ -89,8 +189,89 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateJedi">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/UpdateJedi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJedi">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/DeleteJedi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiques">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/GetCaracteristiques" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStade">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/CreateStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStade">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/UpdateStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStade">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/DeleteStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetStades">
       <soap:operation soapAction="http://tempuri.org/IJediWebService/GetStades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMatch">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/CreateMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMatch">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/UpdateMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMatch">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/DeleteMatch" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -107,8 +288,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTournois">
-      <soap:operation soapAction="http://tempuri.org/IJediWebService/GetTournois" style="document" />
+    <wsdl:operation name="CreateTournoi">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/CreateTournoi" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -116,8 +297,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCaracteristiques">
-      <soap:operation soapAction="http://tempuri.org/IJediWebService/GetCaracteristiques" style="document" />
+    <wsdl:operation name="DeleteTournoi">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/DeleteTournoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTournois">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/GetTournois" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

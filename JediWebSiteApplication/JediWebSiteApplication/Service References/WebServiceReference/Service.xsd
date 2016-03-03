@@ -46,12 +46,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ETypeCaracteristiqueContract" nillable="true" type="tns:ETypeCaracteristiqueContract" />
-  <xs:complexType name="ArrayOfStadeContract">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="StadeContract" nillable="true" type="tns:StadeContract" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfStadeContract" nillable="true" type="tns:ArrayOfStadeContract" />
   <xs:complexType name="StadeContract">
     <xs:sequence>
       <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
@@ -61,12 +55,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="StadeContract" nillable="true" type="tns:StadeContract" />
-  <xs:complexType name="ArrayOfMatchContract">
+  <xs:complexType name="ArrayOfStadeContract">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="MatchContract" nillable="true" type="tns:MatchContract" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StadeContract" nillable="true" type="tns:StadeContract" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfMatchContract" nillable="true" type="tns:ArrayOfMatchContract" />
+  <xs:element name="ArrayOfStadeContract" nillable="true" type="tns:ArrayOfStadeContract" />
   <xs:complexType name="MatchContract">
     <xs:sequence>
       <xs:element minOccurs="0" name="IdVainqueur" type="xs:int" />
@@ -85,12 +79,12 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="EPhaseTournoiContract" nillable="true" type="tns:EPhaseTournoiContract" />
-  <xs:complexType name="ArrayOfTournoiContract">
+  <xs:complexType name="ArrayOfMatchContract">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TournoiContract" nillable="true" type="tns:TournoiContract" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MatchContract" nillable="true" type="tns:MatchContract" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfTournoiContract" nillable="true" type="tns:ArrayOfTournoiContract" />
+  <xs:element name="ArrayOfMatchContract" nillable="true" type="tns:ArrayOfMatchContract" />
   <xs:complexType name="TournoiContract">
     <xs:sequence>
       <xs:element minOccurs="0" name="Matchs" nillable="true" type="tns:ArrayOfMatchContract" />
@@ -98,4 +92,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TournoiContract" nillable="true" type="tns:TournoiContract" />
+  <xs:complexType name="ArrayOfTournoiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TournoiContract" nillable="true" type="tns:TournoiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTournoiContract" nillable="true" type="tns:ArrayOfTournoiContract" />
 </xs:schema>

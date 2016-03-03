@@ -27,10 +27,25 @@ public class JediWebService : IJediWebService
     }
 
     // Implémentation de l'interface
+
+    #region "Opérations liées aux jedis"
+
     void IJediWebService.CreateJedi(JediContract jedi)
     {
         Jedi j = JediAdapter.fromJediContract(jedi);
         m_manager.CreateJedi(j);
+    }
+
+    public void UpdateJedi(JediContract jedi)
+    {
+        Jedi j = JediAdapter.fromJediContract(jedi);
+        m_manager.UpdateJedi(j);
+    }
+
+    public void DeleteJedi(JediContract jedi)
+    {
+        Jedi j = JediAdapter.fromJediContract(jedi);
+        m_manager.DeleteJedi(j);
     }
 
     List<CaracteristiqueContract> IJediWebService.GetCaracteristiques(int jediID)
@@ -55,17 +70,25 @@ public class JediWebService : IJediWebService
         return listC;
     }
 
-    List<MatchContract> IJediWebService.GetMatchs()
+    #endregion
+    #region "Opérations liées aux stades"
+
+    void IJediWebService.CreateStade(StadeContract stade)
     {
-        List<MatchContract> listC = new List<MatchContract>();
-        List<Match> list = m_manager.GetAllMatchs();
+        Stade s = StadeAdapter.fromStadeContract(stade);
+        m_manager.CreateStade(s);
+    }
 
-        foreach (Match m in list)
-        {
-            listC.Add(MatchAdapter.fromMatch(m));
-        }
+    void IJediWebService.UpdateStade(StadeContract stade)
+    {
+        Stade s = StadeAdapter.fromStadeContract(stade);
+        m_manager.UpdateStade(s);
+    }
 
-        return listC;
+    void IJediWebService.DeleteStade(StadeContract stade)
+    {
+        Stade s = StadeAdapter.fromStadeContract(stade);
+        m_manager.DeleteStade(s);
     }
 
     List<StadeContract> IJediWebService.GetStades()
@@ -81,6 +104,55 @@ public class JediWebService : IJediWebService
         return listC;
     }
 
+    #endregion
+    #region "Opérations liées aux matchs"
+
+    void IJediWebService.CreateMatch(MatchContract match)
+    {
+        Match m = MatchAdapter.fromMatchContract(match);
+        m_manager.CreateMatch(m);
+    }
+
+    void IJediWebService.UpdateMatch(MatchContract match)
+    {
+        Match m = MatchAdapter.fromMatchContract(match);
+        m_manager.UpdateMatch(m);
+    }
+
+    void IJediWebService.DeleteMatch(MatchContract match)
+    {
+        Match m = MatchAdapter.fromMatchContract(match);
+        m_manager.DeleteMatch(m);
+    }
+
+    List<MatchContract> IJediWebService.GetMatchs()
+    {
+        List<MatchContract> listC = new List<MatchContract>();
+        List<Match> list = m_manager.GetAllMatchs();
+
+        foreach (Match m in list)
+        {
+            listC.Add(MatchAdapter.fromMatch(m));
+        }
+
+        return listC;
+    }
+
+    #endregion
+    #region "Opérations liées aux tournois"
+
+    void IJediWebService.CreateTournoi(TournoiContract tournoi)
+    {
+        Tournoi t = TournoiAdapter.fromTournoiContract(tournoi);
+        m_manager.CreateTournoi(t);
+    }
+
+    void IJediWebService.DeleteTournoi(TournoiContract tournoi)
+    {
+        Tournoi t = TournoiAdapter.fromTournoiContract(tournoi);
+        m_manager.DeleteTournoi(t);
+    }
+
     List<TournoiContract> IJediWebService.GetTournois()
     {
         List<TournoiContract> listC = new List<TournoiContract>();
@@ -93,4 +165,6 @@ public class JediWebService : IJediWebService
 
         return listC;
     }
+
+    #endregion
 }
