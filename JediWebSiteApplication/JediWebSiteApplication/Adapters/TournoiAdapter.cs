@@ -20,7 +20,7 @@ namespace JediWebSiteApplication.Adapters
         public static TournoiModel fromTournoiContract(TournoiContract tournoiC)
         {
             TournoiModel t = new TournoiModel();
-            //t.ID = tournoiC.ID;   // Maybe change
+            t.ID = tournoiC.ID;
             t.ID = -1;
             t.Nom = tournoiC.Nom;
             t.Matchs = MatchAdapter.fromMatchContractList(tournoiC.Matchs.ToList());
@@ -36,7 +36,7 @@ namespace JediWebSiteApplication.Adapters
         public static TournoiContract fromTournoi(TournoiModel tournoi)
         {
             TournoiContract tc = new TournoiContract();
-            //tc.ID = tournoi.ID; // Maybe change
+            tc.ID = tournoi.ID;
             tc.Nom = tournoi.Nom;
             tc.Matchs = MatchAdapter.fromMatchModelList(tournoi.Matchs).ToArray();
 

@@ -60,8 +60,7 @@ namespace JediWebSiteApplication.Adapters
         public static MatchModel fromMatchContract(MatchContract matchC)
         {
             MatchModel m = new MatchModel();
-            //m.ID = matchC.ID; // Maybe change
-            m.ID = -1;
+            m.ID = matchC.ID;
             m.IdVainqueur = matchC.IdVainqueur;
             m.Jedi1 = JediAdapter.fromJediContract(matchC.Jedi1);
             m.Jedi2 = JediAdapter.fromJediContract(matchC.Jedi2);
@@ -103,7 +102,7 @@ namespace JediWebSiteApplication.Adapters
 
             // Crée le MatchContract
             MatchContract mc = new MatchContract();
-            //mc.ID = match.ID; // Maybe change
+            mc.ID = match.ID;
             mc.IdVainqueur = match.IdVainqueur;
             mc.Jedi1 = jc1;
             mc.Jedi2 = jc2;
