@@ -84,7 +84,7 @@ namespace JediWebSiteApplication.Controllers
                 // Appèle le Web Service pour l'enregistrement
                 m_webService.CreateStade(StadeAdapter.fromStadeModel(newStade));
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {
@@ -123,7 +123,7 @@ namespace JediWebSiteApplication.Controllers
                 // Mise à jour du stade
                 m_webService.UpdateStade(StadeAdapter.fromStadeModel(selectedStade));
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {
@@ -154,7 +154,7 @@ namespace JediWebSiteApplication.Controllers
                 // Supprime le stade
                 m_webService.DeleteStade(StadeAdapter.fromStadeModel(selectedStade));
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {
