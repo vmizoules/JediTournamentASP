@@ -82,7 +82,7 @@ namespace JediService.Models
         /// Constructeur par défaut.
         /// </summary>
         public MatchContract()
-            : this(null, null, EPhaseTournoiContract.QuartFinale, null)
+            : this(-1, null, null, EPhaseTournoiContract.QuartFinale, null)
         {
 
         }
@@ -90,11 +90,12 @@ namespace JediService.Models
         /// <summary>
         /// Constructeur.
         /// </summary>
+        /// <param name="id">identifiant du match.</param>
         /// <param name="jedi1">Premier jedi concurrent.</param>
         /// <param name="jedi2">Second jedi concurrent.</param>
         /// <param name="phase">Phase lors de laquelle se déroule le match.</param>
         /// <param name="stade">Stade dans lequel se déroule le match.</param>
-        public MatchContract(JediContract jedi1, JediContract jedi2, EPhaseTournoiContract phase, StadeContract stade)
+        public MatchContract(int id, JediContract jedi1, JediContract jedi2, EPhaseTournoiContract phase, StadeContract stade)
         {
             m_jedi1 = jedi1;
             m_jedi2 = jedi2;

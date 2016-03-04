@@ -60,6 +60,7 @@ namespace JediService.Adapters
         public static Match fromMatchContract(MatchContract matchC)
         {
             Match m = new Match();
+            m.ID = matchC.ID;
             m.IdJediVainqueur = matchC.IdVainqueur;
             m.Jedi1 = JediAdapter.fromJediContract(matchC.Jedi1);
             m.Jedi2 = JediAdapter.fromJediContract(matchC.Jedi2);
@@ -100,7 +101,7 @@ namespace JediService.Adapters
             StadeContract sc = StadeAdapter.fromStade(match.Stade);
 
             // Crée le MatchContract
-            MatchContract mc = new MatchContract(jc1, jc2, pc, sc);
+            MatchContract mc = new MatchContract(match.ID, jc1, jc2, pc, sc);
 
             return mc;
         }

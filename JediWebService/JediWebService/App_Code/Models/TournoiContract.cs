@@ -38,7 +38,7 @@ namespace JediService.Models
         /// Constructeur par défaut.
         /// </summary>
         public TournoiContract()
-            : this("Default Name", null)
+            : this(-1, "Default Name", null)
         {
         }
 
@@ -47,7 +47,8 @@ namespace JediService.Models
         /// </summary>
         /// <param name="nom">Nom du tournoi.</param>
         /// <param name="matchs">Match qui ont eu ou auront lieu pendant le tournoi.</param>
-        public TournoiContract(string nom, List<MatchContract> matchs) 
+        public TournoiContract(int id, string nom, List<MatchContract> matchs) 
+            : base(id)
         {
             m_nom = nom;
             m_matchs = matchs;
