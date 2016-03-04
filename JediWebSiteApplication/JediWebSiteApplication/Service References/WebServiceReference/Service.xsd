@@ -75,13 +75,17 @@
   </xs:complexType>
   <xs:element name="ArrayOfStadeContract" nillable="true" type="tns:ArrayOfStadeContract" />
   <xs:complexType name="MatchContract">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="IdVainqueur" type="xs:int" />
-      <xs:element minOccurs="0" name="Jedi1" nillable="true" type="tns:JediContract" />
-      <xs:element minOccurs="0" name="Jedi2" nillable="true" type="tns:JediContract" />
-      <xs:element minOccurs="0" name="PhaseTournoi" type="tns:EPhaseTournoiContract" />
-      <xs:element minOccurs="0" name="Stade" nillable="true" type="tns:StadeContract" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdVainqueur" type="xs:int" />
+          <xs:element minOccurs="0" name="Jedi1" nillable="true" type="tns:JediContract" />
+          <xs:element minOccurs="0" name="Jedi2" nillable="true" type="tns:JediContract" />
+          <xs:element minOccurs="0" name="PhaseTournoi" type="tns:EPhaseTournoiContract" />
+          <xs:element minOccurs="0" name="Stade" nillable="true" type="tns:StadeContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="MatchContract" nillable="true" type="tns:MatchContract" />
   <xs:simpleType name="EPhaseTournoiContract">
@@ -99,10 +103,14 @@
   </xs:complexType>
   <xs:element name="ArrayOfMatchContract" nillable="true" type="tns:ArrayOfMatchContract" />
   <xs:complexType name="TournoiContract">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Matchs" nillable="true" type="tns:ArrayOfMatchContract" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Matchs" nillable="true" type="tns:ArrayOfMatchContract" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="TournoiContract" nillable="true" type="tns:TournoiContract" />
   <xs:complexType name="ArrayOfTournoiContract">

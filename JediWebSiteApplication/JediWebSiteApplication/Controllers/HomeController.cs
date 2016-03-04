@@ -12,19 +12,5 @@ namespace JediWebSiteApplication.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Site créé dans le cadre de la matière service réseau de l'enseignement F2 et F5 de l'ISIMA.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Nos coordonnées :";
-
-            return View();
-        }
     }
 }

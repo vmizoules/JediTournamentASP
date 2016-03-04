@@ -18,14 +18,8 @@ namespace JediWebSiteApplication.Models
         Finale
     }
 
-    public class MatchModel
+    public class MatchModel : EntityModel
     {
-        /// <summary>
-        /// ID du match.
-        /// </summary>
-        [Display(Name = "ID du match")]
-        public int ID { get; set; }
-
         /// <summary>
         /// Id du jedi vainqueur. Si égale à -1 alors le match n'as pa été joué.
         /// </summary>

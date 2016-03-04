@@ -9,14 +9,8 @@ namespace JediWebSiteApplication.Models
     /// <summary>
     /// Classe de model Tournoi pour le Web Service.
     /// </summary>
-    public class TournoiModel
+    public class TournoiModel : EntityModel
     {
-        /// <summary>
-        /// ID du jedi.
-        /// </summary>
-        [Display(Name = "ID du tournoi")]
-        public int ID { get; set; }
-
         /// <summary>
         /// Nom du tournoi.
         /// </summary>

@@ -20,6 +20,7 @@ namespace JediService.Adapters
         public static Tournoi fromTournoiContract(TournoiContract tournoiC)
         {
             Tournoi t = new Tournoi();
+            t.ID = tournoiC.ID;
             t.Nom = tournoiC.Nom;
             t.Matchs = MatchAdapter.fromMatchContractList(tournoiC.Matchs);
 
@@ -33,7 +34,7 @@ namespace JediService.Adapters
         /// <returns>Tournoi contract.</returns>
         public static TournoiContract fromTournoi(Tournoi tournoi)
         {
-            TournoiContract tc = new TournoiContract(tournoi.Nom, MatchAdapter.fromMatchList(tournoi.Matchs));
+            TournoiContract tc = new TournoiContract(tournoi.ID, tournoi.Nom, MatchAdapter.fromMatchList(tournoi.Matchs));
             return tc;
         }
     }
