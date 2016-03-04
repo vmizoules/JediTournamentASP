@@ -20,6 +20,14 @@ namespace JediWebSiteApplication.Models
 
     public class MatchModel : EntityModel
     {
+        public String Description
+        {
+            get
+            {
+                return Jedi1.Nom + " - " + Jedi2.Nom;
+            }
+        }
+
         /// <summary>
         /// Id du jedi vainqueur. Si égale à -1 alors le match n'as pa été joué.
         /// </summary>

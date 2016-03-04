@@ -30,9 +30,9 @@
                             @Html.DisplayFor(modelItem => item.Nom)
                         </td>
                         <td>
-                            @Html.ActionLink("Éditer", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Détails", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Supprimer", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Éditer", "Edit", "Jedi", null, null, "content", new { id = item.ID }, null) |
+                            @Html.ActionLink("Détails", "Details", "Jedi", null, null, "content", new { id = item.ID }, null) |
+                            @Html.ActionLink("Supprimer", "Delete", "Jedi", null, null, "content", new { id = item.ID }, null)
                         </td>
                     </tr>
                 }
