@@ -18,7 +18,7 @@ namespace JediWebSiteApplication.Controllers
         /// </summary>
         /// <param name="id">Id du jedi recherché.</param>
         /// <returns>Jedi Model correspondant.</returns>
-        private MatchModel GetJediByID(int id)
+        private MatchModel GetMatchByID(int id)
         {
             return m_matchs.Find(j => j.ID == id);
         }
@@ -50,7 +50,9 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Match/Details/id
         public ActionResult Details(int id)
         {
-            return View();
+            MatchModel m = this.GetMatchByID(id);
+
+            return View(m);
         }
 
         //
@@ -81,7 +83,9 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Match/Edit/id
         public ActionResult Edit(int id)
         {
-            return View();
+            MatchModel m = this.GetMatchByID(id);
+
+            return View(m);
         }
 
         //
@@ -105,7 +109,9 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Match/Delete/id
         public ActionResult Delete(int id)
         {
-            return View();
+            MatchModel m = this.GetMatchByID(id);
+
+            return View(m);
         }
 
         //
@@ -115,7 +121,12 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                MatchModel m = this.GetMatchByID(id);
+                MatchContract mc = MatchAdapter.fromMatchModel(m);
+
+                // TODO : check it
+                // call webservice
+                //m_webService.DeleteMatch(mc);
 
                 return new RedirectResult(Url.Action("Index") + "#content");
             }

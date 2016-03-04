@@ -1,0 +1,41 @@
+﻿@model JediWebSiteApplication.Models.MatchModel
+
+@{
+    ViewBag.Title = "Détail d'un match";
+    ViewBag.SubTitle = "";
+}
+
+<!-- Begin rotate box-2 -->
+<div class="rotate-box-2-wrapper">
+    <div class="container">
+        <div class="row rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.6s">
+
+            <div>
+                <h4>MatchModel</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IdVainqueur)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IdVainqueur)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Éditer", "Edit", null, null, null, "content", new { id = Model.ID }, null) |
+                @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
+            </p>
+        </div>
+    </div>
+</div>

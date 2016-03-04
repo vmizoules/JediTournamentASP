@@ -308,6 +308,7 @@
     <Content Include="Views\Stade\Delete.cshtml" />
     <Content Include="Views\Stade\Edit.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\Match\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
