@@ -1,4 +1,4 @@
-﻿@model JediWebSiteApplication.Models.JediModel
+﻿@model JediWebSiteApplication.Models.StadeModel
 
 @{
     ViewBag.Title = "Création";
@@ -6,18 +6,16 @@
 
 <h2>Création</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>JediModel</h4>
+        <h4>StadeModel</h4>
         <hr />
         @Html.ValidationSummary(true)
-
         <div class="form-group">
-            @Html.LabelFor(model => model.Nom, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Nom)
                 @Html.ValidationMessageFor(model => model.Nom)
@@ -25,10 +23,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IsSith, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NbPlaces, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IsSith)
-                @Html.ValidationMessageFor(model => model.IsSith)
+                @Html.EditorFor(model => model.NbPlaces)
+                @Html.ValidationMessageFor(model => model.NbPlaces)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Planete, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Planete)
+                @Html.ValidationMessageFor(model => model.Planete)
             </div>
         </div>
 

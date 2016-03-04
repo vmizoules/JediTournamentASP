@@ -74,26 +74,18 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // get name from form
-                String s_name = collection.Get(1);
-                // get sith from form
-                String s_sith = collection.Get(2);
-                Boolean b_sith = true;
-                if (s_sith == "false") {
-                    b_sith = false;
-                }
+                // Récupère les valeurs du formulaire soumis
+                string name = collection["Nom"];
+                bool isSith = false;
+                bool.TryParse(collection["IsSith"], out isSith);
 
-                // new Jedi
-                JediModel new_j = new JediModel();
-                new_j.IsSith = b_sith;
-                new_j.Nom = s_name;
-                new_j.Caracteristiques = new List<CaracteristiqueModel>();
+                // Nouveau Jedi
+                JediModel newJedi = new JediModel();
+                newJedi.Nom = name;
+                newJedi.IsSith = isSith;
 
-                // convert into JediContract
-                JediContract new_jc = JediAdapter.fromJediModel(new_j);
-
-                // call web service with this jc
-                m_webService.CreateJedi(new_jc);
+                // Appèle le Web Service pour l'enregistrement
+                m_webService.CreateJedi(JediAdapter.fromJediModel(newJedi));
 
                 return RedirectToAction("Index");
             }

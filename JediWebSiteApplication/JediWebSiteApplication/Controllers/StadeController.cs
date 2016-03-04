@@ -73,7 +73,20 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                // Récupère les valeurs du formulaire soumis
+                string name = collection["Nom"];
+                int nbPlace = 0;
+                int.TryParse(collection["NbPlaces"], out nbPlace);
+                string planete = collection["Planete"];
+
+                // Nouveau Stade
+                StadeModel newStade = new StadeModel();
+                newStade.Nom = name;
+                newStade.NbPlaces = nbPlace;
+                newStade.Planete = planete;
+
+                // Appèle le Web Service pour l'enregistrement
+                m_webService.CreateStade(StadeAdapter.fromStadeModel(newStade));
 
                 return RedirectToAction("Index");
             }

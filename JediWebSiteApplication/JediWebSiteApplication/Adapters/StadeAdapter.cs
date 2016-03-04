@@ -25,10 +25,10 @@ namespace JediWebSiteApplication.Adapters
             s.NbPlaces = stadeC.NbPlaces;
             s.Planete = stadeC.Planete;
 
-            if (stadeC.Caracteristiques != null)
-                s.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(stadeC.Caracteristiques.ToList());
-            else
-                s.Caracteristiques = null;
+            if (stadeC.Caracteristiques == null)
+                stadeC.Caracteristiques = new CaracteristiqueContract[0];
+
+            s.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(stadeC.Caracteristiques.ToList());
 
             return s;
         }
@@ -45,6 +45,10 @@ namespace JediWebSiteApplication.Adapters
             sc.Nom = stade.Nom;
             sc.NbPlaces = stade.NbPlaces;
             sc.Planete = stade.Planete;
+
+            if (stade.Caracteristiques == null)
+                stade.Caracteristiques = new List<CaracteristiqueModel>();
+
             sc.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueModelList(stade.Caracteristiques).ToArray();
 
             return sc;
