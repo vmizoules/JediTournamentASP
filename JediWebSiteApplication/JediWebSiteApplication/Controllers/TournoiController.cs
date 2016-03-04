@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace JediWebSiteApplication.Controllers
 {
-    public class TournoiController : Controller
+    public class TournoiController : BaseController
     {
         //
         // GET: /Tournoi/

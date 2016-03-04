@@ -167,6 +167,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JediController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
@@ -305,10 +306,10 @@
     <Content Include="Views\Stade\Details.cshtml" />
     <Content Include="Views\Stade\Create.cshtml" />
     <Content Include="Views\Stade\Delete.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Match\" />
     <Folder Include="Views\Tournoi\" />
   </ItemGroup>
   <ItemGroup>

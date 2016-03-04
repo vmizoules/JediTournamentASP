@@ -9,9 +9,8 @@ using System.Web.Mvc;
 
 namespace JediWebSiteApplication.Controllers
 {
-    public class JediController : Controller
+    public class JediController : BaseController
     {
-        private JediWebServiceClient m_webService;
         private List<JediModel> m_jedis;
 
         /// <summary>
@@ -28,10 +27,8 @@ namespace JediWebSiteApplication.Controllers
         /// Constructeur.
         /// </summary>
         public JediController()
+            : base()
         {
-            // Instancie le web service 
-            m_webService = new JediWebServiceClient();
-
             // Récupère tous les stades dans une liste
             JediContract[] jcs = m_webService.GetJedis(); // Appel au Web Service
 
