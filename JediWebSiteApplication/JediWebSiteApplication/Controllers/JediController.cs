@@ -96,7 +96,9 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Jedi/Edit/id
         public ActionResult Edit(int id)
         {
-            return View();
+            // Recherche le jedi correspondant
+            JediModel selectedJedi = GetJediByID(id);
+            return View(selectedJedi);
         }
 
         //
@@ -106,7 +108,18 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                // Récupère les valeurs du formulaire soumis
+                string name = collection["Nom"];
+                bool isSith = true;
+                bool.TryParse(collection["IsSith"], out isSith);
+
+                // Recherche le jedi correspondant
+                JediModel selectedJedi = GetJediByID(id);
+                selectedJedi.Nom = name;
+                selectedJedi.IsSith = isSith;
+
+                // Mise à jour du jedi
+                m_webService.UpdateJedi(JediAdapter.fromJediModel(selectedJedi));
 
                 return new RedirectResult(Url.Action("Index") + "#content");
             }

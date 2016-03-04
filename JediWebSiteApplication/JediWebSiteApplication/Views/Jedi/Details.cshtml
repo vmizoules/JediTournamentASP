@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Détails";
-    ViewBag.SubTitle = "";
 }
 
 <div>
@@ -27,6 +26,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Éditer", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Revenir à la liste", "Index", "Jedi", null, null, "content", null, null);
+    @Html.ActionLink("Éditer", "Edit", "Jedi", null, null, "content", new { id = Model.ID }, null) |
+    @Html.ActionLink("Revenir à la liste", "Index", "Jedi", null, null, "content", null, null)
 </p>
