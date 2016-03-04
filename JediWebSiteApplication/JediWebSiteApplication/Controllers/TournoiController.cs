@@ -38,7 +38,7 @@ namespace JediWebSiteApplication.Controllers
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {
@@ -62,7 +62,7 @@ namespace JediWebSiteApplication.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {
@@ -86,7 +86,7 @@ namespace JediWebSiteApplication.Controllers
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {

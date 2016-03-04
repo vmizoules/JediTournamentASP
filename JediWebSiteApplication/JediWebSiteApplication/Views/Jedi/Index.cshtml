@@ -30,9 +30,9 @@
                             @Html.DisplayFor(modelItem => item.Nom)
                         </td>
                         <td>
-                            @Html.ActionLink("Éditer", "Edit", "Jedi", null, null, "content", new { id = item.ID }, null) |
-                            @Html.ActionLink("Détails", "Details", "Jedi", null, null, "content", new { id = item.ID }, null) |
-                            @Html.ActionLink("Supprimer", "Delete", "Jedi", null, null, "content", new { id = item.ID }, null)
+                            @Html.ActionLink("Éditer", "Edit", null, null, null, "content", new { id = item.ID }, null) |
+                            @Html.ActionLink("Détails", "Details", null, null, null, "content", new { id = item.ID }, null) |
+                            @Html.ActionLink("Supprimer", "Delete", null, null, null, "content", new { id = item.ID }, null)
                         </td>
                     </tr>
                 }
@@ -40,7 +40,7 @@
             </table>
 
             <p>
-                <a href="@Url.Action("Create", "Jedi", null)#content" role="button" class="btn btn-default">
+                <a href="@Url.Action("Create")#content" role="button" class="btn btn-default">
                     <i class="fa fa-plus"></i> Ajouter un Jedi
                 </a>
             </p>

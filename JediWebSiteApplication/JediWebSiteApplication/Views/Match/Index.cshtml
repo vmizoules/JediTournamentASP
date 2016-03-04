@@ -1,25 +1,41 @@
 ﻿@model IEnumerable<JediWebSiteApplication.Models.MatchModel>
 
 @{
-    ViewBag.Title = "Création";
-    ViewBag.SubTitle = "";
+    ViewBag.Title = "Liste des matchs";
+    ViewBag.SubTitle = "Choisissez les adversaires qui s'affronteront sans pitié !";
 }
 
-<table class="table">    
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @item.Jedi1.Nom <strong>-</strong> @item.Jedi2.Nom
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-</table>
+<!-- Begin rotate box-2 -->
+<div class="rotate-box-2-wrapper">
+    <div class="container">
+        <div class="row rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.6s">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Description
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", null, null, null, "content", new { id = item.ID }, null) |
+                            @Html.ActionLink("Details", "Details", null, null, null, "content", new { id = item.ID }, null) |
+                            @Html.ActionLink("Delete", "Delete", null, null, null, "content", new { id = item.ID }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+            <p>
+                <a href="@Url.Action("Create")#content" role="button" class="btn btn-default">
+                    <i class="fa fa-plus"></i> Ajouter un match
+                </a>
+            </p>
+        </div>
+    </div> <!-- /.container -->
+</div><!-- End rotate-box-2 -->

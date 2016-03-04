@@ -1,7 +1,8 @@
 ﻿@model JediWebSiteApplication.Models.StadeModel
 
 @{
-    ViewBag.Title = "Création";
+    ViewBag.Title = "Création d'un stade";
+    ViewBag.SubTitle = "";
 }
 
 @using (Html.BeginForm())
@@ -44,7 +45,7 @@
 }
 
 <div>
-    @Html.ActionLink("Revenir à la liste", "Index", "Stade", null, null, "content", null, null)
+    @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
 </div>
 
 @section Scripts {
