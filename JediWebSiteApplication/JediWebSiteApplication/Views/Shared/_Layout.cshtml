@@ -130,6 +130,18 @@
 
         <!-- Begin CONTENT -->
         <section class="page text-center">
+            <!-- Begin page header-->
+            <div class="page-header-wrapper">
+                <div class="container">
+                    <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                        <h2>@ViewBag.Title</h2>
+                        <div class="devider"></div>
+                        <p class="subtitle">@ViewBag.SubTitle</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End page header-->
+
             @RenderBody()
         </section>
         <!-- End CONTENT -->
