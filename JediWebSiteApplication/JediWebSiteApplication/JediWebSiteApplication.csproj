@@ -306,6 +306,7 @@
     <Content Include="Views\Stade\Details.cshtml" />
     <Content Include="Views\Stade\Create.cshtml" />
     <Content Include="Views\Stade\Delete.cshtml" />
+    <Content Include="Views\Stade\Edit.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

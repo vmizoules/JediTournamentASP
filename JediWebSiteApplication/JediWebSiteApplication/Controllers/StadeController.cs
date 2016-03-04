@@ -96,7 +96,9 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Stade/Edit/id
         public ActionResult Edit(int id)
         {
-            return View();
+            // Recherche le stade correspondant
+            StadeModel selectedStade = GetStadeByID(id);
+            return View(selectedStade);
         }
 
         //
@@ -106,7 +108,20 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                // Récupère les valeurs du formulaire soumis
+                string name = collection["Nom"];
+                int nbPlace = 0;
+                int.TryParse(collection["NbPlaces"], out nbPlace);
+                string planete = collection["Planete"];
+
+                // Recherche le stade correspondant
+                StadeModel selectedStade = GetStadeByID(id);
+                selectedStade.Nom = name;
+                selectedStade.NbPlaces = nbPlace;
+                selectedStade.Planete = planete;
+
+                // Mise à jour du stade
+                m_webService.UpdateStade(StadeAdapter.fromStadeModel(selectedStade));
 
                 return RedirectToAction("Index");
             }

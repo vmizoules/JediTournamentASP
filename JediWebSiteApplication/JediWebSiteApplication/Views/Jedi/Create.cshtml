@@ -2,11 +2,7 @@
 
 @{
     ViewBag.Title = "Création";
-    ViewBag.SubTitle = "";
 }
-
-<h2>Création</h2>
-
 
 @using (Html.BeginForm()) 
 {
@@ -41,7 +37,7 @@
 }
 
 <div>
-    @Html.ActionLink("Revenir à la liste", "Index")
+    @Html.ActionLink("Revenir à la liste", "Index", "Jedi", null, null, "content", null, null);
 </div>
 
 @section Scripts {
