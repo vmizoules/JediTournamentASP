@@ -123,6 +123,7 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Jedi/Delete/id
         public ActionResult Delete(int id)
         {
+            // Recherche le jedi correspondant
             JediModel selectedJedi = GetJediByID(id);
 
             return View(selectedJedi);
@@ -135,8 +136,11 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-                //m_webService.DeleteJedi(id);
+                // Recherche le jedi correspondant
+                JediModel selectedJedi = GetJediByID(id);
+
+                // Supprime le jedi
+                m_webService.DeleteJedi(JediAdapter.fromJediModel(selectedJedi));
 
                 return RedirectToAction("Index");
             }

@@ -124,7 +124,10 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Stade/Delete/id
         public ActionResult Delete(int id)
         {
-            return View();
+            // Recherche le stade correspondant
+            StadeModel selectedStade = GetStadeByID(id);
+
+            return View(selectedStade);
         }
 
         //
@@ -134,7 +137,11 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                // Recherche le stade correspondant
+                StadeModel selectedStade = GetStadeByID(id);
+
+                // Supprime le stade
+                m_webService.DeleteStade(StadeAdapter.fromStadeModel(selectedStade));
 
                 return RedirectToAction("Index");
             }
