@@ -24,7 +24,7 @@ namespace JediService.Models
     /// Classe de contrat Match pour le Web Service.
     /// </summary>
     [DataContract]
-    public class MatchContract
+    public class MatchContract : EntityContract
     {
         private int m_idVainqueur;
         private JediContract m_jedi1;

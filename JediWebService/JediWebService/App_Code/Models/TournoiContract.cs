@@ -10,7 +10,7 @@ namespace JediService.Models
     /// Classe de contrat Tournoi pour le Web Service.
     /// </summary>
     [DataContract]
-    public class TournoiContract
+    public class TournoiContract : EntityContract
     {
         private string m_nom;
         private List<MatchContract> m_matchs;
