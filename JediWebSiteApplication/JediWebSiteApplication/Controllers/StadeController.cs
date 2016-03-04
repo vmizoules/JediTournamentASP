@@ -1,4 +1,7 @@
-﻿using System;
+﻿using JediWebSiteApplication.Adapters;
+using JediWebSiteApplication.Models;
+using JediWebSiteApplication.WebServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,18 +11,52 @@ namespace JediWebSiteApplication.Controllers
 {
     public class StadeController : Controller
     {
+        private JediWebServiceClient m_webService;
+        private List<StadeModel> m_stades;
+
+        /// <summary>
+        /// Retourne le stade associé à l'id en paramètre.
+        /// </summary>
+        /// <param name="id">Id du stade recherché.</param>
+        /// <returns>Stade Model correspondant.</returns>
+        private StadeModel GetStadeByID(int id)
+        {
+            return m_stades.Find(s => s.ID == id);
+        }
+
+        /// <summary>
+        /// Constructeur.
+        /// </summary>
+        public StadeController()
+        {
+            // Instancie le web service 
+            m_webService = new JediWebServiceClient();
+
+            // Récupère tous les stades dans une liste
+            StadeContract[] scs = m_webService.GetStades(); // Appel au Web Service
+
+            m_stades = new List<StadeModel>(); // Adaptation
+            foreach (StadeContract sc in scs)
+            {
+                m_stades.Add(StadeAdapter.fromStadeContract(sc));
+            }
+        }
+
         //
         // GET: /Stade/
         public ActionResult Index()
         {
-            return View();
+            // Utilise la liste des stades
+            return View(m_stades);
         }
 
         //
-        // GET: /Stade/Details/5
+        // GET: /Stade/Details/id
         public ActionResult Details(int id)
         {
-            return View();
+            // Recherche le stade correspondant
+            StadeModel selectedStade = GetStadeByID(id);
+            return View(selectedStade);
         }
 
         //
@@ -47,14 +84,14 @@ namespace JediWebSiteApplication.Controllers
         }
 
         //
-        // GET: /Stade/Edit/5
+        // GET: /Stade/Edit/id
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         //
-        // POST: /Stade/Edit/5
+        // POST: /Stade/Edit/id
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -71,14 +108,14 @@ namespace JediWebSiteApplication.Controllers
         }
 
         //
-        // GET: /Stade/Delete/5
+        // GET: /Stade/Delete/id
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         //
-        // POST: /Stade/Delete/5
+        // POST: /Stade/Delete/id
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

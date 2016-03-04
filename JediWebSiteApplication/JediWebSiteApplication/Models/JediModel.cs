@@ -7,14 +7,8 @@ using System.Web;
 
 namespace JediWebSiteApplication.Models
 {
-    public class JediModel
+    public class JediModel : EntityModel
     {
-        /// <summary>
-        /// ID du jedi.
-        /// </summary>
-        [Display(Name = "ID du jedi")]
-        public int ID { get; set; }
-
         /// <summary>
         /// Nom du jedi.
         /// </summary>

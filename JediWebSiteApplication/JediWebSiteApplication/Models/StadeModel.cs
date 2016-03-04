@@ -7,14 +7,8 @@ using System.Web;
 
 namespace JediWebSiteApplication.Models
 {
-    public class StadeModel
+    public class StadeModel : EntityModel
     {
-        /// <summary>
-        /// ID du stade.
-        /// </summary>
-        [Display(Name = "ID du stade")]
-        public int ID { get; set; }
-
         /// <summary>
         /// Nom du stade.
         /// </summary>

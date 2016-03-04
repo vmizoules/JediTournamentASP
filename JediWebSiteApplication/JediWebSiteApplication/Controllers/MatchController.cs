@@ -16,7 +16,7 @@ namespace JediWebSiteApplication.Controllers
         }
 
         //
-        // GET: /Match/Details/5
+        // GET: /Match/Details/id
         public ActionResult Details(int id)
         {
             return View();
@@ -47,14 +47,14 @@ namespace JediWebSiteApplication.Controllers
         }
 
         //
-        // GET: /Match/Edit/5
+        // GET: /Match/Edit/id
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         //
-        // POST: /Match/Edit/5
+        // POST: /Match/Edit/id
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -71,14 +71,14 @@ namespace JediWebSiteApplication.Controllers
         }
 
         //
-        // GET: /Match/Delete/5
+        // GET: /Match/Delete/id
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         //
-        // POST: /Match/Delete/5
+        // POST: /Match/Delete/id
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

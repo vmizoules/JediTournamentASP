@@ -12,27 +12,33 @@ namespace JediWebSiteApplication.Controllers
     public class JediController : Controller
     {
         private JediWebServiceClient m_webService;
-        private List<JediModel> m_jedis_list;
+        private List<JediModel> m_jedis;
 
+        /// <summary>
+        /// Retourne le jedi associé à l'id en paramètre.
+        /// </summary>
+        /// <param name="id">Id du jedi recherché.</param>
+        /// <returns>Jedi Model correspondant.</returns>
         private JediModel GetJediByID(int id)
         {
-            return m_jedis_list.Find(x => x.ID == id);
+            return m_jedis.Find(j => j.ID == id);
         }
 
-
-        // Constructor
+        /// <summary>
+        /// Constructeur.
+        /// </summary>
         public JediController()
         {
-            // instanciate web service 
+            // Instancie le web service 
             m_webService = new JediWebServiceClient();
 
-            // get jedis list
-            JediContract[] jedis = m_webService.GetJedis(); // Call Web Service
+            // Récupère tous les stades dans une liste
+            JediContract[] jcs = m_webService.GetJedis(); // Appel au Web Service
 
-            m_jedis_list = new List<JediModel>(); // Adaptation
-            foreach (JediContract jc in jedis)
+            m_jedis = new List<JediModel>(); // Adaptation
+            foreach (JediContract jc in jcs)
             {
-                m_jedis_list.Add(JediAdapter.fromJediContract(jc));
+                m_jedis.Add(JediAdapter.fromJediContract(jc));
             }
         }
 
@@ -40,14 +46,15 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Jedi/
         public ActionResult Index()
         {
-            // use jedi_list
-            return View(m_jedis_list);
+            // Utilise la liste des jedis
+            return View(m_jedis);
         }
 
         //
-        // GET: /Jedi/Details/5
+        // GET: /Jedi/Details/id
         public ActionResult Details(int id)
         {
+            // Recherche le jedi correspondant
             JediModel selectedJedi = GetJediByID(id);
 
             return View(selectedJedi);
@@ -97,14 +104,14 @@ namespace JediWebSiteApplication.Controllers
         }
 
         //
-        // GET: /Jedi/Edit/5
+        // GET: /Jedi/Edit/id
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         //
-        // POST: /Jedi/Edit/5
+        // POST: /Jedi/Edit/id
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -121,7 +128,7 @@ namespace JediWebSiteApplication.Controllers
         }
 
         //
-        // GET: /Jedi/Delete/5
+        // GET: /Jedi/Delete/id
         public ActionResult Delete(int id)
         {
             JediModel selectedJedi = GetJediByID(id);
@@ -130,7 +137,7 @@ namespace JediWebSiteApplication.Controllers
         }
 
         //
-        // POST: /Jedi/Delete/5
+        // POST: /Jedi/Delete/id
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

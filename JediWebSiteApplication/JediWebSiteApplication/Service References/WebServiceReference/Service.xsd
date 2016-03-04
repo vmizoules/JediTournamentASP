@@ -7,14 +7,23 @@
   </xs:complexType>
   <xs:element name="ArrayOfJediContract" nillable="true" type="tns:ArrayOfJediContract" />
   <xs:complexType name="JediContract">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="IsSith" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
+          <xs:element minOccurs="0" name="IsSith" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="JediContract" nillable="true" type="tns:JediContract" />
+  <xs:complexType name="EntityContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityContract" nillable="true" type="tns:EntityContract" />
   <xs:complexType name="ArrayOfCaracteristiqueContract">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CaracteristiqueContract" nillable="true" type="tns:CaracteristiqueContract" />
@@ -47,12 +56,16 @@
   </xs:simpleType>
   <xs:element name="ETypeCaracteristiqueContract" nillable="true" type="tns:ETypeCaracteristiqueContract" />
   <xs:complexType name="StadeContract">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
-      <xs:element minOccurs="0" name="NbPlaces" type="xs:int" />
-      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Planete" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
+          <xs:element minOccurs="0" name="NbPlaces" type="xs:int" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Planete" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="StadeContract" nillable="true" type="tns:StadeContract" />
   <xs:complexType name="ArrayOfStadeContract">

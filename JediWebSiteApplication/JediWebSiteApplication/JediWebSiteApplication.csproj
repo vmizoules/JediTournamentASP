@@ -177,6 +177,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CaracteristiqueModel.cs" />
+    <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JediModel.cs" />
     <Compile Include="Models\MatchModel.cs" />

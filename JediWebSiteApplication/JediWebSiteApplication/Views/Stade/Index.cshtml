@@ -1,0 +1,65 @@
+﻿@model IEnumerable<JediWebSiteApplication.Models.StadeModel>
+
+@{
+    ViewBag.Title = "Liste des Stades";
+}
+
+<!-- Begin page header-->
+<div class="page-header-wrapper">
+    <div class="container">
+        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+            <h2>@ViewBag.Title</h2>
+            <div class="devider"></div>
+            <p class="subtitle">Lequel sera votre tombeau ?</p>
+        </div>
+    </div>
+</div>
+<!-- End page header-->
+<!-- Begin roatet box-2 -->
+<div class="rotate-box-2-wrapper">
+    <div class="container">
+        <div class="row rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.6s">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NbPlaces)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Planete)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NbPlaces)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Planete)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editer", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Infos", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Supprimer", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+            <p>
+                <a href="@Url.Action("Create", "Stade", null)#content" role="button" class="btn btn-default">
+                    <i class="fa fa-plus"></i> Ajouter un Stade
+                </a>
+            </p>
+        </div>
+    </div> <!-- /.container -->
+</div><!-- End rotate-box-2 -->

@@ -17,32 +17,16 @@ namespace JediWebSiteApplication.WebServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JediContract", Namespace="http://schemas.datacontract.org/2004/07/JediService.Models")]
     [System.SerializableAttribute()]
-    public partial class JediContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class JediContract : JediWebSiteApplication.WebServiceReference.EntityContract {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] CaracteristiquesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsSithField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NomField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] Caracteristiques {
@@ -53,19 +37,6 @@ namespace JediWebSiteApplication.WebServiceReference {
                 if ((object.ReferenceEquals(this.CaracteristiquesField, value) != true)) {
                     this.CaracteristiquesField = value;
                     this.RaisePropertyChanged("Caracteristiques");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
                 }
             }
         }
@@ -95,6 +66,44 @@ namespace JediWebSiteApplication.WebServiceReference {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityContract", Namespace="http://schemas.datacontract.org/2004/07/JediService.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JediWebSiteApplication.WebServiceReference.StadeContract))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JediWebSiteApplication.WebServiceReference.JediContract))]
+    public partial class EntityContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -102,6 +111,77 @@ namespace JediWebSiteApplication.WebServiceReference {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StadeContract", Namespace="http://schemas.datacontract.org/2004/07/JediService.Models")]
+    [System.SerializableAttribute()]
+    public partial class StadeContract : JediWebSiteApplication.WebServiceReference.EntityContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] CaracteristiquesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NbPlacesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PlaneteField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] Caracteristiques {
+            get {
+                return this.CaracteristiquesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CaracteristiquesField, value) != true)) {
+                    this.CaracteristiquesField = value;
+                    this.RaisePropertyChanged("Caracteristiques");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NbPlaces {
+            get {
+                return this.NbPlacesField;
+            }
+            set {
+                if ((this.NbPlacesField.Equals(value) != true)) {
+                    this.NbPlacesField = value;
+                    this.RaisePropertyChanged("NbPlaces");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nom {
+            get {
+                return this.NomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomField, value) != true)) {
+                    this.NomField = value;
+                    this.RaisePropertyChanged("Nom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Planete {
+            get {
+                return this.PlaneteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlaneteField, value) != true)) {
+                    this.PlaneteField = value;
+                    this.RaisePropertyChanged("Planete");
+                }
             }
         }
     }
@@ -225,99 +305,6 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Stade = 1,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StadeContract", Namespace="http://schemas.datacontract.org/2004/07/JediService.Models")]
-    [System.SerializableAttribute()]
-    public partial class StadeContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] CaracteristiquesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NbPlacesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PlaneteField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public JediWebSiteApplication.WebServiceReference.CaracteristiqueContract[] Caracteristiques {
-            get {
-                return this.CaracteristiquesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CaracteristiquesField, value) != true)) {
-                    this.CaracteristiquesField = value;
-                    this.RaisePropertyChanged("Caracteristiques");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NbPlaces {
-            get {
-                return this.NbPlacesField;
-            }
-            set {
-                if ((this.NbPlacesField.Equals(value) != true)) {
-                    this.NbPlacesField = value;
-                    this.RaisePropertyChanged("NbPlaces");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nom {
-            get {
-                return this.NomField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NomField, value) != true)) {
-                    this.NomField = value;
-                    this.RaisePropertyChanged("Nom");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Planete {
-            get {
-                return this.PlaneteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PlaneteField, value) != true)) {
-                    this.PlaneteField = value;
-                    this.RaisePropertyChanged("Planete");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

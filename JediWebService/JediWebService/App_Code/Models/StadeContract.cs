@@ -10,7 +10,7 @@ namespace JediService.Models
     /// Classe de contrat Stade pour le Web Service.
     /// </summary>
     [DataContract]
-    public class StadeContract
+    public class StadeContract : EntityContract
     {
         private string m_nom;
         private int m_nbPlaces;
@@ -61,17 +61,19 @@ namespace JediService.Models
         /// Constructeur par défaut.
         /// </summary>
         public StadeContract()
-            : this("Default Name", 100, "Default Planete", null)
+            : this(-1, "Default Name", 100, "Default Planete", null)
         {
         }
 
         /// <summary>
         /// Constructeur.
         /// </summary>
+        /// <param name="id">ID du stade</param>
         /// <param name="nom">Nom du stade</param>
         /// <param name="nbPlaces">Nombre de places du stade.</param>
         /// <param name="planete">Nom de la planète sur laquelle se situe le stade.</param>
-        public StadeContract(string nom, int nbPlaces, string planete, List<CaracteristiqueContract> caracs)
+        public StadeContract(int id, string nom, int nbPlaces, string planete, List<CaracteristiqueContract> caracs)
+            : base(id)
         {
             m_nbPlaces = nbPlaces;
             m_nom = nom;

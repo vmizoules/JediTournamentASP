@@ -20,8 +20,7 @@ namespace JediWebSiteApplication.Adapters
         public static StadeModel fromStadeContract(StadeContract stadeC)
         {
             StadeModel s = new StadeModel();
-            //s.ID = stadeC.ID; // Maybe change
-            s.ID = -1;
+            s.ID = stadeC.ID;
             s.Nom = stadeC.Nom;
             s.NbPlaces = stadeC.NbPlaces;
             s.Planete = stadeC.Planete;
@@ -42,7 +41,7 @@ namespace JediWebSiteApplication.Adapters
         public static StadeContract fromStadeModel(StadeModel stade)
         {
             StadeContract sc = new StadeContract();
-            //sc.ID = stade.ID; // Maybe change
+            sc.ID = stade.ID;
             sc.Nom = stade.Nom;
             sc.NbPlaces = stade.NbPlaces;
             sc.Planete = stade.Planete;
