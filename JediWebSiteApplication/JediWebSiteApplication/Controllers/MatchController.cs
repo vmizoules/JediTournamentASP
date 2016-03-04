@@ -1,4 +1,7 @@
-﻿using System;
+﻿using JediWebSiteApplication.Adapters;
+using JediWebSiteApplication.Models;
+using JediWebSiteApplication.WebServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +11,39 @@ namespace JediWebSiteApplication.Controllers
 {
     public class MatchController : BaseController
     {
+        private List<MatchModel> m_matchs;
+
+        /// <summary>
+        /// Retourne le jedi associé à l'id en paramètre.
+        /// </summary>
+        /// <param name="id">Id du jedi recherché.</param>
+        /// <returns>Jedi Model correspondant.</returns>
+        private MatchModel GetJediByID(int id)
+        {
+            return m_matchs.Find(j => j.ID == id);
+        }
+
+        /// <summary>
+        /// Constructeur.
+        /// </summary>
+        public MatchController()
+            : base()
+        {
+            // Récupère tous les matchs dans une liste
+            MatchContract[] mcs = m_webService.GetMatchs(); // Appel au Web Service
+
+            m_matchs = new List<MatchModel>(); // Adaptation
+            foreach (MatchContract mc in mcs)
+            {
+                m_matchs.Add(MatchAdapter.fromMatchContract(mc));
+            }
+        }
+
         //
         // GET: /Match/
         public ActionResult Index()
         {
-            return View();
+            return View(m_matchs);
         }
 
         //

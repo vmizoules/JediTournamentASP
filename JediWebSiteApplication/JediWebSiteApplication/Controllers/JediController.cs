@@ -84,7 +84,7 @@ namespace JediWebSiteApplication.Controllers
                 // Appèle le Web Service pour l'enregistrement
                 m_webService.CreateJedi(JediAdapter.fromJediModel(newJedi));
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {
@@ -108,7 +108,7 @@ namespace JediWebSiteApplication.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {
@@ -139,7 +139,7 @@ namespace JediWebSiteApplication.Controllers
                 // Supprime le jedi
                 m_webService.DeleteJedi(JediAdapter.fromJediModel(selectedJedi));
 
-                return RedirectToAction("Index");
+                return new RedirectResult(Url.Action("Index") + "#content");
             }
             catch
             {

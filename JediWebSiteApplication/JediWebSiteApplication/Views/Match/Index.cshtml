@@ -5,18 +5,11 @@
     ViewBag.SubTitle = "";
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdVainqueur)
-        </th>
-        <th></th>
-    </tr>
-    
+<table class="table">    
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.IdVainqueur)
+            @item.Jedi1.Nom <strong>-</strong> @item.Jedi2.Nom
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
