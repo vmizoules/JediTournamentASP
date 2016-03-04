@@ -20,6 +20,7 @@ namespace JediWebSiteApplication.Models
 
     public class MatchModel : EntityModel
     {
+        [Display(Name = "Description du match")]
         public String Description
         {
             get
