@@ -302,6 +302,8 @@
     <Content Include="Views\Jedi\Create.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Stade\Index.cshtml" />
+    <Content Include="Views\Stade\Details.cshtml" />
+    <Content Include="Views\Stade\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

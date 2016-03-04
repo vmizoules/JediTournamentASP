@@ -5,7 +5,7 @@
     ViewBag.SubTitle = "Ils ont tous leurs mystères !";
 }
 
-<!-- Begin roatet box-2 -->
+<!-- Begin rotate box-2 -->
 <div class="rotate-box-2-wrapper">
     <div class="container">
         <div class="row rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.6s">
@@ -30,9 +30,9 @@
                             @Html.DisplayFor(modelItem => item.Nom)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Éditer", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Détails", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Supprimer", "Delete", new { id = item.ID })
                         </td>
                     </tr>
                 }

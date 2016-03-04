@@ -24,10 +24,10 @@ namespace JediWebSiteApplication.Adapters
             j.Nom = jediC.Nom;
             j.IsSith = jediC.IsSith;
 
-            if (jediC.Caracteristiques != null)
-                j.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(jediC.Caracteristiques.ToList());
-            else
-                j.Caracteristiques = null;
+            if (jediC.Caracteristiques == null)
+                jediC.Caracteristiques = new CaracteristiqueContract[0];
+
+            j.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueContractList(jediC.Caracteristiques.ToList());      
 
             return j;
         }
@@ -43,6 +43,10 @@ namespace JediWebSiteApplication.Adapters
             jc.ID = jedi.ID;
             jc.Nom = jedi.Nom;
             jc.IsSith = jedi.IsSith;
+
+            if (jedi.Caracteristiques == null)
+                jedi.Caracteristiques = new List<CaracteristiqueModel>();
+
             jc.Caracteristiques = CaracteristiqueAdapter.fromCaracteristiqueModelList(jedi.Caracteristiques).ToArray();
 
             return jc;
