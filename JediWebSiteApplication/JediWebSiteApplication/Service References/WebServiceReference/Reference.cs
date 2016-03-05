@@ -459,6 +459,12 @@ namespace JediWebSiteApplication.WebServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetJedis", ReplyAction="http://tempuri.org/IJediWebService/GetJedisResponse")]
         System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.JediContract[]> GetJedisAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetJediById", ReplyAction="http://tempuri.org/IJediWebService/GetJediByIdResponse")]
+        JediWebSiteApplication.WebServiceReference.JediContract GetJediById(int jediID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetJediById", ReplyAction="http://tempuri.org/IJediWebService/GetJediByIdResponse")]
+        System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.JediContract> GetJediByIdAsync(int jediID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/CreateJedi", ReplyAction="http://tempuri.org/IJediWebService/CreateJediResponse")]
         void CreateJedi(JediWebSiteApplication.WebServiceReference.JediContract jedi);
         
@@ -500,6 +506,12 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/DeleteStade", ReplyAction="http://tempuri.org/IJediWebService/DeleteStadeResponse")]
         System.Threading.Tasks.Task DeleteStadeAsync(JediWebSiteApplication.WebServiceReference.StadeContract stade);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetStadeById", ReplyAction="http://tempuri.org/IJediWebService/GetStadeByIdResponse")]
+        JediWebSiteApplication.WebServiceReference.StadeContract GetStadeById(int stadeID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetStadeById", ReplyAction="http://tempuri.org/IJediWebService/GetStadeByIdResponse")]
+        System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.StadeContract> GetStadeByIdAsync(int stadeID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetStades", ReplyAction="http://tempuri.org/IJediWebService/GetStadesResponse")]
         JediWebSiteApplication.WebServiceReference.StadeContract[] GetStades();
@@ -585,6 +597,14 @@ namespace JediWebSiteApplication.WebServiceReference {
             return base.Channel.GetJedisAsync();
         }
         
+        public JediWebSiteApplication.WebServiceReference.JediContract GetJediById(int jediID) {
+            return base.Channel.GetJediById(jediID);
+        }
+        
+        public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.JediContract> GetJediByIdAsync(int jediID) {
+            return base.Channel.GetJediByIdAsync(jediID);
+        }
+        
         public void CreateJedi(JediWebSiteApplication.WebServiceReference.JediContract jedi) {
             base.Channel.CreateJedi(jedi);
         }
@@ -639,6 +659,14 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         public System.Threading.Tasks.Task DeleteStadeAsync(JediWebSiteApplication.WebServiceReference.StadeContract stade) {
             return base.Channel.DeleteStadeAsync(stade);
+        }
+        
+        public JediWebSiteApplication.WebServiceReference.StadeContract GetStadeById(int stadeID) {
+            return base.Channel.GetStadeById(stadeID);
+        }
+        
+        public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.StadeContract> GetStadeByIdAsync(int stadeID) {
+            return base.Channel.GetStadeByIdAsync(stadeID);
         }
         
         public JediWebSiteApplication.WebServiceReference.StadeContract[] GetStades() {

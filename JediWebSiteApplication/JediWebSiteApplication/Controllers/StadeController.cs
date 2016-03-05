@@ -31,11 +31,8 @@ namespace JediWebSiteApplication.Controllers
             // Récupère tous les stades dans une liste
             StadeContract[] scs = m_webService.GetStades(); // Appel au Web Service
 
-            m_stades = new List<StadeModel>(); // Adaptation
-            foreach (StadeContract sc in scs)
-            {
-                m_stades.Add(StadeAdapter.fromStadeContract(sc));
-            }
+            // Adaptation
+            m_stades = StadeAdapter.fromStadeContractList(scs.ToList());
         }
 
         //

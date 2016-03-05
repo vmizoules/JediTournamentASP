@@ -33,6 +33,23 @@ namespace JediWebSiteApplication.Adapters
         }
 
         /// <summary>
+        /// Adapte une liste de Jedi Contract en une liste de Jedi Model.
+        /// </summary>
+        /// <param name="jedisC">Liste de Jedi Contract à adapter.</param>
+        /// <returns>Liste de Jedi Model.</returns>
+        public static List<JediModel> fromJediContractList(List<JediContract> jedisC)
+        {
+            List<JediModel> listJ = new List<JediModel>();
+
+            foreach (JediContract jc in jedisC)
+            {
+                listJ.Add(JediAdapter.fromJediContract(jc));
+            }
+
+            return listJ;
+        }
+
+        /// <summary>
         /// Adapte un Jedi Model en Jedi Contract.
         /// </summary>
         /// <param name="jedi">Jedi à adapter.</param>

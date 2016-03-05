@@ -34,6 +34,23 @@ namespace JediWebSiteApplication.Adapters
         }
 
         /// <summary>
+        /// Adapte une liste de Stade Contract en une liste de Stade Model.
+        /// </summary>
+        /// <param name="stadesC">Liste de Stade Contract à adapter.</param>
+        /// <returns>Liste de Stade Model.</returns>
+        public static List<StadeModel> fromStadeContractList(List<StadeContract> stadesC)
+        {
+            List<StadeModel> listS = new List<StadeModel>();
+
+            foreach (StadeContract sc in stadesC)
+            {
+                listS.Add(StadeAdapter.fromStadeContract(sc));
+            }
+
+            return listS;
+        }
+
+        /// <summary>
         /// Adapte un Stade Model en Stade Contract.
         /// </summary>
         /// <param name="stade">Stade à adapter.</param>

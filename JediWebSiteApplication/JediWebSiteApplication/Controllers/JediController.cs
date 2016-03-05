@@ -32,11 +32,8 @@ namespace JediWebSiteApplication.Controllers
             // Récupère tous les stades dans une liste
             JediContract[] jcs = m_webService.GetJedis(); // Appel au Web Service
 
-            m_jedis = new List<JediModel>(); // Adaptation
-            foreach (JediContract jc in jcs)
-            {
-                m_jedis.Add(JediAdapter.fromJediContract(jc));
-            }
+            // Adpatation
+            m_jedis = JediAdapter.fromJediContractList(jcs.ToList());
         }
 
         //

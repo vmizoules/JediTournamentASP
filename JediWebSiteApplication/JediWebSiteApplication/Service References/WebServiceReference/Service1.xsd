@@ -13,10 +13,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetJediById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jediID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJediByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetJediByIdResult" nillable="true" type="q2:JediContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CreateJedi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="jedi" nillable="true" type="q2:JediContract" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="jedi" nillable="true" type="q3:JediContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -28,7 +42,7 @@
   <xs:element name="UpdateJedi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="jedi" nillable="true" type="q3:JediContract" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="jedi" nillable="true" type="q4:JediContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -40,7 +54,7 @@
   <xs:element name="DeleteJedi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="jedi" nillable="true" type="q4:JediContract" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="jedi" nillable="true" type="q5:JediContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -59,14 +73,14 @@
   <xs:element name="GetCaracteristiquesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetCaracteristiquesResult" nillable="true" type="q5:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetCaracteristiquesResult" nillable="true" type="q6:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateStade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="stade" nillable="true" type="q6:StadeContract" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="stade" nillable="true" type="q7:StadeContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -78,7 +92,7 @@
   <xs:element name="UpdateStade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="stade" nillable="true" type="q7:StadeContract" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="stade" nillable="true" type="q8:StadeContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -90,13 +104,27 @@
   <xs:element name="DeleteStade">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="stade" nillable="true" type="q8:StadeContract" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="stade" nillable="true" type="q9:StadeContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteStadeResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStadeById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stadeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStadeByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetStadeByIdResult" nillable="true" type="q10:StadeContract" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetStades">
@@ -107,14 +135,14 @@
   <xs:element name="GetStadesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetStadesResult" nillable="true" type="q9:ArrayOfStadeContract" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetStadesResult" nillable="true" type="q11:ArrayOfStadeContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="match" nillable="true" type="q10:MatchContract" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="match" nillable="true" type="q12:MatchContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -126,7 +154,7 @@
   <xs:element name="UpdateMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="match" nillable="true" type="q11:MatchContract" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="match" nillable="true" type="q13:MatchContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -138,7 +166,7 @@
   <xs:element name="DeleteMatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="match" nillable="true" type="q12:MatchContract" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="match" nillable="true" type="q14:MatchContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -155,14 +183,14 @@
   <xs:element name="GetMatchsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetMatchsResult" nillable="true" type="q13:ArrayOfMatchContract" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetMatchsResult" nillable="true" type="q15:ArrayOfMatchContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateTournoi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="tournoi" nillable="true" type="q14:TournoiContract" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="tournoi" nillable="true" type="q16:TournoiContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -174,7 +202,7 @@
   <xs:element name="DeleteTournoi">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="tournoi" nillable="true" type="q15:TournoiContract" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="tournoi" nillable="true" type="q17:TournoiContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -191,7 +219,7 @@
   <xs:element name="GetTournoisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetTournoisResult" nillable="true" type="q16:ArrayOfTournoiContract" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetTournoisResult" nillable="true" type="q18:ArrayOfTournoiContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
