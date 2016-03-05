@@ -1,5 +1,10 @@
 ﻿@model JediWebSiteApplication.Models.JediModel
 
+@{
+    ViewBag.Title = "Édition du jedi";
+}
+
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()

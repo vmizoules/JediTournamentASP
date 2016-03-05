@@ -1,8 +1,7 @@
 ﻿@model JediWebSiteApplication.Models.MatchModel
 
 @{
-    ViewBag.Title = "Détail d'un match";
-    ViewBag.SubTitle = "";
+    ViewBag.Title = "Détails du match";
 }
 
 <!-- Begin rotate box-2 -->
@@ -11,7 +10,6 @@
         <div class="row rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.6s">
 
             <div>
-                <h4>MatchModel</h4>
                 <hr />
                 <dl class="dl-horizontal">
                     <dt>
@@ -23,11 +21,11 @@
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.IdVainqueur)
+                        @Html.DisplayNameFor(model => model.Vainqueur)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.IdVainqueur)
+                        @Html.DisplayFor(model => model.Vainqueur)
                     </dd>
 
                 </dl>

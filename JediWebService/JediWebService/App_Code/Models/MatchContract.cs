@@ -96,6 +96,7 @@ namespace JediService.Models
         /// <param name="phase">Phase lors de laquelle se déroule le match.</param>
         /// <param name="stade">Stade dans lequel se déroule le match.</param>
         public MatchContract(int id, JediContract jedi1, JediContract jedi2, EPhaseTournoiContract phase, StadeContract stade)
+            : base(id)
         {
             m_jedi1 = jedi1;
             m_jedi2 = jedi2;

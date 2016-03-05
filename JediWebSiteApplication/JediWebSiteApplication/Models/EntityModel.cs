@@ -9,7 +9,7 @@ namespace JediWebSiteApplication.Models
     public class EntityModel
     {
         /// <summary>
-        /// ID du stade.
+        /// ID de l'entité.
         /// </summary>
         [Display(Name = "ID")]
         public int ID { get; set; }

@@ -20,21 +20,39 @@ namespace JediWebSiteApplication.Models
 
     public class MatchModel : EntityModel
     {
-        [Display(Name = "Description du match")]
+        /// <summary>
+        /// Donne accès à la description du match (jedi 1 - Jedi 2).
+        /// </summary>
+        [Display(Name = "Affrontement")]
         public String Description
         {
             get
             {
                 return Jedi1.Nom + " - " + Jedi2.Nom;
             }
+            private set { }
         }
 
         /// <summary>
         /// Id du jedi vainqueur. Si égale à -1 alors le match n'as pa été joué.
         /// </summary>
         [Required]
-        [Display(Name = "Vainqueur")]
+        [Display(Name = "ID Vainqueur")]
         public int IdVainqueur { get; set; }
+
+        /// <summary>
+        /// Id du jedi vainqueur. Si égale à -1 alors le match n'as pa été joué.
+        /// </summary>
+        [Required]
+        [Display(Name = "Vainqueur")]
+        public string Vainqueur
+        {
+            get
+            {
+                return IdVainqueur < 0 ? "Non joué" : (IdVainqueur == Jedi1.ID ? Jedi1.Nom : Jedi2.Nom);
+            }
+            private set { }
+        }
 
         /// <summary>
         /// Premier combattant Jedi.
