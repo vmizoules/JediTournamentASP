@@ -26,6 +26,14 @@ namespace JediService
         List<JediContract> GetJedis();
 
         /// <summary>
+        /// Récupère le jedi associé à l'id en paramètre.
+        /// </summary>
+        /// <param name="jediID">Id d'un jedi.</param>
+        /// <returns>Jedi correspondant à l'id.</returns>
+        [OperationContract]
+        JediContract GetJediById(int jediID);
+
+        /// <summary>
         /// Création d'un jedi.
         /// </summary>
         /// <param name="jedi">Jedi à créer.</param>
@@ -77,6 +85,14 @@ namespace JediService
         /// <param name="stade">Stade à supprimer.</param>
         [OperationContract]
         void DeleteStade(StadeContract stade);
+
+        /// <summary>
+        /// Récupère le stade associé à l'id en paramètre.
+        /// </summary>
+        /// <param name="stadeID">Id d'un stade.</param>
+        /// <returns>Stade correspondant à l'id.</returns>
+        [OperationContract]
+        StadeContract GetStadeById(int stadeID);
 
         /// <summary>
         /// Récupère la liste des stades.

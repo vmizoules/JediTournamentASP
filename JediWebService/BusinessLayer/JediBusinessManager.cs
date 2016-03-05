@@ -106,6 +106,15 @@ namespace BusinessLayer
         }
 
         /// <summary>
+        /// Donne le stade correspondant à l'id.
+        /// </summary>
+        /// <returns>Stade correspondant si existant, sinon null.</returns>
+        public Stade GetStadeByID(int id)
+        {
+            return m_data.GetAllStades().Where(s => s.ID == id).SingleOrDefault();
+        }
+
+        /// <summary>
         /// Donne la liste de tous les stades.
         /// </summary>
         /// <returns>Liste de tous les stades.</returns>

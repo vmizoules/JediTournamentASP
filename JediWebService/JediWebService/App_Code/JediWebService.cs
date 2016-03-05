@@ -36,13 +36,13 @@ public class JediWebService : IJediWebService
         m_manager.CreateJedi(j);
     }
 
-    public void UpdateJedi(JediContract jedi)
+    void IJediWebService.UpdateJedi(JediContract jedi)
     {
         Jedi j = JediAdapter.fromJediContract(jedi);
         m_manager.UpdateJedi(j);
     }
 
-    public void DeleteJedi(JediContract jedi)
+    void IJediWebService.DeleteJedi(JediContract jedi)
     {
         Jedi j = JediAdapter.fromJediContract(jedi);
         m_manager.DeleteJedi(j);
@@ -55,6 +55,11 @@ public class JediWebService : IJediWebService
             return CaracteristiqueAdapter.fromCaracteristiqueList(jedi.Caracteristiques);
         else
             return null;
+    }
+
+    JediContract IJediWebService.GetJediById(int jediID)
+    {
+        return JediAdapter.fromJedi(m_manager.GetJediByID(jediID));
     }
 
     List<JediContract> IJediWebService.GetJedis()
@@ -89,6 +94,11 @@ public class JediWebService : IJediWebService
     {
         Stade s = StadeAdapter.fromStadeContract(stade);
         m_manager.DeleteStade(s);
+    }
+
+    StadeContract IJediWebService.GetStadeById(int stadeID)
+    {
+        return StadeAdapter.fromStade(m_manager.GetStadeByID(stadeID));
     }
 
     List<StadeContract> IJediWebService.GetStades()
