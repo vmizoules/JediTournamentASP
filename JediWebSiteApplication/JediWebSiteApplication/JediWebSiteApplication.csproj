@@ -184,6 +184,7 @@
     <Compile Include="Models\MatchModel.cs" />
     <Compile Include="Models\StadeModel.cs" />
     <Compile Include="Models\SubModels\MatchAvailableContentModel.cs" />
+    <Compile Include="Models\SubModels\MatchEditModel.cs" />
     <Compile Include="Models\TournoiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\WebServiceReference\Reference.cs">
@@ -312,6 +313,8 @@
     <Content Include="Views\Match\Details.cshtml" />
     <Content Include="Views\Jedi\Edit.cshtml" />
     <Content Include="Views\Match\Create.cshtml" />
+    <Content Include="Views\Match\Edit.cshtml" />
+    <Content Include="Views\Match\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

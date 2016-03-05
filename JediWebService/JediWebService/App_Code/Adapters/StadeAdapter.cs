@@ -19,6 +19,9 @@ namespace JediService.Adapters
         /// <returns>Stade.</returns>
         public static Stade fromStadeContract(StadeContract stadeC)
         {
+            if (stadeC == null)
+                return null;
+
             Stade s = new Stade(stadeC.ID,
                                 stadeC.Nom,
                                 stadeC.NbPlaces,
@@ -36,6 +39,9 @@ namespace JediService.Adapters
         /// <returns>Stade contract.</returns>
         public static StadeContract fromStade(Stade stade)
         {
+            if (stade == null)
+                return null;
+
             StadeContract sc = new StadeContract(   stade.ID,
                                                     stade.Nom, 
                                                     stade.NbPlaces,

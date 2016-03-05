@@ -96,7 +96,7 @@ namespace JediWebSiteApplication.Controllers
                 newMatch.IdVainqueur = -1;  // Non joué
                 newMatch.PhaseTournoi = EPhaseTournoiModel.QuartFinale; // Match à la base d'un tournoi
 
-                // Appèle le Web Service pour l'enregistrement
+                // Appelle le Web Service pour l'enregistrement
                 m_webService.CreateMatch(MatchAdapter.fromMatchModel(newMatch));
 
                 return new RedirectResult(Url.Action("Index") + "#content");
@@ -111,9 +111,13 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Match/Edit/id
         public ActionResult Edit(int id)
         {
+            // Contruit le modèle d'édition du match
             MatchModel m = this.GetMatchByID(id);
+            MatchEditModel content = new MatchEditModel(m,
+                                                        JediAdapter.fromJediContractList(m_webService.GetJedis().ToList()),
+                                                        StadeAdapter.fromStadeContractList(m_webService.GetStades().ToList()));
 
-            return View(m);
+            return View(content);
         }
 
         //
@@ -123,7 +127,31 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                // Récupère les valeurs du formulaire soumis
+                int idJedi1 = -1;
+                int.TryParse(collection["SelectedJedi1"], out idJedi1);
+                int idJedi2 = -1;
+                int.TryParse(collection["SelectedJedi2"], out idJedi2);
+                int idStade = -1;
+                int.TryParse(collection["SelectedStade"], out idStade);
+
+                // Saisie invalide
+                if (idJedi1 == -1 || idJedi2 == -1 || idStade == -1)
+                    return View();
+
+                // Récupères les objets nécessaires via la web service
+                JediModel jediM1 = JediAdapter.fromJediContract(m_webService.GetJediById(idJedi1));
+                JediModel jediM2 = JediAdapter.fromJediContract(m_webService.GetJediById(idJedi2));
+                StadeModel stadeM = StadeAdapter.fromStadeContract(m_webService.GetStadeById(idStade));
+
+                // Recherche le match correspondant
+                MatchModel match = GetMatchByID(id);
+                match.Jedi1 = jediM1;
+                match.Jedi2 = jediM2;
+                match.Stade = stadeM;
+
+                // Mise à jour du jedi
+                m_webService.UpdateMatch(MatchAdapter.fromMatchModel(match));
 
                 return new RedirectResult(Url.Action("Index") + "#content");
             }
@@ -137,6 +165,7 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Match/Delete/id
         public ActionResult Delete(int id)
         {
+            // Recherche le stade correspondant
             MatchModel m = this.GetMatchByID(id);
 
             return View(m);
@@ -149,12 +178,11 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
+                // Recherche le match correspondant
                 MatchModel m = this.GetMatchByID(id);
-                MatchContract mc = MatchAdapter.fromMatchModel(m);
 
-                // TODO : check it
-                // call webservice
-                //m_webService.DeleteMatch(mc);
+                // Appelle le Web service pour la suppression
+                m_webService.DeleteMatch(MatchAdapter.fromMatchModel(m));
 
                 return new RedirectResult(Url.Action("Index") + "#content");
             }

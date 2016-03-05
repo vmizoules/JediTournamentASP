@@ -19,6 +19,9 @@ namespace JediService.Adapters
         /// <returns>Jedi.</returns>
         public static Jedi fromJediContract(JediContract jediC)
         {
+            if (jediC == null)
+                return null;
+
             Jedi j = new Jedi(  jediC.ID, 
                                 jediC.Nom, 
                                 jediC.IsSith, 
@@ -34,6 +37,9 @@ namespace JediService.Adapters
         /// <returns>Jedi contract.</returns>
         public static JediContract fromJedi(Jedi jedi)
         {
+            if (jedi == null)
+                return null;
+
             JediContract jc = new JediContract( jedi.ID,
                                                 jedi.IsSith, 
                                                 jedi.Nom, 
