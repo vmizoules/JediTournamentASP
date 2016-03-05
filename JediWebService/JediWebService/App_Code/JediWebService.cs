@@ -59,7 +59,11 @@ public class JediWebService : IJediWebService
 
     JediContract IJediWebService.GetJediById(int jediID)
     {
-        return JediAdapter.fromJedi(m_manager.GetJediByID(jediID));
+        Jedi j = m_manager.GetJediByID(jediID);
+        if (j != null)
+            return JediAdapter.fromJedi(j);
+        else
+            return null;
     }
 
     List<JediContract> IJediWebService.GetJedis()
@@ -98,7 +102,11 @@ public class JediWebService : IJediWebService
 
     StadeContract IJediWebService.GetStadeById(int stadeID)
     {
-        return StadeAdapter.fromStade(m_manager.GetStadeByID(stadeID));
+        Stade s = m_manager.GetStadeByID(stadeID);
+        if (s != null)
+            return StadeAdapter.fromStade(m_manager.GetStadeByID(stadeID));
+        else
+            return null;
     }
 
     List<StadeContract> IJediWebService.GetStades()

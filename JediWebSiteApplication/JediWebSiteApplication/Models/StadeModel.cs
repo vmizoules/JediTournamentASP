@@ -35,5 +35,18 @@ namespace JediWebSiteApplication.Models
         /// </summary>
         [Display(Name = "Caractéristiques du stade")]
         public List<CaracteristiqueModel> Caracteristiques { get; set; }
+
+        /// <summary>
+        /// Donne accès au lieu de déroulement du match.
+        /// </summary>
+        [Display(Name = "Stade")]
+        public String Place
+        {
+            get
+            {
+                return Nom + " (" + Planete + ")";
+            }
+            private set { }
+        }
     }
 }

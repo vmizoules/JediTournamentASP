@@ -36,14 +36,12 @@ namespace JediWebSiteApplication.Models
         /// <summary>
         /// Id du jedi vainqueur. Si égale à -1 alors le match n'as pa été joué.
         /// </summary>
-        [Required]
         [Display(Name = "ID Vainqueur")]
         public int IdVainqueur { get; set; }
 
         /// <summary>
         /// Id du jedi vainqueur. Si égale à -1 alors le match n'as pa été joué.
         /// </summary>
-        [Required]
         [Display(Name = "Vainqueur")]
         public string Vainqueur
         {

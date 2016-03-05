@@ -1,0 +1,53 @@
+﻿@model JediWebSiteApplication.Models.SubModels.MatchAvailableContentModel
+
+@{
+    ViewBag.Title = "Création d'un match";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+        
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedJedi1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedJedi1, Model.Jedis, Model.DefaultJedi)
+                @Html.ValidationMessageFor(model => model.SelectedJedi1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedJedi2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedJedi2, Model.Jedis, Model.DefaultJedi)
+                @Html.ValidationMessageFor(model => model.SelectedJedi2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedStade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedStade, Model.Stades, Model.DefaultStade)
+                @Html.ValidationMessageFor(model => model.SelectedStade)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Créer" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+    
+<div>
+    @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
