@@ -1,8 +1,8 @@
-﻿@model IEnumerable<JediWebSiteApplication.Models.StadeModel>
+﻿@model IEnumerable<JediWebSiteApplication.Models.TournoiModel>
 
 @{
-    ViewBag.Title = "Liste des stades";
-    ViewBag.SubTitle = "Lequel sera votre tombeau ?";
+    ViewBag.Title = "Liste des tournois";
+    ViewBag.SubTitle = "Un peu d'action ne fera pas de mal !";
 }
 
 <!-- Begin rotate box-2 -->
@@ -14,12 +14,6 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Nom)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NbPlaces)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Planete)
-                    </th>
                     <th></th>
                 </tr>
 
@@ -30,13 +24,8 @@
                             @Html.DisplayFor(modelItem => item.Nom)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.NbPlaces)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Planete)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Éditer", "Edit", null, null, null, "content", new { id = item.ID }, null) |
+                            <!-- Prévoir une désactivation du lancement si le tournoi a déjà été joué ? -->
+                            @Html.ActionLink("Lancer", "Launch", null, null, null, "content", new { id = item.ID }, null) |
                             @Html.ActionLink("Détails", "Details", null, null, null, "content", new { id = item.ID }, null) |
                             @Html.ActionLink("Supprimer", "Delete", null, null, null, "content", new { id = item.ID }, null)
                         </td>
@@ -47,7 +36,7 @@
 
             <p>
                 <a href="@Url.Action("Create")#content" role="button" class="btn btn-default">
-                    <i class="fa fa-plus"></i> Ajouter un stade
+                    <i class="fa fa-plus"></i> Créer un tournoi
                 </a>
             </p>
         </div>

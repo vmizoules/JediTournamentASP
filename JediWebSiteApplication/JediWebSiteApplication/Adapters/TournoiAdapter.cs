@@ -29,6 +29,23 @@ namespace JediWebSiteApplication.Adapters
         }
 
         /// <summary>
+        /// Adapte une liste de Tournoi Contract en une liste de Tournoi Model.
+        /// </summary>
+        /// <param name="tournoisC">Liste de Tournoi Contract à adapter.</param>
+        /// <returns>Liste de Tournoi Model.</returns>
+        public static List<TournoiModel> fromTournoiContractList(List<TournoiContract> tournoisC)
+        {
+            List<TournoiModel> listT = new List<TournoiModel>();
+
+            foreach (TournoiContract tc in tournoisC)
+            {
+                listT.Add(TournoiAdapter.fromTournoiContract(tc));
+            }
+
+            return listT;
+        }
+
+        /// <summary>
         /// Adapte un Tournoi Model en Tournoi Contract.
         /// </summary>
         /// <param name="tournoi">Tournoi à adapter.</param>

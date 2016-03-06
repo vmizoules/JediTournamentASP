@@ -15,13 +15,13 @@ namespace JediWebSiteApplication.Controllers
         private List<MatchModel> m_matchs;
 
         /// <summary>
-        /// Retourne le jedi associé à l'id en paramètre.
+        /// Retourne le match associé à l'id en paramètre.
         /// </summary>
-        /// <param name="id">Id du jedi recherché.</param>
-        /// <returns>Jedi Model correspondant.</returns>
+        /// <param name="id">Id du match recherché.</param>
+        /// <returns>Match Model correspondant.</returns>
         private MatchModel GetMatchByID(int id)
         {
-            return m_matchs.Find(j => j.ID == id);
+            return m_matchs.Find(m => m.ID == id);
         }
 
         /// <summary>

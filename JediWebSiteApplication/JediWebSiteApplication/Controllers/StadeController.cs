@@ -27,6 +27,7 @@ namespace JediWebSiteApplication.Controllers
         /// Constructeur.
         /// </summary>
         public StadeController()
+            : base()
         {
             // Récupère tous les stades dans une liste
             StadeContract[] scs = m_webService.GetStades(); // Appel au Web Service
