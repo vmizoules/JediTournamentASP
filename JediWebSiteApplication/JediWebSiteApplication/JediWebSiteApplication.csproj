@@ -265,6 +265,9 @@
     <Content Include="Service References\WebServiceReference\JediWebSiteApplication.WebServiceReference.TournoiContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\WebServiceReference\JediWebSiteApplication.WebServiceReference.UtilisateurContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\WebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

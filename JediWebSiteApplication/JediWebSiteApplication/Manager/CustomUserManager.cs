@@ -6,19 +6,24 @@ using Microsoft.AspNet.Identity;
 using JediWebSiteApplication.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using JediWebSiteApplication.WebServiceReference;
 
 namespace JediWebSiteApplication.Manager
 {
     public class CustomUserManager : UserManager<CustomApplicationUser>
     {
-        public CustomUserManager()
+        JediWebServiceClient m_webService;
+
+        public CustomUserManager(JediWebServiceClient webService)
             : base(new UserStore<CustomApplicationUser>(new ApplicationDbContext()))
         {
-
+            m_webService = webService;
         }
 
         public CustomApplicationUser checkLoginPassword(string login, string pwd)
         {
+            UtilisateurContract userC = m_webService.CheckLoginPassword(login, pwd);
+
             // TODO MAKE IT
 
             return new CustomApplicationUser();
@@ -26,6 +31,7 @@ namespace JediWebSiteApplication.Manager
 
         public Boolean Create(CustomApplicationUser user, string pwd)
         {
+
             // TODO MAKE IT
 
             return true;

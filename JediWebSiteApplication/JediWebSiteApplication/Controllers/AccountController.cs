@@ -19,7 +19,7 @@ namespace JediWebSiteApplication.Controllers
         public AccountController()
             : base()
         {
-            UserManager = new CustomUserManager();
+            UserManager = new CustomUserManager(m_webService);
         }
 
         public AccountController(CustomUserManager userManager)
