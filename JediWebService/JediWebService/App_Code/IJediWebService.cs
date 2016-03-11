@@ -157,5 +157,24 @@ namespace JediService
         List<TournoiContract> GetTournois();
 
         #endregion
+
+        #region "Opérations liées aux utilisateurs"
+
+        /// <summary>
+        /// Création d'un utilisateur
+        /// </summary>
+        /// <param name="tournoi">Tournoi à créer.</param>
+        [OperationContract]
+        void CreateUtilisateur(UtilisateurContract utilisateur);
+
+        /// <summary>
+        /// Contrôler un identifiant/password
+        /// </summary>
+        /// <param name="login">Login</param>
+        /// <param name="passwd">Mot de passe de l'utilisateur</param>
+        [OperationContract]
+        UtilisateurContract CheckLoginPassword(string login, string passwd);
+
+        #endregion
     }
 }
