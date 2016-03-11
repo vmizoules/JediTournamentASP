@@ -186,6 +186,7 @@
     <Compile Include="Models\SubModels\MatchAvailableContentModel.cs" />
     <Compile Include="Models\SubModels\MatchEditModel.cs" />
     <Compile Include="Models\SubModels\PreparedTournoiModel.cs" />
+    <Compile Include="Models\SubModels\TournoiAvailableContentModel.cs" />
     <Compile Include="Models\TournoiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\WebServiceReference\Reference.cs">
@@ -319,6 +320,7 @@
     <Content Include="Views\Match\Delete.cshtml" />
     <Content Include="Views\Tournoi\Index.cshtml" />
     <Content Include="Views\Tournoi\Launch.cshtml" />
+    <Content Include="Views\Tournoi\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

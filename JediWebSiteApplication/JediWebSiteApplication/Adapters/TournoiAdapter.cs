@@ -49,7 +49,7 @@ namespace JediWebSiteApplication.Adapters
         /// </summary>
         /// <param name="tournoi">Tournoi à adapter.</param>
         /// <returns>Tournoi contract.</returns>
-        public static TournoiContract fromTournoi(TournoiModel tournoi)
+        public static TournoiContract fromTournoiModel(TournoiModel tournoi)
         {
             TournoiContract tc = new TournoiContract();
             tc.ID = tournoi.ID;

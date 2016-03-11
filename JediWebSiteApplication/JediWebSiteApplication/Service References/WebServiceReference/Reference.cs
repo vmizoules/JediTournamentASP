@@ -537,6 +537,12 @@ namespace JediWebSiteApplication.WebServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/DeleteMatch", ReplyAction="http://tempuri.org/IJediWebService/DeleteMatchResponse")]
         System.Threading.Tasks.Task DeleteMatchAsync(JediWebSiteApplication.WebServiceReference.MatchContract match);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetMatchById", ReplyAction="http://tempuri.org/IJediWebService/GetMatchByIdResponse")]
+        JediWebSiteApplication.WebServiceReference.MatchContract GetMatchById(int matchID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetMatchById", ReplyAction="http://tempuri.org/IJediWebService/GetMatchByIdResponse")]
+        System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.MatchContract> GetMatchByIdAsync(int matchID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetMatchs", ReplyAction="http://tempuri.org/IJediWebService/GetMatchsResponse")]
         JediWebSiteApplication.WebServiceReference.MatchContract[] GetMatchs();
         
@@ -699,6 +705,14 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         public System.Threading.Tasks.Task DeleteMatchAsync(JediWebSiteApplication.WebServiceReference.MatchContract match) {
             return base.Channel.DeleteMatchAsync(match);
+        }
+        
+        public JediWebSiteApplication.WebServiceReference.MatchContract GetMatchById(int matchID) {
+            return base.Channel.GetMatchById(matchID);
+        }
+        
+        public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.MatchContract> GetMatchByIdAsync(int matchID) {
+            return base.Channel.GetMatchByIdAsync(matchID);
         }
         
         public JediWebSiteApplication.WebServiceReference.MatchContract[] GetMatchs() {

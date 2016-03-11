@@ -209,6 +209,15 @@ namespace BusinessLayer
             m_data.DeleteMatch(match);
         }
 
+        /// <summary>
+        /// Donne le match correspondant à l'id.
+        /// </summary>
+        /// <returns>Match correspondant si existant, sinon null.</returns>
+        public Match GetMatchByID(int id)
+        {
+            return m_data.GetAllMatchs().Where(m => m.ID == id).SingleOrDefault();
+        }
+
         #endregion
 
         #region "Liés aux Caractéristiques"

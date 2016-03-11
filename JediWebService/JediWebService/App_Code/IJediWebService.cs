@@ -126,6 +126,14 @@ namespace JediService
         void DeleteMatch(MatchContract match);
 
         /// <summary>
+        /// Récupère le match associé à l'id en paramètre.
+        /// </summary>
+        /// <param name="matchID">Id d'un match.</param>
+        /// <returns>Match correspondant à l'id.</returns>
+        [OperationContract]
+        MatchContract GetMatchById(int matchID);
+
+        /// <summary>
         /// Récupère la liste des matchs.
         /// </summary>
         /// <returns>Liste des matchs.</returns>

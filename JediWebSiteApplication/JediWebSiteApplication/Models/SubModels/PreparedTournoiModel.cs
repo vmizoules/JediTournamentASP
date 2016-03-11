@@ -85,6 +85,7 @@ namespace JediWebSiteApplication.Models.SubModels
         /// <param name="match">Match à calculer.</param>
         public void computeMatch(MatchModel match)
         {
+            // TODO avec le web service
             Random r = new Random();
 
             // Affecte le vainqueur
@@ -92,6 +93,15 @@ namespace JediWebSiteApplication.Models.SubModels
                 match.IdVainqueur = match.Jedi1.ID;
             else
                 match.IdVainqueur = match.Jedi2.ID;
+        }
+
+        /// <summary>
+        /// Propriété d'accès au nom du tournoi.
+        /// </summary>
+        public string Nom
+        {
+            get { return m_tournoi.Nom; }
+            set { m_tournoi.Nom = value;  }
         }
 
         /// <summary>

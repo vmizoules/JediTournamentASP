@@ -135,6 +135,11 @@ public class JediWebService : IJediWebService
         m_manager.DeleteMatch(m);
     }
 
+    MatchContract IJediWebService.GetMatchById(int matchID)
+    {
+        return MatchAdapter.fromMatch(m_manager.GetMatchByID(matchID));
+    }
+
     List<MatchContract> IJediWebService.GetMatchs()
     {
         List<MatchContract> listC = new List<MatchContract>();
