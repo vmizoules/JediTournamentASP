@@ -103,6 +103,12 @@
   <wsdl:message name="IJediWebService_GetMatchs_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMatchsResponse" />
   </wsdl:message>
+  <wsdl:message name="IJediWebService_ComputeMatchResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComputeMatchResult" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_ComputeMatchResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ComputeMatchResultResponse" />
+  </wsdl:message>
   <wsdl:message name="IJediWebService_CreateTournoi_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateTournoi" />
   </wsdl:message>
@@ -185,6 +191,10 @@
     <wsdl:operation name="GetMatchs">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetMatchs" message="tns:IJediWebService_GetMatchs_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetMatchsResponse" message="tns:IJediWebService_GetMatchs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ComputeMatchResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/ComputeMatchResult" message="tns:IJediWebService_ComputeMatchResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/ComputeMatchResultResponse" message="tns:IJediWebService_ComputeMatchResult_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateTournoi">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CreateTournoi" message="tns:IJediWebService_CreateTournoi_InputMessage" />
@@ -338,6 +348,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMatchs">
       <soap:operation soapAction="http://tempuri.org/IJediWebService/GetMatchs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComputeMatchResult">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/ComputeMatchResult" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

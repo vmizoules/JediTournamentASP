@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JediWebSiteApplication.Adapters;
+using JediWebSiteApplication.WebServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,30 +26,36 @@ namespace JediWebSiteApplication.Models.SubModels
         {
             m_tournoi = tournoi;
             m_matchs = new List<MatchModel>();
-            
+
+            JediWebServiceClient webService = new JediWebServiceClient();
+            int winnerID = -1;
+
             // Ajoute et calcul les 4 premiers matchs (Quart de finale)
             m_matchs.AddRange(m_tournoi.Matchs.Where(m => m.PhaseTournoi == EPhaseTournoiModel.QuartFinale));
             foreach (MatchModel m in m_matchs)
             {
-                computeMatch(m);
+                winnerID = webService.ComputeMatchResult(MatchAdapter.fromMatchModel(m)); ;
+                m.IdVainqueur = winnerID;
             }
 
             // Calcul des 2 matchs (Demi finale)
             for (int i = 0 ; i < 2; i++)
             {
-                MatchModel mm = affectMatchMainData(m_matchs[2 * i], m_matchs[2 * i + 1], null);
+                MatchModel mm = AffectMatchMainData(m_matchs[2 * i], m_matchs[2 * i + 1], null);
                 mm.PhaseTournoi = EPhaseTournoiModel.DemiFinale;
                 // Fait jouer le match
-                computeMatch(mm);
+                winnerID = webService.ComputeMatchResult(MatchAdapter.fromMatchModel(mm)); ;
+                mm.IdVainqueur = winnerID;
 
                 m_matchs.Add(mm);
             }
 
             // Calcul du dernier match (Finale)
-            MatchModel mFinale = affectMatchMainData(m_matchs[4], m_matchs[5], null);
+            MatchModel mFinale = AffectMatchMainData(m_matchs[4], m_matchs[5], null);
             mFinale.PhaseTournoi = EPhaseTournoiModel.Finale;
             // Fait jouer le match
-            computeMatch(mFinale);
+            winnerID = webService.ComputeMatchResult(MatchAdapter.fromMatchModel(mFinale)); ;
+            mFinale.IdVainqueur = winnerID;
 
             m_matchs.Add(mFinale);
         }
@@ -59,7 +67,7 @@ namespace JediWebSiteApplication.Models.SubModels
         /// <param name="p2">Second match précédent.</param>
         /// <param name="s">Stade dans lequel se déroule le match.</param>
         /// <returns>Match créer à partir des paramètres.</returns>
-        private MatchModel affectMatchMainData(MatchModel p1, MatchModel p2, StadeModel s)
+        private MatchModel AffectMatchMainData(MatchModel p1, MatchModel p2, StadeModel s)
         {
             MatchModel m = new MatchModel();
 
@@ -77,22 +85,6 @@ namespace JediWebSiteApplication.Models.SubModels
             m.ID = -2;
 
             return m;
-        }
-
-        /// <summary>
-        /// Calcul le résultat d'un match.
-        /// </summary>
-        /// <param name="match">Match à calculer.</param>
-        public void computeMatch(MatchModel match)
-        {
-            // TODO avec le web service
-            Random r = new Random();
-
-            // Affecte le vainqueur
-            if (/* Jedi 1*/ r.Next(100) > r.Next(100) /* Jedi 2 */) 
-                match.IdVainqueur = match.Jedi1.ID;
-            else
-                match.IdVainqueur = match.Jedi2.ID;
         }
 
         /// <summary>

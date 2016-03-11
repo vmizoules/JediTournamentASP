@@ -153,6 +153,11 @@ public class JediWebService : IJediWebService
         return listC;
     }
 
+    int IJediWebService.ComputeMatchResult(MatchContract match)
+    {
+        return m_manager.ComputeMatchResult(MatchAdapter.fromMatchContract(match));
+    }
+
     #endregion
     #region "Opérations liées aux tournois"
 

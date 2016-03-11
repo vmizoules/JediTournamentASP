@@ -140,6 +140,14 @@ namespace JediService
         [OperationContract]
         List<MatchContract> GetMatchs();
 
+        /// <summary>
+        /// Calcul le résultat du match passé en paramètre.
+        /// </summary>
+        /// <param name="match">Match à jouer.</param>
+        /// <returns>Id du jedi vainqueur du match.</returns>
+        [OperationContract]
+        int ComputeMatchResult(MatchContract match);
+
         #endregion
         #region "Opérations liées aux tournois"
 

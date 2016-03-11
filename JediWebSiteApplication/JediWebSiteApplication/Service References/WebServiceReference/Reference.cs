@@ -549,6 +549,12 @@ namespace JediWebSiteApplication.WebServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetMatchs", ReplyAction="http://tempuri.org/IJediWebService/GetMatchsResponse")]
         System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.MatchContract[]> GetMatchsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/ComputeMatchResult", ReplyAction="http://tempuri.org/IJediWebService/ComputeMatchResultResponse")]
+        int ComputeMatchResult(JediWebSiteApplication.WebServiceReference.MatchContract match);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/ComputeMatchResult", ReplyAction="http://tempuri.org/IJediWebService/ComputeMatchResultResponse")]
+        System.Threading.Tasks.Task<int> ComputeMatchResultAsync(JediWebSiteApplication.WebServiceReference.MatchContract match);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/CreateTournoi", ReplyAction="http://tempuri.org/IJediWebService/CreateTournoiResponse")]
         void CreateTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
         
@@ -721,6 +727,14 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.MatchContract[]> GetMatchsAsync() {
             return base.Channel.GetMatchsAsync();
+        }
+        
+        public int ComputeMatchResult(JediWebSiteApplication.WebServiceReference.MatchContract match) {
+            return base.Channel.ComputeMatchResult(match);
+        }
+        
+        public System.Threading.Tasks.Task<int> ComputeMatchResultAsync(JediWebSiteApplication.WebServiceReference.MatchContract match) {
+            return base.Channel.ComputeMatchResultAsync(match);
         }
         
         public void CreateTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {

@@ -59,6 +59,9 @@ namespace JediWebSiteApplication.Adapters
         /// <returns>Match Model.</returns>
         public static MatchModel fromMatchContract(MatchContract matchC)
         {
+            if (matchC == null)
+                return null;
+
             MatchModel m = new MatchModel();
             m.ID = matchC.ID;
             m.IdVainqueur = matchC.IdVainqueur;
@@ -94,6 +97,9 @@ namespace JediWebSiteApplication.Adapters
         /// <returns>Match contract.</returns>
         public static MatchContract fromMatchModel(MatchModel match)
         {
+            if (match == null)
+                return null;
+
             // Prépare les valeurs
             JediContract jc1 = JediAdapter.fromJediModel(match.Jedi1);
             JediContract jc2 = JediAdapter.fromJediModel(match.Jedi2);

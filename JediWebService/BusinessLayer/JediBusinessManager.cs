@@ -18,11 +18,17 @@ namespace BusinessLayer
         private DalManager m_data;
 
         /// <summary>
+        /// Générateur de nombres pseudo aléatoires.
+        /// </summary>
+        private Random m_generator;
+
+        /// <summary>
         /// Constructeur.
         /// </summary>
         public JediBusinessManager()
         {
             m_data = DalManager.Instance;
+            m_generator = new Random();
         }
 
         #region "Liés aux Jedis"
@@ -216,6 +222,23 @@ namespace BusinessLayer
         public Match GetMatchByID(int id)
         {
             return m_data.GetAllMatchs().Where(m => m.ID == id).SingleOrDefault();
+        }
+
+        /// <summary>
+        /// Calcul le résultat du match passé en paramètre.
+        /// </summary>
+        /// <param name="match">Match à jouer.</param>
+        /// <returns>Id du jedi vainqueur du match.</returns>
+        public int ComputeMatchResult(Match match)
+        {
+            int ret = -1;
+            // Affecte le vainqueur
+            if (/* Jedi 1*/ m_generator.Next(100) > m_generator.Next(100) /* Jedi 2 */)
+                ret = match.Jedi1.ID;
+            else
+                ret = match.Jedi2.ID;
+
+            return ret;
         }
 
         #endregion

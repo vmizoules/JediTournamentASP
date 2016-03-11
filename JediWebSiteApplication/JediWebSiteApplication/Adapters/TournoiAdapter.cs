@@ -19,6 +19,9 @@ namespace JediWebSiteApplication.Adapters
         /// <returns>Tournoi Model.</returns>
         public static TournoiModel fromTournoiContract(TournoiContract tournoiC)
         {
+            if (tournoiC == null)
+                return null;
+
             TournoiModel t = new TournoiModel();
             t.ID = tournoiC.ID;
             t.Nom = tournoiC.Nom;
@@ -51,6 +54,9 @@ namespace JediWebSiteApplication.Adapters
         /// <returns>Tournoi contract.</returns>
         public static TournoiContract fromTournoiModel(TournoiModel tournoi)
         {
+            if (tournoi == null)
+                return null;
+
             TournoiContract tc = new TournoiContract();
             tc.ID = tournoi.ID;
             tc.Nom = tournoi.Nom;
