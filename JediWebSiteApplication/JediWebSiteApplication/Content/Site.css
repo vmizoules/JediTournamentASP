@@ -7,6 +7,11 @@ a, a:hover, a:focus {
 	color: #676D75;
 }
 
+.slow {
+    -webkit-animation-duration: 3s !important;
+    animation-duration: 3s !important;
+}
+
 /* === Navbar === */
 .navbar-default .navbar-brand, .navbar-default .navbar-brand:focus {
 	color: #fff;
