@@ -21,7 +21,6 @@ namespace JediWebSiteApplication.Adapters
         {
             TournoiModel t = new TournoiModel();
             t.ID = tournoiC.ID;
-            t.ID = -1;
             t.Nom = tournoiC.Nom;
             t.Matchs = MatchAdapter.fromMatchContractList(tournoiC.Matchs.ToList());
 

@@ -1,5 +1,6 @@
 ﻿using JediWebSiteApplication.Adapters;
 using JediWebSiteApplication.Models;
+using JediWebSiteApplication.Models.SubModels;
 using JediWebSiteApplication.WebServiceReference;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,19 @@ namespace JediWebSiteApplication.Controllers
         public ActionResult Details(int id)
         {
             return View();
+        }
+
+        //
+        // GET: /Tournoi/Launch/id
+        public ActionResult Launch(int id)
+        {
+            // Recherche le tournoi correspondant
+            TournoiModel t = GetTournoiByID(id);
+
+            // Construit le modèle pour le lancement nécessaire pour lancer un tournoi
+            PreparedTournoiModel ptm = new PreparedTournoiModel(t);
+
+            return View(ptm);
         }
 
         //
