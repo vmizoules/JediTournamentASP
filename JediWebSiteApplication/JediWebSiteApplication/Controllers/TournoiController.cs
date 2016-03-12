@@ -178,7 +178,10 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Tournoi/Delete/id
         public ActionResult Delete(int id)
         {
-            return View();
+            // Recherche le tournoi correspondant
+            TournoiModel t = GetTournoiByID(id);
+
+            return View(t);
         }
 
         //
@@ -188,7 +191,11 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                // Recherche le tournoi correspondant
+                TournoiModel t = GetTournoiByID(id);
+
+                // Appelle le Web service pour la suppression
+                m_webService.DeleteTournoi(TournoiAdapter.fromTournoiModel(t));
 
                 return new RedirectResult(Url.Action("Index") + "#content");
             }

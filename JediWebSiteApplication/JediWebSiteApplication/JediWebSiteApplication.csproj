@@ -325,6 +325,7 @@
     <Content Include="Views\Tournoi\Create.cshtml" />
     <Content Include="Views\Tournoi\Edit.cshtml" />
     <Content Include="Views\Tournoi\Details.cshtml" />
+    <Content Include="Views\Tournoi\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
