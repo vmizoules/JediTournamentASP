@@ -26,6 +26,7 @@
                         <td>
                             <!-- Prévoir une désactivation du lancement si le tournoi a déjà été joué ? -->
                             @Html.ActionLink("Lancer", "Launch", null, null, null, "content", new { id = item.ID }, null) |
+                            @Html.ActionLink("Éditer", "Edit", null, null, null, "content", new { id = item.ID }, null) |
                             @Html.ActionLink("Détails", "Details", null, null, null, "content", new { id = item.ID }, null) |
                             @Html.ActionLink("Supprimer", "Delete", null, null, null, "content", new { id = item.ID }, null)
                         </td>

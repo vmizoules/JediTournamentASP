@@ -48,10 +48,5 @@ namespace JediWebSiteApplication.Models
             }
             private set { }
         }
-
-        public override string ToString()
-        {
-            return ID.ToString();
-        }
     }
 }

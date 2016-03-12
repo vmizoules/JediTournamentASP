@@ -150,7 +150,7 @@ namespace JediWebSiteApplication.Controllers
                 match.Jedi2 = jediM2;
                 match.Stade = stadeM;
 
-                // Mise à jour du jedi
+                // Mise à jour du match
                 m_webService.UpdateMatch(MatchAdapter.fromMatchModel(match));
 
                 return new RedirectResult(Url.Action("Index") + "#content");

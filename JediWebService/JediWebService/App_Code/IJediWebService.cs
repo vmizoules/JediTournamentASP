@@ -159,6 +159,13 @@ namespace JediService
         void CreateTournoi(TournoiContract tournoi);
 
         /// <summary>
+        /// Mise à jour d'un tournoi.
+        /// </summary>
+        /// <param name="tournoi">Tournoi à mettre à jour.</param>
+        [OperationContract]
+        void UpdateTournoi(TournoiContract tournoi);
+
+        /// <summary>
         /// Suppression d'un tournoi.
         /// </summary>
         /// <param name="tournoi">Tournoi à supprimer.</param>

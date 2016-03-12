@@ -66,10 +66,10 @@ namespace JediWebSiteApplication.Models.SubModels
             get
             {
                 IEnumerable<SelectListItem> allMatchs = m_availableMatchs.Select(m => new SelectListItem
-                {
-                    Value = m.ID.ToString(),
-                    Text = m.Description
-                });
+                                                                                {
+                                                                                    Value = m.ID.ToString(),
+                                                                                    Text = m.Description
+                                                                                });
 
                 return allMatchs;
             }

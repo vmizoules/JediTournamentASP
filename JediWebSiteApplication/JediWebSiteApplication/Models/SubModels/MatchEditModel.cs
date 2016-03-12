@@ -15,6 +15,7 @@ namespace JediWebSiteApplication.Models.SubModels
         /// <summary>
         /// Constructeur.
         /// </summary>
+        /// <param name="match">Match à éditer.</param>
         /// <param name="jModels">Liste des jedis disponibles.</param>
         /// <param name="sModels">Liste des stades disponibles.</param>
         public MatchEditModel(MatchModel match, List<JediModel> jModels, List<StadeModel> sModels)

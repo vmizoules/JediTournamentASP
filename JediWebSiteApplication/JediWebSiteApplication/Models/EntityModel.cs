@@ -13,5 +13,10 @@ namespace JediWebSiteApplication.Models
         /// </summary>
         [Display(Name = "ID")]
         public int ID { get; set; }
+
+        public override string ToString()
+        {
+            return ID.ToString();
+        }
     }
 }

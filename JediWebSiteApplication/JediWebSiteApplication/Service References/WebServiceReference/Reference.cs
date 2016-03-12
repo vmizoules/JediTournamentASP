@@ -561,6 +561,12 @@ namespace JediWebSiteApplication.WebServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/CreateTournoi", ReplyAction="http://tempuri.org/IJediWebService/CreateTournoiResponse")]
         System.Threading.Tasks.Task CreateTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/UpdateTournoi", ReplyAction="http://tempuri.org/IJediWebService/UpdateTournoiResponse")]
+        void UpdateTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/UpdateTournoi", ReplyAction="http://tempuri.org/IJediWebService/UpdateTournoiResponse")]
+        System.Threading.Tasks.Task UpdateTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/DeleteTournoi", ReplyAction="http://tempuri.org/IJediWebService/DeleteTournoiResponse")]
         void DeleteTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
         
@@ -743,6 +749,14 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         public System.Threading.Tasks.Task CreateTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {
             return base.Channel.CreateTournoiAsync(tournoi);
+        }
+        
+        public void UpdateTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {
+            base.Channel.UpdateTournoi(tournoi);
+        }
+        
+        public System.Threading.Tasks.Task UpdateTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {
+            return base.Channel.UpdateTournoiAsync(tournoi);
         }
         
         public void DeleteTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {

@@ -227,10 +227,22 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteTournoi">
+  <xs:element name="UpdateTournoi">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="tournoi" nillable="true" type="q19:TournoiContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTournoiResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTournoi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="tournoi" nillable="true" type="q20:TournoiContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -247,7 +259,7 @@
   <xs:element name="GetTournoisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetTournoisResult" nillable="true" type="q20:ArrayOfTournoiContract" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetTournoisResult" nillable="true" type="q21:ArrayOfTournoiContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -119,7 +119,13 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Tournoi/Edit/id
         public ActionResult Edit(int id)
         {
-            return View();
+            // Recherche le tournoi correspondant
+            TournoiModel t = GetTournoiByID(id);
+
+            // Construit le modèle pour l'édition d'un tournoi
+            TournoiEditModel content = new TournoiEditModel(t, MatchAdapter.fromMatchContractList(m_webService.GetMatchs().ToList()));
+
+            return View(content);
         }
 
         //
@@ -129,7 +135,30 @@ namespace JediWebSiteApplication.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                // Récupère les valeurs du formulaire soumis
+                List<MatchModel> matchs = new List<MatchModel>();
+                for (int i = 1; i <= 4; i++)
+                {
+                    int tmp;
+                    int.TryParse(collection["SelectedMatch" + i], out tmp);
+
+                    // Saisie invalide
+                    if (tmp == -1)
+                        return View();
+
+                    // Récupères les objets nécessaires via la web service
+                    matchs.Add(MatchAdapter.fromMatchContract(m_webService.GetMatchById(tmp)));
+                }
+
+                string name = collection["Nom"];
+
+                // Recherche le tournoi correspondant
+                TournoiModel tournoi = GetTournoiByID(id);
+                tournoi.Nom = name;
+                tournoi.Matchs = matchs;
+
+                // Mise à jour du tournoi
+                m_webService.UpdateTournoi(TournoiAdapter.fromTournoiModel(tournoi));
 
                 return new RedirectResult(Url.Action("Index") + "#content");
             }
