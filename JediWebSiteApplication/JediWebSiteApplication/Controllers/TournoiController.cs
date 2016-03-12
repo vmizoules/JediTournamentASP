@@ -48,7 +48,13 @@ namespace JediWebSiteApplication.Controllers
         // GET: /Tournoi/Details/id
         public ActionResult Details(int id)
         {
-            return View();
+            // Recherche le tournoi correspondant
+            TournoiModel t = GetTournoiByID(id);
+
+            // Construit le modèle pour l'affichage des détails du tournoi
+            TournoiDetailsModel content = new TournoiDetailsModel(t);
+
+            return View(content);
         }
 
         //
