@@ -4,101 +4,90 @@
     ViewBag.Title = "Tournoi " + Model.Nom;
     ViewBag.SubTitle = "Ça va faire mal !";
 }
+<div class="row">
+    <div class="col-md-3 col-sm-6">
+        <div class="wrapper">
+            <div id="tournament" class="wow slideInLeft slow" data-wow-delay="1s">
+            </div>
+        </div>
 
-<div class="wrapper">
-    <div id="tournament" class="wow slideInLeft slow" data-wow-delay="2s">
+        <div>
+            @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
+        </div>
+
+        
     </div>
 </div>
 
-<div>
-    @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
-</div>
-
-
 @section Scripts {
-<script src="@Url.Content("~/Scripts/brackets.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/brackets.min.js")"></script>
 
-<script>
+    <script>
 
-    var rounds;
+        var rounds;
 
-    rounds = [
+        rounds = [
+            //-- Quart
+            [
+                {
+                    player1: { name: "@Model.Matchs[0].Jedi1.Nom", ID: @Model.Matchs[0].Jedi1.ID },
+                    player2: { name: "@Model.Matchs[0].Jedi2.Nom", ID: @Model.Matchs[0].Jedi2.ID }
+                },
+                {
+                    player1: { name: "@Model.Matchs[1].Jedi1.Nom", ID: @Model.Matchs[1].Jedi1.ID },
+                    player2: { name: "@Model.Matchs[1].Jedi2.Nom", ID: @Model.Matchs[1].Jedi2.ID }
+                },
+                {
+                    player1: { name: "@Model.Matchs[2].Jedi1.Nom", ID: @Model.Matchs[2].Jedi1.ID },
+                    player2: { name: "@Model.Matchs[2].Jedi2.Nom", ID: @Model.Matchs[2].Jedi2.ID }
+                },
+                {
+                    player1: { name: "@Model.Matchs[3].Jedi1.Nom", ID: @Model.Matchs[3].Jedi1.ID },
+                    player2: { name: "@Model.Matchs[3].Jedi2.Nom", ID: @Model.Matchs[3].Jedi2.ID }
+                },
+            ],
+            //-- Demi finale
+            [
+                {
+                    player1: { name: "@Model.Matchs[4].Jedi1.Nom", ID: @Model.Matchs[4].Jedi1.ID },
+                    player2: { name: "@Model.Matchs[4].Jedi2.Nom", ID: @Model.Matchs[4].Jedi2.ID }
+                },
+                {
+                    player1: { name: "@Model.Matchs[5].Jedi1.Nom", ID: @Model.Matchs[5].Jedi1.ID },
+                    player2: { name: "@Model.Matchs[5].Jedi2.Nom", ID: @Model.Matchs[5].Jedi2.ID }
+                },
+            ],
+            //-- Finale
+            [
+                {
+                    player1: { name: "@Model.Matchs[6].Jedi1.Nom", ID: @Model.Matchs[6].Jedi1.ID },
+                    player2: { name: "@Model.Matchs[6].Jedi2.Nom", ID: @Model.Matchs[6].Jedi2.ID }
+                },
+            ],
+            //-- Champion
+            [
 
-        //-- Quart
-        [
+                {
+                    player1: { name: "@Model.Matchs[6].Vainqueur", winner: true, ID: @Model.Matchs[6].IdVainqueur },
+                },
+            ],
+        ];
 
-            {
-                player1: { name: "@Model.Matchs[0].Jedi1.Nom", ID: @Model.Matchs[0].Jedi1.ID },
-                player2: { name: "@Model.Matchs[0].Jedi2.Nom", ID: @Model.Matchs[0].Jedi2.ID }
-            },
+        var titles = ['Quart', 'Demi', 'Finale', 'Champion'];
 
-            {
-                player1: { name: "@Model.Matchs[1].Jedi1.Nom", ID: @Model.Matchs[1].Jedi1.ID },
-                player2: { name: "@Model.Matchs[1].Jedi2.Nom", ID: @Model.Matchs[1].Jedi2.ID }
-            },
-
-            {
-                player1: { name: "@Model.Matchs[2].Jedi1.Nom", ID: @Model.Matchs[2].Jedi1.ID },
-                player2: { name: "@Model.Matchs[2].Jedi2.Nom", ID: @Model.Matchs[2].Jedi2.ID }
-            },
-
-            {
-                player1: { name: "@Model.Matchs[3].Jedi1.Nom", ID: @Model.Matchs[3].Jedi1.ID },
-                player2: { name: "@Model.Matchs[3].Jedi2.Nom", ID: @Model.Matchs[3].Jedi2.ID }
-            },
-        ],
-
-        //-- Demi finale
-        [
-
-            {
-                player1: { name: "@Model.Matchs[4].Jedi1.Nom", ID: @Model.Matchs[4].Jedi1.ID },
-                player2: { name: "@Model.Matchs[4].Jedi2.Nom", ID: @Model.Matchs[4].Jedi2.ID }
-            },
-
-            {
-                player1: { name: "@Model.Matchs[5].Jedi1.Nom", ID: @Model.Matchs[5].Jedi1.ID },
-                player2: { name: "@Model.Matchs[5].Jedi2.Nom", ID: @Model.Matchs[5].Jedi2.ID }
-            },
-        ],
-
-        //-- Finale
-        [
-
-            {
-                player1: { name: "@Model.Matchs[6].Jedi1.Nom", ID: @Model.Matchs[6].Jedi1.ID },
-                player2: { name: "@Model.Matchs[6].Jedi2.Nom", ID: @Model.Matchs[6].Jedi2.ID }
-            },
-        ],
-
-        //-- Champion
-        [
-
-            {
-                player1: { name: "@Model.Matchs[6].Vainqueur", winner: true, ID: @Model.Matchs[6].IdVainqueur },
-            },
-        ],
-
-    ];
-
-    var titles = ['Quart', 'Demi', 'Finale', 'Champion'];
-
-
-    ;(function($){
-
-        $("#tournament").brackets({
-            titles: titles,
-            rounds: rounds,
-            color_title: 'black',
-            border_color: '#46CFB0',
-            color_player: 'white',
-            bg_player: '#46CFB0',
-            color_player_hover: 'white',
-            bg_player_hover: '#E95546',
-            border_radius_player: '5px',
-            border_radius_lines: '5px',
-        });
-
-    })(jQuery);
-</script>
+        ;(function($){
+            $("#tournament").brackets({
+                titles: titles,
+                rounds: rounds,
+                color_title: 'black',
+                border_color: '#363940',
+                color_player: 'white',
+                bg_player: '#363940',
+                color_player_hover: '#363940',
+                bg_player_hover: 'white',
+                border_radius_player: '0px',
+                border_radius_lines: '0px',
+            });
+        })(jQuery);
+    </script>
 }

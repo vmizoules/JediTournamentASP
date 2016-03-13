@@ -7,10 +7,23 @@ a, a:hover, a:focus {
 	color: #676D75;
 }
 
+/* additionnal class for animation */
+
 .slow {
-    -webkit-animation-duration: 3s !important;
-    animation-duration: 3s !important;
+    -webkit-animation-duration: 4s !important;
+    animation-duration: 4s !important;
 }
+
+/* Tournament addition style */
+.container-brackets .round .match .player.hover {
+    font-style: italic;
+}
+.match .player {
+    color: white;
+}
+
+
+
 
 /* === Navbar === */
 .navbar-default .navbar-brand, .navbar-default .navbar-brand:focus {
