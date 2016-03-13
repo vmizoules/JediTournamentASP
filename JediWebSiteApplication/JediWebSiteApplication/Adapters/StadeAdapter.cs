@@ -19,6 +19,9 @@ namespace JediWebSiteApplication.Adapters
         /// <returns>Stade Model.</returns>
         public static StadeModel fromStadeContract(StadeContract stadeC)
         {
+            if (stadeC == null)
+                return null;
+
             StadeModel s = new StadeModel();
             s.ID = stadeC.ID;
             s.Nom = stadeC.Nom;
@@ -57,6 +60,9 @@ namespace JediWebSiteApplication.Adapters
         /// <returns>Stade contract.</returns>
         public static StadeContract fromStadeModel(StadeModel stade)
         {
+            if (stade == null)
+                return null;
+
             StadeContract sc = new StadeContract();
             sc.ID = stade.ID;
             sc.Nom = stade.Nom;

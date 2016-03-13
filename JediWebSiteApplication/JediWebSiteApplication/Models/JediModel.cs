@@ -28,10 +28,5 @@ namespace JediWebSiteApplication.Models
         /// </summary>
         [Display(Name = "Caractéristiques du jedi")]
         public List<CaracteristiqueModel> Caracteristiques { get; set; }
-
-        public override string ToString()
-        {
-            return ID.ToString();
-        }
     }
 }

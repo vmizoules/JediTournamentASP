@@ -1,0 +1,82 @@
+﻿@model JediWebSiteApplication.Models.SubModels.TournoiDetailsModel
+
+@{
+    ViewBag.Title = "Détails du tournoi";
+}
+
+<!-- Begin rotate box-2 -->
+<div class="rotate-box-2-wrapper">
+    <div class="container">
+        <div class="row rotate-box-2 square-icon text-center wow zoomIn" data-wow-delay="0.6s">
+
+            <div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Tournoi.Nom)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Tournoi.Nom)
+                    </dd>
+
+                    <table class="table">
+                        <tr>
+                            <th class="text-center">
+                                Quart de Finales
+                            </th>
+                            @if (Model.DemiFinales != null)
+                            {
+                                <th class="text-center">
+                                    Demi Finales
+                                </th>
+                            }
+                            @if (Model.Finale != null)
+                            {
+                                <th class="text-center">
+                                    Finale
+                                </th>
+                            }
+                            <th></th>
+                        </tr>
+                        @foreach (var item in Model.QuartFinales)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Description
+                                </td>
+                            </tr>
+                        }
+                        @if (Model.DemiFinales != null)
+                        {
+                            foreach (var item in Model.DemiFinales)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Description
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        @if (Model.Finale != null)
+                        {
+                            <tr>
+                                <td>
+                                    @Model.Finale.Description
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+
+                    
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Éditer", "Edit", null, null, null, "content", new { id = Model.Tournoi.ID }, null) |
+                @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
+            </p>
+        </div>
+    </div>
+</div>

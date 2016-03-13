@@ -646,17 +646,35 @@ namespace JediWebSiteApplication.WebServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/DeleteMatch", ReplyAction="http://tempuri.org/IJediWebService/DeleteMatchResponse")]
         System.Threading.Tasks.Task DeleteMatchAsync(JediWebSiteApplication.WebServiceReference.MatchContract match);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetMatchById", ReplyAction="http://tempuri.org/IJediWebService/GetMatchByIdResponse")]
+        JediWebSiteApplication.WebServiceReference.MatchContract GetMatchById(int matchID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetMatchById", ReplyAction="http://tempuri.org/IJediWebService/GetMatchByIdResponse")]
+        System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.MatchContract> GetMatchByIdAsync(int matchID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetMatchs", ReplyAction="http://tempuri.org/IJediWebService/GetMatchsResponse")]
         JediWebSiteApplication.WebServiceReference.MatchContract[] GetMatchs();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetMatchs", ReplyAction="http://tempuri.org/IJediWebService/GetMatchsResponse")]
         System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.MatchContract[]> GetMatchsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/ComputeMatchResult", ReplyAction="http://tempuri.org/IJediWebService/ComputeMatchResultResponse")]
+        int ComputeMatchResult(JediWebSiteApplication.WebServiceReference.MatchContract match);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/ComputeMatchResult", ReplyAction="http://tempuri.org/IJediWebService/ComputeMatchResultResponse")]
+        System.Threading.Tasks.Task<int> ComputeMatchResultAsync(JediWebSiteApplication.WebServiceReference.MatchContract match);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/CreateTournoi", ReplyAction="http://tempuri.org/IJediWebService/CreateTournoiResponse")]
         void CreateTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/CreateTournoi", ReplyAction="http://tempuri.org/IJediWebService/CreateTournoiResponse")]
         System.Threading.Tasks.Task CreateTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/UpdateTournoi", ReplyAction="http://tempuri.org/IJediWebService/UpdateTournoiResponse")]
+        void UpdateTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/UpdateTournoi", ReplyAction="http://tempuri.org/IJediWebService/UpdateTournoiResponse")]
+        System.Threading.Tasks.Task UpdateTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/DeleteTournoi", ReplyAction="http://tempuri.org/IJediWebService/DeleteTournoiResponse")]
         void DeleteTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
@@ -822,6 +840,14 @@ namespace JediWebSiteApplication.WebServiceReference {
             return base.Channel.DeleteMatchAsync(match);
         }
         
+        public JediWebSiteApplication.WebServiceReference.MatchContract GetMatchById(int matchID) {
+            return base.Channel.GetMatchById(matchID);
+        }
+        
+        public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.MatchContract> GetMatchByIdAsync(int matchID) {
+            return base.Channel.GetMatchByIdAsync(matchID);
+        }
+        
         public JediWebSiteApplication.WebServiceReference.MatchContract[] GetMatchs() {
             return base.Channel.GetMatchs();
         }
@@ -830,12 +856,28 @@ namespace JediWebSiteApplication.WebServiceReference {
             return base.Channel.GetMatchsAsync();
         }
         
+        public int ComputeMatchResult(JediWebSiteApplication.WebServiceReference.MatchContract match) {
+            return base.Channel.ComputeMatchResult(match);
+        }
+        
+        public System.Threading.Tasks.Task<int> ComputeMatchResultAsync(JediWebSiteApplication.WebServiceReference.MatchContract match) {
+            return base.Channel.ComputeMatchResultAsync(match);
+        }
+        
         public void CreateTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {
             base.Channel.CreateTournoi(tournoi);
         }
         
         public System.Threading.Tasks.Task CreateTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {
             return base.Channel.CreateTournoiAsync(tournoi);
+        }
+        
+        public void UpdateTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {
+            base.Channel.UpdateTournoi(tournoi);
+        }
+        
+        public System.Threading.Tasks.Task UpdateTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {
+            return base.Channel.UpdateTournoiAsync(tournoi);
         }
         
         public void DeleteTournoi(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {

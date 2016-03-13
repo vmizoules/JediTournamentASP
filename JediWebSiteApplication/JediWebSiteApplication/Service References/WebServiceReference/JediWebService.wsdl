@@ -91,17 +91,35 @@
   <wsdl:message name="IJediWebService_DeleteMatch_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteMatchResponse" />
   </wsdl:message>
+  <wsdl:message name="IJediWebService_GetMatchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchById" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_GetMatchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IJediWebService_GetMatchs_InputMessage">
     <wsdl:part name="parameters" element="tns:GetMatchs" />
   </wsdl:message>
   <wsdl:message name="IJediWebService_GetMatchs_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMatchsResponse" />
   </wsdl:message>
+  <wsdl:message name="IJediWebService_ComputeMatchResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComputeMatchResult" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_ComputeMatchResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ComputeMatchResultResponse" />
+  </wsdl:message>
   <wsdl:message name="IJediWebService_CreateTournoi_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateTournoi" />
   </wsdl:message>
   <wsdl:message name="IJediWebService_CreateTournoi_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateTournoiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateTournoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTournoi" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateTournoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTournoiResponse" />
   </wsdl:message>
   <wsdl:message name="IJediWebService_DeleteTournoi_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTournoi" />
@@ -184,13 +202,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/DeleteMatch" message="tns:IJediWebService_DeleteMatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/DeleteMatchResponse" message="tns:IJediWebService_DeleteMatch_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetMatchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetMatchById" message="tns:IJediWebService_GetMatchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetMatchByIdResponse" message="tns:IJediWebService_GetMatchById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetMatchs">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetMatchs" message="tns:IJediWebService_GetMatchs_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetMatchsResponse" message="tns:IJediWebService_GetMatchs_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ComputeMatchResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/ComputeMatchResult" message="tns:IJediWebService_ComputeMatchResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/ComputeMatchResultResponse" message="tns:IJediWebService_ComputeMatchResult_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateTournoi">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CreateTournoi" message="tns:IJediWebService_CreateTournoi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/CreateTournoiResponse" message="tns:IJediWebService_CreateTournoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTournoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/UpdateTournoi" message="tns:IJediWebService_UpdateTournoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/UpdateTournoiResponse" message="tns:IJediWebService_UpdateTournoi_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteTournoi">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/DeleteTournoi" message="tns:IJediWebService_DeleteTournoi_InputMessage" />
@@ -337,6 +367,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetMatchById">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/GetMatchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetMatchs">
       <soap:operation soapAction="http://tempuri.org/IJediWebService/GetMatchs" style="document" />
       <wsdl:input>
@@ -346,8 +385,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ComputeMatchResult">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/ComputeMatchResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateTournoi">
       <soap:operation soapAction="http://tempuri.org/IJediWebService/CreateTournoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTournoi">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/UpdateTournoi" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

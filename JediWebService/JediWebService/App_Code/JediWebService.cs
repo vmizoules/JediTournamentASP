@@ -135,6 +135,11 @@ public class JediWebService : IJediWebService
         m_manager.DeleteMatch(m);
     }
 
+    MatchContract IJediWebService.GetMatchById(int matchID)
+    {
+        return MatchAdapter.fromMatch(m_manager.GetMatchByID(matchID));
+    }
+
     List<MatchContract> IJediWebService.GetMatchs()
     {
         List<MatchContract> listC = new List<MatchContract>();
@@ -148,6 +153,11 @@ public class JediWebService : IJediWebService
         return listC;
     }
 
+    int IJediWebService.ComputeMatchResult(MatchContract match)
+    {
+        return m_manager.ComputeMatchResult(MatchAdapter.fromMatchContract(match));
+    }
+
     #endregion
     #region "Opérations liées aux tournois"
 
@@ -155,6 +165,12 @@ public class JediWebService : IJediWebService
     {
         Tournoi t = TournoiAdapter.fromTournoiContract(tournoi);
         m_manager.CreateTournoi(t);
+    }
+
+    void IJediWebService.UpdateTournoi(TournoiContract tournoi)
+    {
+        Tournoi t = TournoiAdapter.fromTournoiContract(tournoi);
+        m_manager.UpdateTournoi(t);
     }
 
     void IJediWebService.DeleteTournoi(TournoiContract tournoi)

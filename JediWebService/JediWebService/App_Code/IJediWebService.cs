@@ -126,11 +126,27 @@ namespace JediService
         void DeleteMatch(MatchContract match);
 
         /// <summary>
+        /// Récupère le match associé à l'id en paramètre.
+        /// </summary>
+        /// <param name="matchID">Id d'un match.</param>
+        /// <returns>Match correspondant à l'id.</returns>
+        [OperationContract]
+        MatchContract GetMatchById(int matchID);
+
+        /// <summary>
         /// Récupère la liste des matchs.
         /// </summary>
         /// <returns>Liste des matchs.</returns>
         [OperationContract]
         List<MatchContract> GetMatchs();
+
+        /// <summary>
+        /// Calcul le résultat du match passé en paramètre.
+        /// </summary>
+        /// <param name="match">Match à jouer.</param>
+        /// <returns>Id du jedi vainqueur du match.</returns>
+        [OperationContract]
+        int ComputeMatchResult(MatchContract match);
 
         #endregion
         #region "Opérations liées aux tournois"
@@ -141,6 +157,13 @@ namespace JediService
         /// <param name="tournoi">Tournoi à créer.</param>
         [OperationContract]
         void CreateTournoi(TournoiContract tournoi);
+
+        /// <summary>
+        /// Mise à jour d'un tournoi.
+        /// </summary>
+        /// <param name="tournoi">Tournoi à mettre à jour.</param>
+        [OperationContract]
+        void UpdateTournoi(TournoiContract tournoi);
 
         /// <summary>
         /// Suppression d'un tournoi.

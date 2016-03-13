@@ -19,6 +19,9 @@ namespace JediWebSiteApplication.Adapters
         /// <returns>Jedi Model.</returns>
         public static JediModel fromJediContract(JediContract jediC)
         {
+            if (jediC == null)
+                return null;
+
             JediModel j = new JediModel();
             j.ID = jediC.ID;
             j.Nom = jediC.Nom;
@@ -56,6 +59,9 @@ namespace JediWebSiteApplication.Adapters
         /// <returns>Jedi contract.</returns>
         public static JediContract fromJediModel(JediModel jedi)
         {
+            if (jedi == null)
+                return null;
+
             JediContract jc = new JediContract();
             jc.ID = jedi.ID;
             jc.Nom = jedi.Nom;
