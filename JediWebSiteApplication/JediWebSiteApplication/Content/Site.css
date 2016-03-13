@@ -15,11 +15,17 @@ a, a:hover, a:focus {
 }
 
 /* Tournament addition style */
-.container-brackets .round .match .player.hover {
+.tournament .container-brackets .round .match .player.hover {
     font-style: italic;
 }
-.match .player {
+.tournament .player {
     color: white;
+}
+.tournament .winner-display {
+    margin-top: 5em;
+}
+.tournament .winner-display p {
+    font-size: 250%;
 }
 
 
