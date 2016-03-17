@@ -4,6 +4,8 @@
     ViewBag.Title = "Tournoi " + Model.Nom;
     ViewBag.SubTitle = "Ça va faire mal !";
 }
+
+@section Content {
 <div class="row tournament">
 
     <div class="col-md-6 col-sm-12">
@@ -30,12 +32,11 @@
 </div>
 
 <div class="row">
-
     <div>
         @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
     </div>
-
 </div>
+}
 
 @section Scripts {
     <script src="@Url.Content("~/Scripts/brackets.min.js")"></script>

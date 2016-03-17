@@ -103,8 +103,8 @@
                         else
                         {
                             @* -- Display login/register links -- *@
-                            <li>@Html.ActionLink("S’inscrire", "Register", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "page-scroll" })</li>
-                            <li>@Html.ActionLink("Se connecter", "Login", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "page-scroll" })</li>
+                            <li>@Html.ActionLink("Se connecter", "Login", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { @class = "btn-login" })</li>
+                            <li>@Html.ActionLink("S’inscrire", "Register", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { @class = "btn-register" })</li>
                         }                               
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -195,10 +195,8 @@
                 </div>
                 
                 <p>
-                    Connectez-vous ou bien créez un compte pour accéder accéder à cette page !<br/>
-                </p>
-                <p>
-                    @Html.ActionLink("Se connecter", "Login", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { @class = "btn btn-success" })
+                    @Html.ActionLink("Se connecter", "Login", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { @class = "btn btn-success btn-lg btn-login" })
+                    @Html.ActionLink("S’inscrire", "Register", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg btn-register" })
                 </p>
             }
         </section>
