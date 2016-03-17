@@ -304,8 +304,8 @@ namespace DataAccessLayer.Implementations
 
         public void CreateTournoi(Tournoi tournoi)
         {
+            tournoi.ID = m_availableTournoiID++;
             m_tournois.Add(tournoi);
-            m_availableTournoiID++;
         }
 
         public void UpdateTournoi(Tournoi tournoi)
