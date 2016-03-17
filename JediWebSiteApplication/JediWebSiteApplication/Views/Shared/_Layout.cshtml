@@ -1,4 +1,10 @@
-﻿<!doctype html>
+﻿@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.EntityFramework;
+@using JediWebSiteApplication.Models;
+@using JediWebSiteApplication.Manager;
+@using JediWebSiteApplication.WebServiceReference;
+
+<!doctype html>
 <html lang="fr-fr">
 <head>
 
@@ -77,6 +83,12 @@
                         @using Microsoft.AspNet.Identity
                         @if (Request.IsAuthenticated)
                         {
+                            @*
+                            @var manager = new CustomUserManager(new JediWebServiceClient());
+                            var currentUser = manager.FindById(User.Identity.GetUserId());
+                            <p> @currentUser.Score </p>
+                            *@
+
                             @* -- Display links -- *@
                             <li>@Html.ActionLink("Accueil", "Index", "Home", null, null, null, null, new { @class = "page-scroll" })</li>
                             <li>@Html.ActionLink("Jedis", "Index", "Jedi", null, null, "content", null, new { @class = "page-scroll" })</li>
@@ -89,8 +101,8 @@
                               </a>
                               <ul class="dropdown-menu">
                                 <li class="dropdown-header">Informations</li>
-                                <li><a href="#">pseudo : @User.Identity.GetUserName()</a></li>
-                                <li><a href="#">points : ###</a></li>
+                                <li><a href="#">Pseudo : @User.Identity.GetUserName()</a></li>
+                                <li><a href="#">Points : ###</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a></li>
                               </ul>
