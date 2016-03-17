@@ -15,7 +15,6 @@ namespace JediWebSiteApplication.Models
         public CustomIdentity(IEnumerable<Claim> claims, string authenticationType)
             : base(claims, authenticationType)
         {
-            
         }
 
     }

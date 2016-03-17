@@ -28,6 +28,32 @@ a, a:hover, a:focus {
     font-size: 250%;
 }
 
+/* additionnal for navbar dropdown */
+/* arrow color */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #a9a9a9 !important;
+    border-bottom-color: #a9a9a9 !important;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret, .navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #fff  !important;
+    border-bottom-color: #fff !important;
+}
+/* dropdown background */
+.navbar-nav > li > .dropdown-menu {
+    background-color: #2d3035;
+    border-color: #2d3035;
+}
+/* separator */
+.dropdown-menu .divider {
+    background-color: #a9a9a9 !important;
+}
+/* text in same color */
+.dropdown-menu > li > a {
+    color: #a9a9a9 !important;
+}
+
+
+
 
 
 

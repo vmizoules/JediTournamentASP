@@ -73,11 +73,39 @@
                                 ActionLink usage :
                                 @Html.ActionLink("Some link text", "MyAction", "MyController", protocol: null, hostName: null, fragment: "MyAnchor", routeValues: null, htmlAttributes: null)
                             *@
+
+                        @using Microsoft.AspNet.Identity
+                        @if (Request.IsAuthenticated)
+                        {
+                            @* -- Display links -- *@
                             <li>@Html.ActionLink("Accueil", "Index", "Home", null, null, null, null, new { @class = "page-scroll" })</li>
                             <li>@Html.ActionLink("Jedis", "Index", "Jedi", null, null, "content", null, new { @class = "page-scroll" })</li>
                             <li>@Html.ActionLink("Stades", "Index", "Stade", null, null, "content", null, new { @class = "page-scroll" })</li>
                             <li>@Html.ActionLink("Matchs", "Index", "Match", null, null, "content", null, new { @class = "page-scroll" })</li>
                             <li>@Html.ActionLink("Tournoi", "Index", "Tournoi", null, null, "content", null, new { @class = "page-scroll" })</li>
+                            <li class="dropdown open">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                                Bonjour @User.Identity.GetUserName()<span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li class="dropdown-header">Informations</li>
+                                <li><a href="#"># points</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a></li>
+                              </ul>
+                            </li>
+
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+                            }
+                        }
+                        else
+                        {
+                            @* -- Display login/register links -- *@
+                            <li>@Html.ActionLink("S’inscrire", "Register", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "page-scroll" })</li>
+                            <li>@Html.ActionLink("Se connecter", "Login", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "page-scroll" })</li>
+                        }                               
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container -->
@@ -130,21 +158,49 @@
 
         <!-- Begin CONTENT -->
         <section class="page text-center">
-            <!-- Begin page header-->
-            <div class="page-header-wrapper">
-                <div class="container">
-                    <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
-                        <h2>@ViewBag.Title</h2>
-                        <div class="devider"></div>
-                        <p class="subtitle">@ViewBag.SubTitle</p>
+            @using Microsoft.AspNet.Identity
+            @if (Request.IsAuthenticated)
+            {
+                @* CONNECTED -> Display normal *@
+                
+                <!-- Begin page header-->
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                            <h2>@ViewBag.Title</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">@ViewBag.SubTitle</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- End page header-->
-
-            @RenderBody()
-
-            @Html.Partial("_LoginPartial")
+                <!-- End page header-->
+                
+                @RenderSection("Content", required: false)
+            }
+            else
+            {
+                @* Fake that the content section have been rendered :-P *@
+                WriteTo(new StringWriter(), RenderSection("Content", false));
+                
+                @* ANONYMOUS -> Force display login *@
+                
+                <div class="page-header-wrapper">
+                    <div class="container">
+                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                            <h2>Connectez-vous</h2>
+                            <div class="devider"></div>
+                            <p class="subtitle">Vous n'avez pas le droit d'utiliser ce site si vous n'êtes pas connecté !</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>
+                    Connectez-vous ou bien créez un compte pour accéder accéder à cette page !<br/>
+                </p>
+                <p>
+                    @Html.ActionLink("Se connecter", "Login", "Account", null, null, fragment: "content", routeValues: null, htmlAttributes: new { @class = "btn btn-success" })
+                </p>
+            }
         </section>
         <!-- End CONTENT -->
 
@@ -160,6 +216,8 @@
         <!-- End footer -->
 
         <a href="#" class="scrolltotop"><i class="fa fa-arrow-up"></i></a> <!-- Scroll to top button -->
+
+        @RenderBody()
 
     </div><!-- body ends -->
 
