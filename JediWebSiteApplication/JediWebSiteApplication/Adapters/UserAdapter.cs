@@ -22,6 +22,20 @@ namespace JediWebSiteApplication.Adapters
             return u;
         }
 
+        public static UtilisateurContract fromCustomApplicationUser(CustomApplicationUser customUser)
+        {
+            if (customUser == null)
+                return null;
+
+            UtilisateurContract u = new UtilisateurContract();
+            u.Login = customUser.UserName;
+            u.Password = customUser.PasswordHash;
+            u.Prenom = customUser.UserName;
+            u.Nom = customUser.UserName;
+            
+            return u;
+        }
+
 
     }
 }
