@@ -214,5 +214,25 @@ public class JediWebService : IJediWebService
         return uc;
     }
 
+    int IJediWebService.GetUserPoints(string login)
+    {
+        return m_manager.GetUserPoints(login);
+    }
+
+    void IJediWebService.UpdateUserPoint(string login, int newPoints)
+    {
+        m_manager.UpdateUserPoint(login, newPoints);
+    }
+
+    void IJediWebService.UpdateUserPointWithAmount(string login, int amount)
+    {
+        m_manager.UpdateUserPointWithAmount(login, amount);
+    }
+
+    void IJediWebService.ResetUserPoint(string login)
+    {
+        m_manager.ResetUserPoint(login);
+    }
+
     #endregion
 }

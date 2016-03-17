@@ -394,6 +394,33 @@ namespace BusinessLayer
             return user;
         }
 
+        public int GetUserPoints(string login)
+        {
+            Utilisateur user = m_data.GetUtilisateurByLogin(login);
+            return user.Points;
+        }
+
+        public void UpdateUserPoint(string login, int newPoints)
+        {
+            Utilisateur user = m_data.GetUtilisateurByLogin(login);
+            user.Points = newPoints;
+            m_data.UpdateUtilisateur(user);
+        }
+
+        public void UpdateUserPointWithAmount(string login, int amount)
+        {
+            Utilisateur user = m_data.GetUtilisateurByLogin(login);
+            user.Points += amount;
+            m_data.UpdateUtilisateur(user);
+        }
+
+        public void ResetUserPoint(string login)
+        {
+            Utilisateur user = m_data.GetUtilisateurByLogin(login);
+            user.Points = 100;
+            m_data.UpdateUtilisateur(user);
+        }
+
         /// <summary>
         /// Crée un nouvel utilisateur.
         /// </summary>

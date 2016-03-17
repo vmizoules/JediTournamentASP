@@ -206,6 +206,37 @@ namespace JediService
         [OperationContract]
         UtilisateurContract CheckLoginPassword(string login, string passwd);
 
+        /// <summary>
+        /// Renvoi le nombre de points de l'utilisateur.
+        /// </summary>
+        /// <param name="login">Login de l'utilisateur.</param>
+        /// <returns>Nombre de points de l'utilisateur.</returns>
+        [OperationContract]
+        int GetUserPoints(string login);
+
+        /// <summary>
+        /// Change le nombre de points de l'utilisateur.
+        /// </summary>
+        /// <param name="login">Login de l'utilisateur.</param>
+        /// <param name="newPoints"></param>
+        [OperationContract]
+        void UpdateUserPoint(string login, int newPoints);
+
+        /// <summary>
+        /// Modifie le nombre de points de l'utilisateur.
+        /// </summary>
+        /// <param name="login">Login de l'utilisateur.</param>
+        /// <param name="amount">Nombre de points à ajouter (peut être négatif).</param>
+        [OperationContract]
+        void UpdateUserPointWithAmount(string login, int amount);
+
+        /// <summary>
+        /// Réinitialise les points de l'utilisateur à la valeur par défaut.
+        /// </summary>
+        /// <param name="login">Login de l'utilisateur.</param>
+        [OperationContract]
+        void ResetUserPoint(string login);
+
         #endregion
     }
 }
