@@ -83,11 +83,11 @@
                         @using Microsoft.AspNet.Identity
                         @if (Request.IsAuthenticated)
                         {
-                            @*
-                            @var manager = new CustomUserManager(new JediWebServiceClient());
-                            var currentUser = manager.FindById(User.Identity.GetUserId());
-                            <p> @currentUser.Score </p>
-                            *@
+                            
+                            @
+                            var manager = new CustomUserManager(new JediWebServiceClient());
+                            var points = manager.GetUserPoints(User.Identity.GetUserName());
+                            @
 
                             @* -- Display links -- *@
                             <li>@Html.ActionLink("Accueil", "Index", "Home", null, null, null, null, new { @class = "page-scroll" })</li>
@@ -102,7 +102,7 @@
                               <ul class="dropdown-menu">
                                 <li class="dropdown-header">Informations</li>
                                 <li><a href="#">Pseudo : @User.Identity.GetUserName()</a></li>
-                                <li><a href="#">Points : ###</a></li>
+                                <li><a href="#">Points : @points</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a></li>
                               </ul>
