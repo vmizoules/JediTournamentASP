@@ -5,6 +5,7 @@
     ViewBag.SubTitle = "Miser tu dois !";
 }
 
+@section Content {
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -38,8 +39,9 @@
 }
 
 <div>
-    @Html.ActionLink("...", "Index", null, null, null, "content", null, null)
+    @Html.ActionLink("Annuler", "Index", "Tournoi", null, null, "content", null, null)
 </div>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

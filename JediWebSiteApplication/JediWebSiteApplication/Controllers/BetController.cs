@@ -27,6 +27,7 @@ namespace JediWebSiteApplication.Controllers
         // GET: Bet/idTournoi
         public ActionResult Bet(int idTournoi)
         {
+            // Contenu nécessaire à la gestion des paris
             BetModel content = new BetModel(TournoiAdapter.fromTournoiContract(m_webService.GetTournoiById(idTournoi)));
 
             return View(content);
