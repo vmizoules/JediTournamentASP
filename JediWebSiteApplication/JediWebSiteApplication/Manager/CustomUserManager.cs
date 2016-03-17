@@ -67,6 +67,11 @@ namespace JediWebSiteApplication.Manager
             m_webService.UpdateUserPoint(username, points);
         }
 
+        public void ResetUserPoint(string username)
+        {
+            m_webService.ResetUserPoint(username);
+        }
+
         // Create identity (and add in cookie)
         public CustomIdentity CreateIdentity(CustomApplicationUser user, string authenticationType)
         {
