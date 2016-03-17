@@ -16,7 +16,7 @@ namespace JediWebSiteApplication.Adapters
 
             CustomApplicationUser u = new CustomApplicationUser();
             u.UserName = userC.Login;
-            u.Id = userC.Login + "#" + userC.Nom + "#" + userC.Prenom;
+            u.Id = userC.Login;
             // TODO add more information
 
             return u;

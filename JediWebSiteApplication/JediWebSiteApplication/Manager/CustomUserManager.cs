@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using JediWebSiteApplication.WebServiceReference;
 using JediWebSiteApplication.Adapters;
+using System.Security.Claims;
 
 namespace JediWebSiteApplication.Manager
 {
@@ -36,6 +37,19 @@ namespace JediWebSiteApplication.Manager
             // TODO MAKE IT
 
             return true;
+        }
+
+        public CustomIdentity CreateIdentity(CustomApplicationUser user, string authenticationType)
+        {
+            IList<Claim> claimCollection = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Email, user.UserName + "@jediservice.zz2")
+            };
+
+            CustomIdentity id = new CustomIdentity(claimCollection, authenticationType);
+
+            return id;
         }
     }
 }
