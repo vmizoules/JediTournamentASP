@@ -376,6 +376,25 @@ namespace BusinessLayer
         }
 
         /// <summary>
+        /// Vérifie que le mot de passe correspond au login entré.
+        /// </summary>
+        /// <param name="login">Login de l'utilisateur.</param>
+        /// <param name="passwd">Mot de passe à vérifier.</param>
+        /// <returns>Utilisateur si le mot de passe correspond, sinon null.</returns>
+        public Utilisateur CheckLoginPassword(string login, string passwd)
+        {
+            passwd = GetSHA256Hash(passwd);
+
+            Utilisateur user = m_data.GetUtilisateurByLogin(login);
+            if (user == null || user.Password != passwd)
+            {
+                user = null;
+            }
+
+            return user;
+        }
+
+        /// <summary>
         /// Crée un nouvel utilisateur.
         /// </summary>
         /// <param name="user">Utilisateur à créer.</param>

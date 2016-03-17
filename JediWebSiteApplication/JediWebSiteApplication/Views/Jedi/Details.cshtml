@@ -4,6 +4,7 @@
     ViewBag.Title = "Détails du jedi";
 }
 
+@section Content {
 <div>
 	<hr />
     <dl class="dl-horizontal">
@@ -29,3 +30,4 @@
     @Html.ActionLink("Éditer", "Edit", null, null, null, "content", new { id = Model.ID }, null) |
     @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
 </p>
+}

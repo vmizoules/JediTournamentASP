@@ -198,4 +198,21 @@ public class JediWebService : IJediWebService
     }
 
     #endregion
+    #region "Opérations liées aux utilisateurs"
+
+    void IJediWebService.CreateUtilisateur(UtilisateurContract utilisateur)
+    {
+        Utilisateur user = UtilisateurAdapter.fromUtilisateurContract(utilisateur);
+        m_manager.CreateUser(user);
+    }
+
+    UtilisateurContract IJediWebService.CheckLoginPassword(string login, string passwd)
+    {
+        Utilisateur user = m_manager.CheckLoginPassword(login, passwd);
+        UtilisateurContract uc = UtilisateurAdapter.fromUtilisateur(user);
+
+        return uc;
+    }
+
+    #endregion
 }

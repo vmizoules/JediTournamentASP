@@ -119,4 +119,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTournoiContract" nillable="true" type="tns:ArrayOfTournoiContract" />
+  <xs:complexType name="UtilisateurContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Points" type="xs:int" />
+      <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UtilisateurContract" nillable="true" type="tns:UtilisateurContract" />
 </xs:schema>

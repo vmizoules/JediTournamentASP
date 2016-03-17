@@ -139,6 +139,18 @@
   <wsdl:message name="IJediWebService_GetTournois_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTournoisResponse" />
   </wsdl:message>
+  <wsdl:message name="IJediWebService_CreateUtilisateur_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUtilisateur" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_CreateUtilisateur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUtilisateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_CheckLoginPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginPassword" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_CheckLoginPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginPasswordResponse" />
+  </wsdl:message>
   <wsdl:portType name="IJediWebService">
     <wsdl:operation name="GetJedis">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetJedis" message="tns:IJediWebService_GetJedis_InputMessage" />
@@ -227,6 +239,14 @@
     <wsdl:operation name="GetTournois">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetTournois" message="tns:IJediWebService_GetTournois_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetTournoisResponse" message="tns:IJediWebService_GetTournois_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUtilisateur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CreateUtilisateur" message="tns:IJediWebService_CreateUtilisateur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/CreateUtilisateurResponse" message="tns:IJediWebService_CreateUtilisateur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CheckLoginPassword" message="tns:IJediWebService_CheckLoginPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/CheckLoginPasswordResponse" message="tns:IJediWebService_CheckLoginPassword_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IJediWebService" type="tns:IJediWebService">
@@ -422,6 +442,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetTournois">
       <soap:operation soapAction="http://tempuri.org/IJediWebService/GetTournois" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUtilisateur">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/CreateUtilisateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginPassword">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/CheckLoginPassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

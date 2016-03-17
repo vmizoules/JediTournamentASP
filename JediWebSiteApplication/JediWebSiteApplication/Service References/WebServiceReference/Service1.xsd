@@ -277,4 +277,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CreateUtilisateur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="utilisateur" nillable="true" type="q19:UtilisateurContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUtilisateurResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckLoginPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwd" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckLoginPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="CheckLoginPasswordResult" nillable="true" type="q20:UtilisateurContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
