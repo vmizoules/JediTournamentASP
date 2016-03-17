@@ -57,6 +57,16 @@ namespace JediWebSiteApplication.Manager
             return success;
         }
 
+        public int GetUserPoints(string username)
+        {
+            return m_webService.GetUserPoints(username);
+        }
+
+        public void SetPoints(string username, int points)
+        {
+            m_webService.SetPoints(username, points);
+        }
+
         // Create identity (and add in cookie)
         public CustomIdentity CreateIdentity(CustomApplicationUser user, string authenticationType)
         {
