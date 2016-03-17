@@ -64,7 +64,7 @@ namespace JediWebSiteApplication.Manager
 
         public void SetPoints(string username, int points)
         {
-            m_webService.SetPoints(username, points);
+            m_webService.UpdateUserPoint(username, points);
         }
 
         // Create identity (and add in cookie)

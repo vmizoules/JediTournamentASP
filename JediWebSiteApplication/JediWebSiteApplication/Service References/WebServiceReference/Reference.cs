@@ -705,6 +705,30 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/CheckLoginPassword", ReplyAction="http://tempuri.org/IJediWebService/CheckLoginPasswordResponse")]
         System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.UtilisateurContract> CheckLoginPasswordAsync(string login, string passwd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetUserPoints", ReplyAction="http://tempuri.org/IJediWebService/GetUserPointsResponse")]
+        int GetUserPoints(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetUserPoints", ReplyAction="http://tempuri.org/IJediWebService/GetUserPointsResponse")]
+        System.Threading.Tasks.Task<int> GetUserPointsAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/UpdateUserPoint", ReplyAction="http://tempuri.org/IJediWebService/UpdateUserPointResponse")]
+        void UpdateUserPoint(string login, int newPoints);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/UpdateUserPoint", ReplyAction="http://tempuri.org/IJediWebService/UpdateUserPointResponse")]
+        System.Threading.Tasks.Task UpdateUserPointAsync(string login, int newPoints);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/UpdateUserPointWithAmount", ReplyAction="http://tempuri.org/IJediWebService/UpdateUserPointWithAmountResponse")]
+        void UpdateUserPointWithAmount(string login, int amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/UpdateUserPointWithAmount", ReplyAction="http://tempuri.org/IJediWebService/UpdateUserPointWithAmountResponse")]
+        System.Threading.Tasks.Task UpdateUserPointWithAmountAsync(string login, int amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/ResetUserPoint", ReplyAction="http://tempuri.org/IJediWebService/ResetUserPointResponse")]
+        void ResetUserPoint(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/ResetUserPoint", ReplyAction="http://tempuri.org/IJediWebService/ResetUserPointResponse")]
+        System.Threading.Tasks.Task ResetUserPointAsync(string login);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -924,6 +948,38 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.UtilisateurContract> CheckLoginPasswordAsync(string login, string passwd) {
             return base.Channel.CheckLoginPasswordAsync(login, passwd);
+        }
+        
+        public int GetUserPoints(string login) {
+            return base.Channel.GetUserPoints(login);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetUserPointsAsync(string login) {
+            return base.Channel.GetUserPointsAsync(login);
+        }
+        
+        public void UpdateUserPoint(string login, int newPoints) {
+            base.Channel.UpdateUserPoint(login, newPoints);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserPointAsync(string login, int newPoints) {
+            return base.Channel.UpdateUserPointAsync(login, newPoints);
+        }
+        
+        public void UpdateUserPointWithAmount(string login, int amount) {
+            base.Channel.UpdateUserPointWithAmount(login, amount);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserPointWithAmountAsync(string login, int amount) {
+            return base.Channel.UpdateUserPointWithAmountAsync(login, amount);
+        }
+        
+        public void ResetUserPoint(string login) {
+            base.Channel.ResetUserPoint(login);
+        }
+        
+        public System.Threading.Tasks.Task ResetUserPointAsync(string login) {
+            return base.Channel.ResetUserPointAsync(login);
         }
     }
 }

@@ -84,10 +84,8 @@
                         @if (Request.IsAuthenticated)
                         {
                             
-                            @
                             var manager = new CustomUserManager(new JediWebServiceClient());
                             var points = manager.GetUserPoints(User.Identity.GetUserName());
-                            @
 
                             @* -- Display links -- *@
                             <li>@Html.ActionLink("Accueil", "Index", "Home", null, null, null, null, new { @class = "page-scroll" })</li>

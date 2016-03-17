@@ -151,6 +151,30 @@
   <wsdl:message name="IJediWebService_CheckLoginPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckLoginPasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="IJediWebService_GetUserPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPoints" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_GetUserPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateUserPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserPoint" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateUserPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateUserPointWithAmount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserPointWithAmount" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_UpdateUserPointWithAmount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserPointWithAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_ResetUserPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetUserPoint" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_ResetUserPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetUserPointResponse" />
+  </wsdl:message>
   <wsdl:portType name="IJediWebService">
     <wsdl:operation name="GetJedis">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetJedis" message="tns:IJediWebService_GetJedis_InputMessage" />
@@ -247,6 +271,22 @@
     <wsdl:operation name="CheckLoginPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/CheckLoginPassword" message="tns:IJediWebService_CheckLoginPassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/CheckLoginPasswordResponse" message="tns:IJediWebService_CheckLoginPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetUserPoints" message="tns:IJediWebService_GetUserPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetUserPointsResponse" message="tns:IJediWebService_GetUserPoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/UpdateUserPoint" message="tns:IJediWebService_UpdateUserPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/UpdateUserPointResponse" message="tns:IJediWebService_UpdateUserPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPointWithAmount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/UpdateUserPointWithAmount" message="tns:IJediWebService_UpdateUserPointWithAmount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/UpdateUserPointWithAmountResponse" message="tns:IJediWebService_UpdateUserPointWithAmount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetUserPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/ResetUserPoint" message="tns:IJediWebService_ResetUserPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/ResetUserPointResponse" message="tns:IJediWebService_ResetUserPoint_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IJediWebService" type="tns:IJediWebService">
@@ -460,6 +500,42 @@
     </wsdl:operation>
     <wsdl:operation name="CheckLoginPassword">
       <soap:operation soapAction="http://tempuri.org/IJediWebService/CheckLoginPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPoints">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/GetUserPoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPoint">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/UpdateUserPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPointWithAmount">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/UpdateUserPointWithAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetUserPoint">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/ResetUserPoint" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
