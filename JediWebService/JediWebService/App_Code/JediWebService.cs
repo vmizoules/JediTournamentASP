@@ -193,8 +193,7 @@ public class JediWebService : IJediWebService
     }
 
     #endregion
-
-    #region "Opérations liées aux tournois"
+    #region "Opérations liées aux utilisateurs"
 
     void IJediWebService.CreateUtilisateur(UtilisateurContract utilisateur)
     {

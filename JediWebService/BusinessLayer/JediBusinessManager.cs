@@ -382,7 +382,7 @@ namespace BusinessLayer
                 user = null;
             }
 
-            return null;
+            return user;
         }
 
         /// <summary>
