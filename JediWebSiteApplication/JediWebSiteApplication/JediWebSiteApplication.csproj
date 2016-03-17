@@ -162,6 +162,7 @@
     <Compile Include="Adapters\MatchAdapter.cs" />
     <Compile Include="Adapters\StadeAdapter.cs" />
     <Compile Include="Adapters\TournoiAdapter.cs" />
+    <Compile Include="Adapters\UserAdapter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -176,8 +177,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Manager\CustomUserManager.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CaracteristiqueModel.cs" />
+    <Compile Include="Models\CustomApplicationUser.cs" />
+    <Compile Include="Models\CustomIdentity.cs" />
     <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JediModel.cs" />
@@ -268,6 +272,9 @@
     <Content Include="Service References\WebServiceReference\JediWebSiteApplication.WebServiceReference.TournoiContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\WebServiceReference\JediWebSiteApplication.WebServiceReference.UtilisateurContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\WebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -288,12 +295,9 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Service References\WebServiceReference\JediWebService.wsdl" />
     <None Include="Service References\WebServiceReference\Service.xsd">
       <SubType>Designer</SubType>

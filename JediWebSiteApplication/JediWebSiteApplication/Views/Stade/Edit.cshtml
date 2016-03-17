@@ -4,6 +4,7 @@
     ViewBag.Title = "Édition du stade";
 }
 
+@section Content {
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -48,3 +49,4 @@
 <div>
     @Html.ActionLink("Revenir à la liste", "Index", null, null, null, "content", null, null)
 </div>
+}
