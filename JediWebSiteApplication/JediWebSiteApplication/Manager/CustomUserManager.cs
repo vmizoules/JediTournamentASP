@@ -26,7 +26,7 @@ namespace JediWebSiteApplication.Manager
         public CustomApplicationUser checkLoginPassword(string login, string pwd)
         {
             UtilisateurContract userC = m_webService.CheckLoginPassword(login, pwd);
-
+            
             CustomApplicationUser user = UserAdapter.fromUtilisateurContract(userC);
 
             return user;
@@ -47,10 +47,12 @@ namespace JediWebSiteApplication.Manager
             try
             {
                 m_webService.CreateUtilisateur(user);
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 success = false;
             }
-
+            
             // well created
             return success;
         }

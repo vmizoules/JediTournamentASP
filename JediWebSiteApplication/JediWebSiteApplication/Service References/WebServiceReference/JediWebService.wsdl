@@ -127,6 +127,12 @@
   <wsdl:message name="IJediWebService_DeleteTournoi_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTournoiResponse" />
   </wsdl:message>
+  <wsdl:message name="IJediWebService_GetTournoiById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTournoiById" />
+  </wsdl:message>
+  <wsdl:message name="IJediWebService_GetTournoiById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTournoiByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IJediWebService_GetTournois_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTournois" />
   </wsdl:message>
@@ -225,6 +231,10 @@
     <wsdl:operation name="DeleteTournoi">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/DeleteTournoi" message="tns:IJediWebService_DeleteTournoi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/DeleteTournoiResponse" message="tns:IJediWebService_DeleteTournoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTournoiById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetTournoiById" message="tns:IJediWebService_GetTournoiById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJediWebService/GetTournoiByIdResponse" message="tns:IJediWebService_GetTournoiById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTournois">
       <wsdl:input wsaw:Action="http://tempuri.org/IJediWebService/GetTournois" message="tns:IJediWebService_GetTournois_InputMessage" />
@@ -414,6 +424,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteTournoi">
       <soap:operation soapAction="http://tempuri.org/IJediWebService/DeleteTournoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTournoiById">
+      <soap:operation soapAction="http://tempuri.org/IJediWebService/GetTournoiById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

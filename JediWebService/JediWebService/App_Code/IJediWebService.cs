@@ -173,6 +173,14 @@ namespace JediService
         void DeleteTournoi(TournoiContract tournoi);
 
         /// <summary>
+        /// Récupère le tournoi associé à l'id en paramètre.
+        /// </summary>
+        /// <param name="tournoiID">Id d'un tournoi.</param>
+        /// <returns>Tournoi correspondant à l'id.</returns>
+        [OperationContract]
+        TournoiContract GetTournoiById(int tournoiID);
+
+        /// <summary>
         /// Récupère la liste des tournois.
         /// </summary>
         /// <returns>Liste des tournois.</returns>

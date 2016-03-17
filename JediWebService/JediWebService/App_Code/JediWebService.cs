@@ -179,6 +179,11 @@ public class JediWebService : IJediWebService
         m_manager.DeleteTournoi(t);
     }
 
+    TournoiContract IJediWebService.GetTournoiById(int tournoiID)
+    {
+        return TournoiAdapter.fromTournoi(m_manager.GetTournoiByID(tournoiID));
+    }
+
     List<TournoiContract> IJediWebService.GetTournois()
     {
         List<TournoiContract> listC = new List<TournoiContract>();

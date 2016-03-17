@@ -21,13 +21,13 @@
                     </tr>
 
                     @foreach (var item in Model)
-                {
+                    {
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Nom)
                             </td>
                             <td>
-                                @Html.ActionLink("Lancer", "Launch", null, null, null, "content", new { id = item.ID }, null) |
+                                @Html.ActionLink("Lancer", "Bet", "Bet", null, null, "content", new { idTournoi = item.ID }, null) |
                                 @Html.ActionLink("Éditer", "Edit", null, null, null, "content", new { id = item.ID }, null) |
                                 @Html.ActionLink("Détails", "Details", null, null, null, "content", new { id = item.ID }, null) |
                                 @Html.ActionLink("Supprimer", "Delete", null, null, null, "content", new { id = item.ID }, null)

@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JediController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
@@ -187,12 +188,13 @@
     <Compile Include="Models\JediModel.cs" />
     <Compile Include="Models\MatchModel.cs" />
     <Compile Include="Models\StadeModel.cs" />
-    <Compile Include="Models\SubModels\MatchAvailableContentModel.cs" />
-    <Compile Include="Models\SubModels\MatchEditModel.cs" />
-    <Compile Include="Models\SubModels\PreparedTournoiModel.cs" />
-    <Compile Include="Models\SubModels\TournoiAvailableContentModel.cs" />
-    <Compile Include="Models\SubModels\TournoiDetailsModel.cs" />
-    <Compile Include="Models\SubModels\TournoiEditModel.cs" />
+    <Compile Include="Models\SubModels\Match\MatchAvailableContentModel.cs" />
+    <Compile Include="Models\SubModels\Match\MatchEditModel.cs" />
+    <Compile Include="Models\SubModels\Pari\BetModel.cs" />
+    <Compile Include="Models\SubModels\Tournoi\PreparedTournoiModel.cs" />
+    <Compile Include="Models\SubModels\Tournoi\TournoiAvailableContentModel.cs" />
+    <Compile Include="Models\SubModels\Tournoi\TournoiDetailsModel.cs" />
+    <Compile Include="Models\SubModels\Tournoi\TournoiEditModel.cs" />
     <Compile Include="Models\TournoiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\WebServiceReference\Reference.cs">
@@ -330,6 +332,8 @@
     <Content Include="Views\Tournoi\Edit.cshtml" />
     <Content Include="Views\Tournoi\Details.cshtml" />
     <Content Include="Views\Tournoi\Delete.cshtml" />
+    <Content Include="Views\Bet\Index.cshtml" />
+    <Content Include="Views\Bet\Bet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
