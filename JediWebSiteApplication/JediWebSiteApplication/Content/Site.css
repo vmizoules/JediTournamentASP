@@ -53,7 +53,7 @@ a, a:hover, a:focus {
 }
 
 /* Additionnal for modal */
-.modal {
+#myModal.modal {
     z-index: 10001 !important;
 }
 
