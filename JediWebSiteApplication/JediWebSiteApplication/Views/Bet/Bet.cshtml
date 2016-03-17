@@ -1,0 +1,46 @@
+﻿@model JediWebSiteApplication.Models.SubModels.Pari.BetModel
+
+@{
+    ViewBag.Title = "Les paris c'est la vie !";
+    ViewBag.SubTitle = "Miser tu dois !";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mise, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mise)
+                @Html.ValidationMessageFor(model => model.Mise)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BetJedi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.BetJedi, Model.Jedis)
+                @Html.ValidationMessageFor(model => model.BetJedi)
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Miser" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("...", "Index", null, null, null, "content", null, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

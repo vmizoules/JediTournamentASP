@@ -251,6 +251,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetTournoiById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tournoiID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTournoiByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetTournoiByIdResult" nillable="true" type="q21:TournoiContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetTournois">
     <xs:complexType>
       <xs:sequence />
@@ -259,7 +273,7 @@
   <xs:element name="GetTournoisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetTournoisResult" nillable="true" type="q21:ArrayOfTournoiContract" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/JediService.Models" minOccurs="0" name="GetTournoisResult" nillable="true" type="q22:ArrayOfTournoiContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

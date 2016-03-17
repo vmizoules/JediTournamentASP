@@ -573,6 +573,12 @@ namespace JediWebSiteApplication.WebServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/DeleteTournoi", ReplyAction="http://tempuri.org/IJediWebService/DeleteTournoiResponse")]
         System.Threading.Tasks.Task DeleteTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetTournoiById", ReplyAction="http://tempuri.org/IJediWebService/GetTournoiByIdResponse")]
+        JediWebSiteApplication.WebServiceReference.TournoiContract GetTournoiById(int tournoiID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetTournoiById", ReplyAction="http://tempuri.org/IJediWebService/GetTournoiByIdResponse")]
+        System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.TournoiContract> GetTournoiByIdAsync(int tournoiID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJediWebService/GetTournois", ReplyAction="http://tempuri.org/IJediWebService/GetTournoisResponse")]
         JediWebSiteApplication.WebServiceReference.TournoiContract[] GetTournois();
         
@@ -765,6 +771,14 @@ namespace JediWebSiteApplication.WebServiceReference {
         
         public System.Threading.Tasks.Task DeleteTournoiAsync(JediWebSiteApplication.WebServiceReference.TournoiContract tournoi) {
             return base.Channel.DeleteTournoiAsync(tournoi);
+        }
+        
+        public JediWebSiteApplication.WebServiceReference.TournoiContract GetTournoiById(int tournoiID) {
+            return base.Channel.GetTournoiById(tournoiID);
+        }
+        
+        public System.Threading.Tasks.Task<JediWebSiteApplication.WebServiceReference.TournoiContract> GetTournoiByIdAsync(int tournoiID) {
+            return base.Channel.GetTournoiByIdAsync(tournoiID);
         }
         
         public JediWebSiteApplication.WebServiceReference.TournoiContract[] GetTournois() {

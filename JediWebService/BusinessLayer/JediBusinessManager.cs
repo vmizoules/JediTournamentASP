@@ -313,6 +313,15 @@ namespace BusinessLayer
         }
 
         /// <summary>
+        /// Donne le tournoi correspondant à l'id.
+        /// </summary>
+        /// <returns>Tournoi correspondant si existant, sinon null.</returns>
+        public Tournoi GetTournoiByID(int id)
+        {
+            return m_data.GetAllTournois().Where(t => t.ID == id).SingleOrDefault();
+        }
+
+        /// <summary>
         /// Permet d'obtenir la liste de tous les tournois connus n'ayant pas étaient joués.
         /// </summary>
         /// <returns>Liste des tournois non joués.</returns>
