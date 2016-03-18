@@ -9,20 +9,28 @@ using Microsoft.Owin.Security;
 using JediWebSiteApplication.WebServiceReference;
 using JediWebSiteApplication.Adapters;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace JediWebSiteApplication.Manager
 {
     public class CustomUserManager : UserManager<CustomApplicationUser>
     {
+        /// <summary>
+        /// Web service.
+        /// </summary>
         JediWebServiceClient m_webService;
 
+        /// <summary>
+        /// Constructeur.
+        /// </summary>
+        /// <param name="webService">Jedi Web Service.</param>
         public CustomUserManager(JediWebServiceClient webService)
             : base(new UserStore<CustomApplicationUser>(new ApplicationDbContext()))
         {
             m_webService = webService;
         }
         
-        // Check credential by calling webservice
+        // Vérifie les credentials en appelant le web service
         public CustomApplicationUser checkLoginPassword(string login, string pwd)
         {
             UtilisateurContract userC = m_webService.CheckLoginPassword(login, pwd);
@@ -32,18 +40,18 @@ namespace JediWebSiteApplication.Manager
             return user;
         }
 
-        // Create user and call webservice
+        // Création d'un utilisateur et appel au web service
         public Boolean Create(CustomApplicationUser customUser, string pwd)
         {
             bool success = true;
 
-            // add password in user
+            // Ajoute le mot de passe de l'utilisateur
             customUser.PasswordHash = pwd;
 
-            // convert into Contract
+            // Convertion en Contract
             UtilisateurContract user = UserAdapter.fromCustomApplicationUser(customUser);
 
-            // call webservice 
+            // Appelle au web service 
             try
             {
                 m_webService.CreateUtilisateur(user);
@@ -53,7 +61,7 @@ namespace JediWebSiteApplication.Manager
                 success = false;
             }
             
-            // well created
+            // Création réussie
             return success;
         }
 
@@ -77,7 +85,7 @@ namespace JediWebSiteApplication.Manager
             m_webService.ResetUserPoint(username);
         }
 
-        // Create identity (and add in cookie)
+        // Crée l'identité de l'utilisateur (Et l'ajoute dans un cookie)
         public CustomIdentity CreateIdentity(CustomApplicationUser user, string authenticationType)
         {
             IList<Claim> claimCollection = new List<Claim>
@@ -89,6 +97,12 @@ namespace JediWebSiteApplication.Manager
             CustomIdentity id = new CustomIdentity(claimCollection, authenticationType);
 
             return id;
+        }
+
+        // Crée l'identité de l'utilisateur (Et l'ajoute dans un cookie) de manière asynchrone
+        public new Task<CustomIdentity> CreateIdentityAsync(CustomApplicationUser user, string authenticationType)
+        {
+            return Task.Factory.StartNew<CustomIdentity>(() => { return CreateIdentity(user, authenticationType); });
         }
     }
 }

@@ -9,10 +9,10 @@ namespace JediWebSiteApplication.Models
 {
     public class CustomApplicationUser : ApplicationUser
     {
-        public virtual ICollection<IdentityUserClaim> Claims { get; set; }
-        public virtual ICollection<IdentityUserLogin> Logins { get; set; }
-        public virtual ICollection<IdentityUserRole> Roles { get; set; }
-
+        public new virtual ICollection<IdentityUserClaim> Claims { get; set; }
+        public new virtual ICollection<IdentityUserLogin> Logins { get; set; }
+        public new virtual ICollection<IdentityUserRole> Roles { get; set; }
+        
         public CustomApplicationUser()
         {
             this.Claims = null;
@@ -21,7 +21,7 @@ namespace JediWebSiteApplication.Models
         }
 
         public CustomApplicationUser(ApplicationUser user)
-            :this()
+            : this()
         {
             this.Id = user.Id;
             this.UserName = user.UserName;
