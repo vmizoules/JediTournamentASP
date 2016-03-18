@@ -15,7 +15,7 @@ namespace JediWebSiteApplication.Models.SubModels.Pari
         /// </summary>
         private List<JediModel> m_availableJedis;
 
-        public BetModel(/* TODO User data */ TournoiModel tournoi)
+        public BetModel(TournoiModel tournoi)
         {
             IDTournoi = tournoi.ID;
             List<JediModel> tmp = new List<JediModel>();

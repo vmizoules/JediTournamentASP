@@ -191,6 +191,7 @@
     <Compile Include="Models\SubModels\Match\MatchAvailableContentModel.cs" />
     <Compile Include="Models\SubModels\Match\MatchEditModel.cs" />
     <Compile Include="Models\SubModels\Pari\BetModel.cs" />
+    <Compile Include="Models\SubModels\Pari\PreparedBetTournoiModel.cs" />
     <Compile Include="Models\SubModels\Tournoi\PreparedTournoiModel.cs" />
     <Compile Include="Models\SubModels\Tournoi\TournoiAvailableContentModel.cs" />
     <Compile Include="Models\SubModels\Tournoi\TournoiDetailsModel.cs" />

@@ -62,7 +62,12 @@ namespace JediWebSiteApplication.Manager
             return m_webService.GetUserPoints(username);
         }
 
-        public void SetPoints(string username, int points)
+        public void UpdateUserPointsByAmount(string username, int amount)
+        {
+            m_webService.UpdateUserPointWithAmount(username, amount);
+        }
+
+        public void SetUserPoints(string username, int points)
         {
             m_webService.UpdateUserPoint(username, points);
         }

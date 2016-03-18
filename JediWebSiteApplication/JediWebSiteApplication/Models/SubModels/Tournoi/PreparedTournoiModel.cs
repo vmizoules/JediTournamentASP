@@ -12,11 +12,11 @@ namespace JediWebSiteApplication.Models.SubModels
         /// <summary>
         /// Tournoi à exécuter.
         /// </summary>
-        private TournoiModel m_tournoi;
+        protected TournoiModel m_tournoi;
         /// <summary>
         /// Match calculés pour le tournoi.
         /// </summary>
-        private List<MatchModel> m_matchs;
+        protected List<MatchModel> m_matchs;
 
         /// <summary>
         /// Constructeur.

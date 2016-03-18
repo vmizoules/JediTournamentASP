@@ -1,12 +1,14 @@
 ﻿using JediWebSiteApplication.Adapters;
 using JediWebSiteApplication.Models;
 using JediWebSiteApplication.Models.SubModels;
+using JediWebSiteApplication.Models.SubModels.Pari;
 using JediWebSiteApplication.WebServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace JediWebSiteApplication.Controllers
 {
@@ -68,6 +70,19 @@ namespace JediWebSiteApplication.Controllers
             PreparedTournoiModel ptm = new PreparedTournoiModel(t);
 
             return View(ptm);
+        }
+
+        //
+        // GET: /Tournoi/BetLaunch/id?m=XX&bet=XX
+        public ActionResult BetLaunch(int id, int m, int bet)
+        {
+            // Recherche le tournoi correspondant
+            TournoiModel t = GetTournoiByID(id);
+
+            // Construit le modèle pour le lancement nécessaire pour lancer un tournoi
+            PreparedBetTournoiModel pbtm = new PreparedBetTournoiModel(t, User.Identity.GetUserName(), m, bet);
+
+            return View("Launch", pbtm);
         }
 
         //

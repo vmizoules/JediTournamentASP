@@ -16,5 +16,10 @@ namespace JediWebSiteApplication.Controllers
             // Instancie le web service
             m_webService = new JediWebServiceClient();
         }
+
+        ~BaseController()
+        {
+            m_webService.Close();
+        }
     }
 }
