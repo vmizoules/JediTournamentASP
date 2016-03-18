@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Les paris c'est la vie !";
+    ViewBag.SubTitle = "Voulez vous parier sur un jedi ?";
+}
+
+@section Content {
+<a href="@Url.Action("Bet", null, new { idTournoi = ViewBag.TournoiID })#content" role="button" class="btn btn-default">
+    <i class="fa fa-thumbs-up"></i> Oui
+</a>
+
+<a href="@Url.Action("Launch", "Tournoi", new { id = ViewBag.TournoiID })#content" role="button" class="btn btn-default">
+    <i class="fa fa-thumbs-down"></i> Non
+</a>
+}

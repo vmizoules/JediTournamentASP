@@ -19,8 +19,9 @@ namespace JediWebSiteApplication.Controllers
         }
 
         // GET: Bet/
-        public ActionResult Index()
+        public ActionResult Index(int idTournoi)
         {
+            ViewBag.TournoiID = idTournoi;
             return View();
         }
 
