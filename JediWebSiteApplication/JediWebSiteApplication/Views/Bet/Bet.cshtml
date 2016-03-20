@@ -8,6 +8,14 @@
 @section Content {
 @using (Html.BeginForm())
 {
+    <p>
+        Si le joueur que vous avez sélectionné gagne le tournoi, vous gagnerai 2 fois votre mise. Sinon vous perdrez la totalité.
+    </p>
+    <p class="text-info small">
+        Info : Suivez votre solde de points dans l'onglet situé en haut à droite de votre écran.
+    </p> 
+    
+    
     @Html.AntiForgeryToken()
         
     <div class="form-horizontal">
