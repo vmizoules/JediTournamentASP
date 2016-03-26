@@ -12,6 +12,13 @@ namespace JediWebSiteApplication.Models
         public new virtual ICollection<IdentityUserClaim> Claims { get; set; }
         public new virtual ICollection<IdentityUserLogin> Logins { get; set; }
         public new virtual ICollection<IdentityUserRole> Roles { get; set; }
+        private int m_points;
+
+        public int Points
+        {
+            get { return m_points; }
+            set { m_points = value; }
+        }
         
         public CustomApplicationUser()
         {

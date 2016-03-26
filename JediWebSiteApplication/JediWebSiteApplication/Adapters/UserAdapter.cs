@@ -17,7 +17,7 @@ namespace JediWebSiteApplication.Adapters
             CustomApplicationUser u = new CustomApplicationUser();
             u.UserName = userC.Login;
             u.Id = userC.Login;
-            // TODO add more information
+            u.Points = userC.Points;
 
             return u;
         }
@@ -32,6 +32,7 @@ namespace JediWebSiteApplication.Adapters
             u.Password = customUser.PasswordHash;
             u.Prenom = customUser.UserName;
             u.Nom = customUser.UserName;
+            u.Points = customUser.Points;
             
             return u;
         }

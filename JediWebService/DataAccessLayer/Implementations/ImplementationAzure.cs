@@ -147,7 +147,6 @@ namespace DataAccessLayer.Implementations
         }
 
         #endregion
-
         #region "Liés aux Stades"
 
         public List<Stade> GetAllStades()
@@ -544,7 +543,6 @@ namespace DataAccessLayer.Implementations
         }
 
         #endregion
-
         #region "Liés aux Caractéristiques"
 
         public List<Caracteristique> GetAllCaracs()
@@ -709,7 +707,6 @@ namespace DataAccessLayer.Implementations
         }
 
         #endregion
-
         #region "Liés aux Users"
 
         public Utilisateur GetUtilisateurByLogin(string login)
@@ -718,7 +715,7 @@ namespace DataAccessLayer.Implementations
 
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
-                SqlCommand sqlCommandUtil = new SqlCommand("SELECT nom, prenom, login, password FROM dbo.utilisateur", sqlConnection);
+                SqlCommand sqlCommandUtil = new SqlCommand("SELECT nom, prenom, login, password, point FROM dbo.utilisateur", sqlConnection);
                 sqlConnection.Open();
                 SqlDataReader sqlDataReaderUtil = sqlCommandUtil.ExecuteReader();
 
@@ -727,12 +724,12 @@ namespace DataAccessLayer.Implementations
                     //string pass = System.Text.Encoding.UTF8.GetString(sqlDataReaderUtil.GetSqlBinary(3).Value);
                     //string pass = System.Text.Encoding.UTF8.GetString((byte[])sqlDataReaderUtil.GetSqlBinary(3)));
                         //string pass =  (string)sqlDataReaderUtil.GetSqlBytes(3).ToSqlBinary().ToSqlGuid().ToSqlString();
-                    users.Add(new Utilisateur(sqlDataReaderUtil.GetString(0), sqlDataReaderUtil.GetString(1), sqlDataReaderUtil.GetString(2), sqlDataReaderUtil.GetString(3)));
+                    users.Add(new Utilisateur(sqlDataReaderUtil.GetString(0), sqlDataReaderUtil.GetString(1), sqlDataReaderUtil.GetString(2), sqlDataReaderUtil.GetString(3), sqlDataReaderUtil.GetInt32(4)));
                 }
                 sqlConnection.Close();
             }
 
-                    return users.Where(u => u.Login == login).FirstOrDefault();
+            return users.Where(u => u.Login == login).FirstOrDefault();
         }
 
         public void CreateUser(Utilisateur user)
@@ -740,7 +737,7 @@ namespace DataAccessLayer.Implementations
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
 
-                SqlCommand sqlAddUtil = new SqlCommand("INSERT INTO dbo.utilisateur VALUES('" + user.Nom + "', '" + user.Prenom + "', '" + user.Login + "', '" + user.Password + "')", sqlConnection);
+                SqlCommand sqlAddUtil = new SqlCommand("INSERT INTO dbo.utilisateur VALUES('" + user.Nom + "', '" + user.Prenom + "', '" + user.Login + "', '" + user.Password + "', '" + user.Points + "')", sqlConnection);
                 sqlAddUtil.Connection = sqlConnection;
                 sqlConnection.Open();
                 sqlAddUtil.ExecuteNonQuery();
@@ -753,7 +750,7 @@ namespace DataAccessLayer.Implementations
             using (SqlConnection sqlConnection = new SqlConnection(m_connexionString))
             {
 
-                SqlCommand sqlModUtil = new SqlCommand("UPDATE dbo.utilisateur SET nom='" + user.Nom + "', prenom='" + user.Prenom + "', password='" + user.Password + "' WHERE login='" + user.Login + "'", sqlConnection);
+                SqlCommand sqlModUtil = new SqlCommand("UPDATE dbo.utilisateur SET nom='" + user.Nom + "', prenom='" + user.Prenom + "', password='" + user.Password + "', point='" + user.Points + "' WHERE login='" + user.Login + "'", sqlConnection);
                 sqlModUtil.Connection = sqlConnection;
                 sqlConnection.Open();
                 sqlModUtil.ExecuteNonQuery();
@@ -774,5 +771,6 @@ namespace DataAccessLayer.Implementations
         }
 
         #endregion
+
     }
 }

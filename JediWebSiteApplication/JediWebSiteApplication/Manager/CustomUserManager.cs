@@ -47,6 +47,8 @@ namespace JediWebSiteApplication.Manager
 
             // Ajoute le mot de passe de l'utilisateur
             customUser.PasswordHash = pwd;
+            // Défini les points par défaults
+            customUser.Points = 100;
 
             // Convertion en Contract
             UtilisateurContract user = UserAdapter.fromCustomApplicationUser(customUser);
