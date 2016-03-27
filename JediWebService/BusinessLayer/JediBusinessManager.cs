@@ -295,15 +295,6 @@ namespace BusinessLayer
         #region "Liés aux Tournois"
 
         /// <summary>
-        /// Récupère le tournoi correspondant à l'id.
-        /// </summary>
-        /// <returns>Tournoi correspondant.</returns>
-        public Tournoi GetTournoi(int id)
-        {
-            return m_data.GetTournoi(id);
-        }
-
-        /// <summary>
         /// Permet d'obtenir la liste de tous les tournois connus.
         /// </summary>
         /// <returns>Liste des tournois.</returns>
