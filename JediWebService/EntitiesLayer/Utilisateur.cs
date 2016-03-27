@@ -36,7 +36,7 @@ namespace EntitiesLayer
         /// <param name="prenom">Prenom de l'utilisateur.</param>
         /// <param name="login">Login de l'utilisateur.</param>
         /// <param name="passwd">Mot de passe de l'utilisateur.</param>
-        public Utilisateur(string nom, string prenom, string login, string passwd, int points = 0)
+        public Utilisateur(string nom, string prenom, string login, string passwd, int points = 100)
         {
             Nom = nom;
             Prenom = prenom;

@@ -46,6 +46,10 @@ namespace JediWebSiteApplication.Controllers
                 int.TryParse(collection["IDTournoi"], out idTournoi);
                 int mise = 0;
                 int.TryParse(collection["Mise"], out mise);
+                // Corrige la mise si supérieure aux moyens de l'utilisateur
+                int userPoints = m_webService.GetUserPoints(User.Identity.Name);
+                mise = mise > userPoints ? userPoints : mise;
+
                 int idBetJedi = -1;
                 int.TryParse(collection["BetJedi"], out idBetJedi);
 
